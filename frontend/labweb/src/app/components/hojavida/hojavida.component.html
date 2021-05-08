@@ -1,0 +1,245 @@
+<div class="container">
+  <br />
+  <h1>RMA001 Hoja de Vida de los equipos de la Universidad Santiago de Cali</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/equipos" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card mb-3" *ngFor="let hoja of hojasdevida">
+    <img class="card-img-top" [src]="hoja.Imagen_Equipo" alt="Card image cap" />
+    <div class="card-body mb-5">
+      <h2 class="card-title">{{ hoja.Nombre }}</h2>
+      <p class="card-text">
+        <strong>Desarrollada Por:</strong> {{ hoja.Lider_Proceso }} -
+        <strong>Hoja de Vida No:</strong>
+        {{ hoja.NUM_HOJA_VIDA }}
+      </p>
+      <h4 class="card-title">Información Institucional</h4>
+      <p class="card-text">
+        <strong>País:</strong> {{ hoja.Pais }} - <strong>Ciudad:</strong>
+        {{ hoja.Ciudad }} - <strong>Dirección:</strong>
+        {{ hoja.Direccion }}
+      </p>
+      <p class="card-text">
+        <strong>Nit de la Universidad:</strong> {{ hoja.Nit_Universidad }} -
+        <strong>RUT:</strong> {{ hoja.RUT }} - <strong>Telefono:</strong>
+        {{ hoja.Telefono }} <strong>Website:</strong> {{ hoja.Website }}
+        <strong>Email del Laboratorio:</strong> {{ hoja.Email_Laboratorio }}
+        <strong>Fecha de Ejecución:</strong>
+        {{ hoja.Fecha_Ejecucion_Hoja_Vida }} <strong>Lider del Proceso:</strong
+        >{{ hoja.Lider_Proceso }} <strong>Cargo:</strong> {{ hoja.Cargo }}
+      </p>
+      <h4 class="card-title">1. Identificación del Equipo</h4>
+      <p class="card-text">
+        <strong>Nomenclatura Internacional:</strong>
+        {{ hoja.Nomenclatura_Internacional }} - <strong>Marca:</strong>
+        {{ hoja.Marca }} - <strong>Modelo:</strong>
+        {{ hoja.Modelo }}
+      </p>
+      <p class="card-text">
+        <strong>Serial:</strong> {{ hoja.Serial }} -
+        <strong>Activo Fijo:</strong> {{ hoja.Activo_Fijo }} -
+        <strong>Ubicación del Equipo:</strong> {{ hoja.Sub_Area }}
+        <strong>Tipo Equipo:</strong> {{ hoja.Tipo_Equipo }}
+        <strong>Firmware:</strong> {{ hoja.Firmware }}
+        <strong>Software:</strong>
+        {{ hoja.Software }}
+      </p>
+      <h4 class="card-title">2. Registro Histórico</h4>
+      <p class="card-text">
+        <strong>Forma de Adquisición:</strong> {{ hoja.FORMA_ADQUISICION }} -
+        <strong>Documento de adquisición:</strong> {{ hoja.ORDEN_DE_COMPRA }}
+      </p>
+      <h4 class="card-title">3. Fechas</h4>
+      <p class="card-text">
+        <strong>Fecha de Compra:</strong>
+        {{ hoja.FECHA_COMPRA }} - <strong>Fecha de Acta de Recibo:</strong>
+        {{ hoja.FECHA_ACTA_RECIBOS }}
+      </p>
+      <p class="card-text">
+        <strong>Fecha de Instalación:</strong>
+        {{ hoja.FECHA_INSTALACION }} -
+        <strong>Fecha de Inicio de Operación:</strong>
+        {{ hoja.FECHA_INICIO_OPERACION }}
+      </p>
+      <h4 class="card-title">4. Fabricante y Proveedor</h4>
+      <p class="card-text">
+        <strong>Fabricante:</strong>
+        {{ hoja.FABRICANTE }} - <strong>País del Fabricante:</strong>
+        {{ hoja.PAIS_ORIGEN }} - <strong>Web Fabricante:</strong>
+        {{ hoja.WEB_FABRICANTE }} - <strong>Representante:</strong>
+        {{ hoja.REPRESENTANTE }}
+      </p>
+      <p class="card-text">
+        <strong>Ciudad del Proveedor:</strong> {{ hoja.CIUDAD_PROVEEDOR }} -
+        <strong>Dirección del Proveedor:</strong>
+        {{ hoja.DIRECCION_PROVEEDOR }} <strong>Telefono del Proveedor:</strong>
+        {{ hoja.TELEFONO_PROVEEDOR }} <strong>Correo del Proveedor:</strong>
+        {{ hoja.CORREO_PROVEEDOR }}
+      </p>
+      <p class="card-text">
+        <strong>Descripción del Equipo:</strong> {{ hoja.Descripcion_Equipo }}
+      </p>
+      <h4 class="card-title">5. Información Técnica del Equipo</h4>
+      <p class="card-text">
+        <strong>Rango Voltaje:</strong>
+        {{ hoja.Rango_Voltaje }} - <strong>Corriente:</strong>
+        {{ hoja.Corriente }} - <strong>Frecuencia HZ:</strong>
+        {{ hoja.Frecuencia_HZ }} - <strong>Dimensiones CM:</strong>
+        {{ hoja.Dimensiones_CM }}
+      </p>
+      <p class="card-text">
+        <strong>Código ECRI:</strong> {{ hoja.Codigo_ECRI }} -
+        <strong>Presión:</strong>
+        {{ hoja.Presion }} - <strong>Temperatura:</strong>
+        {{ hoja.Temperatura }} - <strong>Peso KGS:</strong> {{ hoja.PesoKGS }} -
+        <strong>Humedad:</strong> {{ hoja.Humedad }} - <strong>RPM:</strong>
+        {{ hoja.RPM }}
+      </p>
+      <p class="card-text">
+        <strong>Otras Recomendaciones del Fabricante:</strong>
+        {{ hoja.Otras_Recomendaciones }}
+      </p>
+      <h4 class="card-title">6. Registro de Apoyo Técnico</h4>
+      <p class="card-text">
+        <strong>Clasificación del Equipo:</strong>
+        {{ hoja.CLASIFICACION_DE_EQUIPO }} -
+        <strong>Clasificación de Riesgo:</strong>
+        {{ hoja.CLASIFICACION_RIESGO }} - <strong>Manual de Servicio:</strong>
+        {{ hoja.MANUAL_SERVICIO }} - <strong>Manual Partes:</strong>
+        {{ hoja.MANUAL_PARTES }}
+      </p>
+      <p class="card-text">
+        <strong>Guia de Uso:</strong> {{ hoja.GUIA_USO }} -
+        <strong>Planos:</strong>
+        {{ hoja.PLANOS }} - <strong>Tecnólogia Predominante:</strong>
+        {{ hoja.TECNOLOGIA_PREDOMINANTE }}
+      </p>
+      <h4 class="card-title">7. Componentes</h4>
+      <p class="card-text">
+        <strong>Accesorio 1:</strong>
+        {{ hoja.ACCESORIO_1 }} -
+        <strong>Marca/Licencia Accesorio 1:</strong>
+        {{ hoja.MARCA_LICENCIA_ACCESORIO_1 }} -
+        <strong>Modelo/Versión Accesorio 1:</strong>
+        {{ hoja.MODELO_VERSION_ACCESORIO_1 }} - <strong>Accesorio 2:</strong>
+        {{ hoja.ACCESORIO_2 }} -
+        <strong>Marca/Licencia Accesorio 2:</strong>
+        {{ hoja.MARCA_LICENCIA_ACCESORIO_2 }} -
+        <strong>Modelo/Versión Accesorio 2:</strong>
+        {{ hoja.MODELO_VERSION_ACCESORIO_2 }} - <strong>Accesorio 3:</strong>
+        {{ hoja.ACCESORIO_3 }} -
+        <strong>Marca/Licencia Accesorio 3:</strong>
+        {{ hoja.MARCA_LICENCIA_ACCESORIO_3 }} -
+        <strong>Modelo/Versión Accesorio 3:</strong>
+        {{ hoja.MODELO_VERSION_ACCESORIO_3 }}
+      </p>
+      <h4 class="card-title">8. Generalidades del Equipo</h4>
+      <p class="card-text">
+        <strong>Tipo Mantenimiento:</strong>
+        {{ hoja.Tipo_Mantenimiento }} -
+        <strong>Fuentes Alimentación:</strong>
+        {{ hoja.FUENTES_ALIMENTACION }} -
+        <strong>Clasificación Uso:</strong>
+        {{ hoja.CLASIFICACION_USO }} -
+        <strong>Ciclo Mantenimiento:</strong>
+        {{ hoja.CICLO_MANTENIMIENTO }} -
+        <strong>Ciclo Calibración/Validación:</strong>
+        {{ hoja.CICLO_CALIB_VALID_CALPERSONAL }}
+      </p>
+      <h4 class="card-title">9. Mantenimiento</h4>
+      <p class="card-text">
+        <strong>Mantenimiento Propio:</strong>
+        {{ hoja.Mantenimiento_Propio }} -
+        <strong>Mantenimiento Contratado:</strong>
+        {{ hoja.Mantenimiento_Contratado }} -
+        <strong>Por Orden de Compra:</strong> {{ hoja.Por_Orden_Compra }} -
+      </p>
+      <p class="card-text">
+        <strong>Requiere Calibración:</strong> {{ hoja.Requiere_Calibracion }} -
+        <strong>Requiere Calificación Operacional:</strong>
+        {{ hoja.Requiere_Cal_Operacional }} -
+        <strong>Requiere Validación:</strong>
+        {{ hoja.Requiere_Validacion }}
+      </p>
+      <h4 class="card-title">
+        10. Lista de Chequeo de Documentos Anexos a la Hoja de Vida
+      </h4>
+      <p class="card-text">
+        <strong>Copia Registro Sanitario:</strong>
+        {{ hoja.COPIA_REGISTRO_SANITARIO }} <br />
+        <strong>Copia Permiso Comercialización:</strong>
+        {{ hoja.COPIA_PMISO_COMERCIALIZACION }} <br />
+        <strong>Copia Registro de Importación:</strong>
+        {{ hoja.COPIA_REGISTRO_IMPORTACION }} <br />
+        <strong>Copia Factura:</strong>
+        {{ hoja.COPIA_FACTURA }} <br />
+        <strong>Copia Ingreso al Almacen:</strong>
+        {{ hoja.COPIA_INGRESO_ALMACEN }} <br />
+        <strong
+          >Copia de Acta de Recibo a Satisfacción por el Prestador:</strong
+        >
+        {{ hoja.CP_RBO_SATISFACCION_PRESTADOR }} <br />
+        <strong>Protocolo de Mantenimiento Preventivo del Proveedor:</strong>
+        {{ hoja.PROTOCOLO_PROVEEDOR }} <br />
+        <strong>Cronograma de Mantenimiento por el Tiempo de Garantia:</strong>
+        {{ hoja.CRONOGRAMA_MANTENIMIENTO_T_G }} <br />
+        <strong>Guia Rápida de Operación:</strong>
+        {{ hoja.GUIA_RAPIDA_OPERACION }} <br />
+        <strong>Copia de Acta de Recibo a Satisfacción por el Operador:</strong>
+        {{ hoja.CP_RBO_SATISFACCION_OPERADOR }} <br />
+        <strong
+          >Recomendaciones del Fabricante para el Uso de Accesorios y
+          Consumibles Diferentes a los Entregados:</strong
+        >
+        {{ hoja.RNES_FABRICANTE_ACEOS_CBLES }} <br />
+        <strong>Recomendaciones del Fabricante para Calibración:</strong>
+        {{ hoja.RNES_FABRICANTE_CALIBRACION }} <br />
+        <strong
+          >Certificado de Calibración, Validación y/o Calificación
+          Operacional:</strong
+        >
+        {{ hoja.CERT_CALIB_VALID_CALPERSONAL }} <br />
+        <strong>Hoja de Vida Personal Técnico:</strong>
+        {{ hoja.HOJA_VIDA_PERSONAL_TECNICO }} <br />
+        <strong>Capacitación Técnica Asistencial:</strong>
+        {{ hoja.CAPACION_TEC_ASISTENCIAL }} <br />
+        <br />
+      </p>
+      <h4 class="card-title">
+        11. Registro Histórico de Mantenimiento, Calibración, Validación y/o
+        Calificación Operacional
+      </h4>
+      <p class="card-text">
+        <strong>Fecha:</strong>
+        {{ hoja.Fecha }} -
+        <strong>Consecutivo_Orden:</strong>
+        {{ hoja.Consecutivo_Orden }} - <strong>Tipo de Servicio:</strong>
+        {{ hoja.Tipo_Servicio }}
+      </p>
+      <p class="card-text">
+        <strong>HH:</strong> {{ hoja.HH }} -
+        <strong>HP:</strong>
+        {{ hoja.HP }} -
+        <strong>Repuestos:</strong>
+        {{ hoja.Repuestos }} - <strong>Costo:</strong> {{ hoja.Costo }} -
+        <strong>Observaciones:</strong> {{ hoja.Observaciones }} -
+        <strong>Nombre_Responsable:</strong>
+        {{ hoja.Nombre_Responsable }}
+      </p>
+      <h4 class="card-title">12. Observaciones Adicionales</h4>
+      <p class="card-text">
+        <strong>Observación:</strong>
+        {{ hoja.Observacion }} -
+        <strong>Fecha de Observación:</strong>
+        {{ hoja.Fecha_Observacion }} - <strong>Responsable Observación:</strong>
+        {{ hoja.Responsable_Observacion }}
+      </p>
+    </div>
+  </div>
+</div>

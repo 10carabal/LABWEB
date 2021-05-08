@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>
+    Información de Histórico de Solicitudes de Equipo #
+    {{ infoI.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newhistorico" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+        <strong>Consecutivo Orden:</strong>
+        {{ info.Consecutivo_Orden }} <br />
+        <strong>Tipo de Servicio:</strong>
+        {{ info.Tipo_Servicio }} <br />
+        <strong>Fecha:</strong>
+        {{ info.Fecha }} <br />
+        <strong>Costo:</strong>
+        {{ info.Costo }} <br />
+        <strong>Repuestos:</strong>
+        {{ info.Repuestos }} <br />
+        <strong>HH:</strong>
+        {{ info.HH }} <br />
+        <strong>HP:</strong>
+        {{ info.HP }} <br />
+        <strong>Observaciones:</strong>
+        {{ info.Observaciones }} <br />
+        <strong>Nombre Responsable:</strong>
+        {{ info.Nombre_Responsable }} <br />
+        <strong>Cargo Responsable:</strong>
+        {{ info.Cargo_Responsable }} <br />
+        <strong>Nombre Responsable del Reporte:</strong>
+        {{ info.Nombre_Responsable_Reporte }} <br />
+      </p>
+    </div>
+  </div>
+</div>

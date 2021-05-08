@@ -1,0 +1,69 @@
+<div class="container">
+  <br />
+  <h1>
+    RMA009 Inspección de Funcionalidad del Equipo # {{ formatos.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA009" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let rma009 of formatos">
+    <div class="card-header">
+      <strong>{{ rma009.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Equipo</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ rma009.NUM_HOJA_VIDA }} <br />
+
+        <strong>Laboratorio:</strong>
+        {{ rma009.Laboratorio }} <br />
+        <strong>Fecha Ejecución:</strong>
+        {{ rma009.Fecha_Ejecucion }} <br />
+        <strong>Responsable de Ejecución:</strong>
+        {{ rma009.Nombre_Responsable }} <br />
+      </p>
+      <h4 class="card-title">Variables a Evaluar</h4>
+      <p class="card-text">
+        <strong>Funcionamiento Equipo:</strong>
+        {{ rma009.Funcionamiento_Equipo }} <br />
+        <strong>Estado Entorno:</strong>
+        {{ rma009.Estado_Entorno }} <br />
+      </p>
+      <h4 class="card-title">Estado Accesorios y/o Consumibles</h4>
+      <p class="card-text">
+        <strong>Estado Accesorio Consumibles:</strong>
+        {{ rma009.Estado_Accesorio_Consumibles }} <br />
+        <strong>Estado lineas de Alimentacion:</strong>
+        {{ rma009.Estado_lineas_Alimentacion }} <br />
+        <strong>Estado Almacenamiento:</strong>
+        {{ rma009.Estado_Almacenamiento }} <br />
+        <strong>Documentación Presente:</strong>
+        {{ rma009.Documentacion_Presente }} <br />
+      </p>
+      <h4 class="card-title">Recomendaciones del Fabricante</h4>
+      <p class="card-text">
+        <strong>Nombre:</strong>
+        {{ rma009.Nombre }} <br />
+        <strong>Marca:</strong>
+        {{ rma009.Marca }} <br />
+        <strong>Modelo:</strong>
+        {{ rma009.Modelo }} <br />
+        <strong>Serial:</strong>
+        {{ rma009.Serial }} <br />
+        <strong>Observación:</strong>
+        {{ rma009.Observacion }} <br />
+        <strong>Fecha Observación:</strong>
+        {{ rma009.Fecha_Observacion }} <br />
+        <strong>Responsable Observación:</strong>
+        {{ rma009.Responsable_Observacion }} <br />
+      </p>
+    </div>
+  </div>
+</div>

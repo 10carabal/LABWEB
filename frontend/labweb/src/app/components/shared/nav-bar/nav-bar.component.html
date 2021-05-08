@@ -1,0 +1,93 @@
+<!-- Contenedor Principal
+<br />
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    -->
+<!-- Barrra de navegación -->
+<!--  <img src="https://img.icons8.com/color/48/000000/box.png" />
+    <br />
+    <a class="navbar-brand" href="#"> Aplicación web de gestión de equipos médicos y de laboratorios</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
+<!--       <span class="material-icons"> content_paste </span>
+ -->
+<!-- <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Menú
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Cronogramas</a>
+                    <a class="dropdown-item" href="#">Histórico de Equipos</a>
+                    <a class="dropdown-item" href="#">Observaciones Adicionales</a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Generar Formatos <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+<!-- Cierre de navegación -->
+<!-- Contenedor Principal-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Barrra de navegación -->
+    <img src="https://img.icons8.com/color/48/000000/box.png" />
+    <br />
+    <a class="navbar-brand" href="#">
+        Aplicación web de gestión de equipos médicos y de laboratorios</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!--       <span class="material-icons"> content_paste </span>
+ -->
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['equipos']"> Equipos </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['menu']"> Menú </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['RMA007/nuevo']">
+                    Generar Solicitud
+                </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['login']">Iniciar Sesión <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input #buscador class="form-control w-50 mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" (keyup.enter)="buscarEquipo(buscador.value)" />
+            <button (click)="buscarEquipo(buscador.value)" class="btn btn-outline-success" type="button">
+                Buscar
+            </button>
+        </form>
+    </div>
+</nav>
+<!-- Cierre de navegación -->

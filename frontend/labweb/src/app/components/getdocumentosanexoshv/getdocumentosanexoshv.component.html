@@ -1,0 +1,70 @@
+<div class="container">
+  <h1>
+    Información de Documentos Anexos de Equipo # {{ infoI.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button
+        routerLink="/newdocumentosanexoshv"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+
+        <strong>Copia Registro Sanitario:</strong>
+        {{ info.COPIA_REGISTRO_SANITARIO }} <br />
+        <strong>Copia Registro de Importación:</strong>
+        {{ info.COPIA_REGISTRO_IMPORTACION }} <br />
+        <strong>Copia Permiso de Comercialización:</strong>
+        {{ info.COPIA_PMISO_COMERCIALIZACION }} <br />
+        <strong>Copia Factura:</strong>
+        {{ info.COPIA_FACTURA }} <br />
+        <strong>Copia Ingreso al Almacen:</strong>
+        {{ info.COPIA_INGRESO_ALMACEN }} <br />
+        <strong
+          >Copia de Acta de Recibo a Satisfacción por el Prestador:</strong
+        >
+        {{ info.CP_RBO_SATISFACCION_PRESTADOR }} <br />
+        <strong>Copia de Acta de Recibo a Satisfacción por el Operador:</strong>
+        {{ info.CP_RBO_SATISFACCION_OPERADOR }} <br />
+        <strong>Capacitación Técnica Asistencial:</strong>
+        {{ info.CAPACION_TEC_ASISTENCIAL }} <br />
+        <strong>Hoja de Vida Personal Técnico:</strong>
+        {{ info.HOJA_VIDA_PERSONAL_TECNICO }} <br />
+        <strong
+          >Certificado de Calibración, Validación y/o Calificación
+          Operacional:</strong
+        >
+        {{ info.CERT_CALIB_VALID_CALPERSONAL }} <br />
+        <strong>Recomendaciones del Fabricante para Calibración:</strong>
+        {{ info.RNES_FABRICANTE_CALIBRACION }} <br />
+        <strong>Guia Rápida de Operación:</strong>
+        {{ info.GUIA_RAPIDA_OPERACION }} <br />
+        <strong
+          >Recomendaciones del Fabricante para el Uso de Accesorios y
+          Consumibles Diferentes a los Entregados:</strong
+        >
+        {{ info.RNES_FABRICANTE_ACEOS_CBLES }} <br />
+        <strong>Protocolo de Mantenimiento Preventivo del Proveedor:</strong>
+        {{ info.PROTOCOLO_PROVEEDOR }} <br />
+        <strong>Cronograma de Mantenimiento por el Tiempo de Garantia:</strong>
+        {{ info.CRONOGRAMA_MANTENIMIENTO_T_G }} <br />
+        <strong>Observaciones:</strong>
+        {{ info.OBSERVACIONES }} <br />
+      </p>
+    </div>
+  </div>
+</div>

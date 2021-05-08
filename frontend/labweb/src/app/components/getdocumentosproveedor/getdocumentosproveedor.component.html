@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>
+    Información de Documentos del Proveedor de Equipo #
+    {{ infoI.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button
+        routerLink="/newdocumentosproveedor"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+
+        <strong>Manual de Usuario:</strong>
+        {{ info.MANUAL_USUARIO }} <br />
+        <strong>Manual de Servicio:</strong>
+        {{ info.MANUAL_SERVICIO }} <br />
+        <strong>Guia de Uso:</strong>
+        {{ info.GUIA_USO }} <br />
+        <strong>Manual de Partes:</strong>
+        {{ info.MANUAL_PARTES }} <br />
+        <strong>Manual de Despiece:</strong>
+        {{ info.MANUAL_DESPIECE }} <br />
+        <strong>Planos:</strong>
+        {{ info.PLANOS }} <br />
+        <strong>Carta de Garantía:</strong>
+        {{ info.CARTA_GARANTIA }} <br />
+        <strong>Registro Sanitario de Proveedor:</strong>
+        {{ info.REGISTRO_SANITARIO_PROVEEDOR }} <br />
+        <strong>Declaración de Importación:</strong>
+        {{ info.DECLARACION_IMPORTACION }} <br />
+        <strong>Checklist de Fabricación:</strong>
+        {{ info.CHECKLIST_FABRICACION }} <br />
+        <strong>Hojas de Vida de Personal Técnico:</strong>
+        {{ info.HOJAS_VIDA_PERSONAL_TECNICO }} <br />
+        <strong>Cronograma de Visitas:</strong>
+        {{ info.CRONOGRAMA_VISITAS }} <br />
+        <strong>Repuestos Disponibles:</strong>
+        {{ info.REPUESTOS_DISPONIBLES }} <br />
+        <strong
+          >Certificado de Calibración, Validación y/o Calificación
+          Operacional:</strong
+        >
+        {{ info.CERT_CALIB_VALID_CALPERSONAL }} <br />
+      </p>
+    </div>
+  </div>
+</div>

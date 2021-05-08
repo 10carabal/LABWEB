@@ -1,0 +1,100 @@
+<div class="container">
+  <h1>Editar RMA004 Cronograma del plan de Mantenimiento de Equipos</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA004" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Frecuencia de Mantenimiento</label>
+        <select
+          id="FREC_MENTO_PREVENTIVO"
+          class="form-control"
+          [(ngModel)]="rma004.FREC_MENTO_PREVENTIVO"
+          name="FREC_MENTO_PREVENTIVO"
+          required
+        >
+          <option selected>12 Meses</option>
+          <option>3 Meses</option>
+          <option>4 Meses</option>
+          <option>6 Meses</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Ejecución</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFECHA_EJECUCION"
+          placeholder="FECHA_EJECUCION"
+          [(ngModel)]="rma004.FECHA_EJECUCION"
+          name="FECHA_EJECUCION"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label for="txtMarca">Estado de Ejecución</label>
+        <select
+          id="ESTADO_EJECUCION"
+          class="form-control"
+          [(ngModel)]="rma004.ESTADO_EJECUCION"
+          name="ESTADO_EJECUCION"
+          required
+        >
+          <option selected>N/P</option>
+          <option>MTTO.PREVENTIVOPROGRAMADO</option>
+          <option>MTTO.PREVENTIVOREALIZADO</option>
+          <option>EQUIPOFUERADESERVICIO</option>
+          <option>MTTO.CORRECTIVO</option>
+          <option>EQUIPOENGARANTIA</option>
+          <option>REPROGRAMACIÓN</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label for="txtModelo">Responsable Mantenimiento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtRESPONSABLE_MANTENIMIENTO"
+          placeholder="Responsable Mantenimiento"
+          [(ngModel)]="rma004.RESPONSABLE_MANTENIMIENTO"
+          name="RESPONSABLE_MANTENIMIENTO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Observaciones del Equipo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtOBSERVACIONES_EQUIPO"
+          placeholder="Observaciones del Equipo"
+          [(ngModel)]="rma004.OBSERVACIONES_EQUIPO"
+          name="OBSERVACIONES_EQUIPO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Costo Mantenimiento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCOSTO_MANTENIMIENTO"
+          placeholder="Costo Mantenimiento"
+          [(ngModel)]="rma004.COSTO_MANTENIMIENTO"
+          name="COSTO_MANTENIMIENTO"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>

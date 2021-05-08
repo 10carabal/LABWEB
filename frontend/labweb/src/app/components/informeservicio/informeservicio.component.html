@@ -1,0 +1,250 @@
+<div class="container">
+  <h1>RMA008 Informe Servicio Técnico</h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA008" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="rma008.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+        required
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-5 animated fadeIn">
+      <label>Seleccionar consecutivo orden</label>
+      <select
+        id="Consecutivo_Orden"
+        class="form-control"
+        [(ngModel)]="rma008.Consecutivo_Orden"
+        name="Consecutivo_Orden"
+        required
+      >
+        <option
+          *ngFor="let item1 of cons_orden"
+          selected
+          value="{{ item1.Consecutivo_Orden }}"
+        >
+          {{ item1.Consecutivo_Orden }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtNombre">Nombre</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCodigo_Prestador"
+          placeholder="Código Prestador"
+          [(ngModel)]="rma008.Codigo_Prestador"
+          name="Codigo_Prestador"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtMarca">Marca</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtServicio"
+          placeholder="Servicio"
+          [(ngModel)]="rma008.Servicio"
+          name="Servicio"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtModelo">Modelo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtUbicacion"
+          placeholder="Ubicación"
+          [(ngModel)]="rma008.Ubicacion"
+          name="Ubicacion"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Informe</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Informe"
+          placeholder="Fecha_Informe"
+          [(ngModel)]="rma008.Fecha_Informe"
+          name="Fecha_Informe"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Problema Detectado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtProblema_Detectado"
+          placeholder="Problema Detectado"
+          [(ngModel)]="rma008.Problema_Detectado"
+          name="Problema_Detectado"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Actividades Realizadas</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtActividades_Realizadas"
+          placeholder="Actividades Realizadas"
+          [(ngModel)]="rma008.Actividades_Realizadas"
+          name="Actividades_Realizadas"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRepuestos_Instalados"
+          placeholder="Repuestos Instalados"
+          [(ngModel)]="rma008.Repuestos_Instalados"
+          name="Repuestos_Instalados"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtAccesorios_Instalados"
+          placeholder="Accesorios Instalados"
+          [(ngModel)]="rma008.Accesorios_Instalados"
+          name="Accesorios_Instalados"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtInsumos_Instalados"
+          placeholder="Insumos Instalados"
+          [(ngModel)]="rma008.Insumos_Instalados"
+          name="Insumos_Instalados"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtMediciones"
+          placeholder="Mediciones"
+          [(ngModel)]="rma008.Mediciones"
+          name="Mediciones"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtObservaciones"
+          placeholder="Observaciones"
+          [(ngModel)]="rma008.Observaciones"
+          name="Observaciones"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable"
+          placeholder="Nombre Responsable"
+          [(ngModel)]="rma008.Nombre_Responsable"
+          name="Nombre_Responsable"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable"
+          placeholder="Cargo Responsable"
+          [(ngModel)]="rma008.Cargo_Responsable"
+          name="Cargo_Responsable"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Recibir"
+          placeholder="Nombre Responsable de Recibir"
+          [(ngModel)]="rma008.Nombre_Responsable_Recibir"
+          name="Nombre_Responsable_Recibir"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable_Recibir"
+          placeholder="Cargo Responsable de Recibir"
+          [(ngModel)]="rma008.Cargo_Responsable_Recibir"
+          name="Cargo_Responsable_Recibir"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Generar RMA008
+    </button>
+  </form>
+</div>

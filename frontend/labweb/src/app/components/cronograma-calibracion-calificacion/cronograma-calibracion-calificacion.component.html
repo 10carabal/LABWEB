@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>
+    Cronograma del plan de Calibración/Validación y/o Calificación de Equipos
+  </h1>
+  <hr />
+  <div class="card-columns mb-5">
+    <div
+      class="card"
+      [appPintar]="blue"
+      *ngFor="let validacion of validaciones"
+    >
+      <div class="card-body">
+        <h5 class="card-title">
+          Equipo {{ validacion.Nombre }} - Hoja de Vida
+          {{ validacion.NUM_HOJA_VIDA }}
+        </h5>
+        <p class="card-text">
+          Fecha de Ejecución:
+          {{ validacion.FECHA_EJECUCION }}
+          Frecuencia de Validación:
+          {{ validacion.FCIA_VACION_CALIB }} Estado de Ejecución:
+          {{ validacion.ESTADO_EJECUCION }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

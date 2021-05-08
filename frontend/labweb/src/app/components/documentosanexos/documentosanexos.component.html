@@ -1,0 +1,258 @@
+<div class="container">
+  <h1>Documentos anexos del Proveedor.</h1>
+  <div class="row">
+    <div class="col text-right">
+      <button
+        routerLink="/newdocumentosanexoshv"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <form (ngSubmit)="guardarInfo(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="newanexos.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label for="txtNombre">COPIA REGISTRO SANITARIO</label>
+        <select
+          id="COPIA_REGISTRO_SANITARIO"
+          class="form-control"
+          [(ngModel)]="newanexos.COPIA_REGISTRO_SANITARIO"
+          name="COPIA_REGISTRO_SANITARIO"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COPIA REGISTRO IMPORTACION</label>
+        <select
+          id="COPIA_REGISTRO_IMPORTACION"
+          class="form-control"
+          [(ngModel)]="newanexos.COPIA_REGISTRO_IMPORTACION"
+          name="COPIA_REGISTRO_IMPORTACION"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COPIA PERMISO COMERCIALIZACIÓN</label>
+        <select
+          id="COPIA_PMISO_COMERCIALIZACION"
+          class="form-control"
+          [(ngModel)]="newanexos.COPIA_PMISO_COMERCIALIZACION"
+          name="COPIA_PMISO_COMERCIALIZACION"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COPIA FACTURA</label>
+        <select
+          id="COPIA_FACTURA"
+          class="form-control"
+          [(ngModel)]="newanexos.COPIA_FACTURA"
+          name="COPIA_FACTURA"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COPIA INGRESO ALMACEN</label>
+        <select
+          id="COPIA_INGRESO_ALMACEN"
+          class="form-control"
+          [(ngModel)]="newanexos.COPIA_INGRESO_ALMACEN"
+          name="COPIA_INGRESO_ALMACEN"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COPIA RECIBO SATISFACCIÓN PRESTADOR</label>
+        <select
+          id="CP_RBO_SATISFACCION_PRESTADOR"
+          class="form-control"
+          [(ngModel)]="newanexos.CP_RBO_SATISFACCION_PRESTADOR"
+          name="CP_RBO_SATISFACCION_PRESTADOR"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COPIA RECIBO SATISFACCIÓN OPERADOR</label>
+        <select
+          id="CP_RBO_SATISFACCION_OPERADOR"
+          class="form-control"
+          [(ngModel)]="newanexos.CP_RBO_SATISFACCION_OPERADOR"
+          name="CP_RBO_SATISFACCION_OPERADOR"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CAPACITACIÓN TECNICA ASISTENCIAL</label>
+        <select
+          id="CAPACION_TEC_ASISTENCIAL"
+          class="form-control"
+          [(ngModel)]="newanexos.CAPACION_TEC_ASISTENCIAL"
+          name="CAPACION_TEC_ASISTENCIAL"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>HOJA VIDA PERSONAL TECNICO</label>
+        <select
+          id="HOJA_VIDA_PERSONAL_TECNICO"
+          class="form-control"
+          [(ngModel)]="newanexos.HOJA_VIDA_PERSONAL_TECNICO"
+          name="HOJA_VIDA_PERSONAL_TECNICO"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CERTIFICADO CALIBRACIÓN/VALIDACIÓN</label>
+        <select
+          id="CERT_CALIB_VALID_CALPERSONAL"
+          class="form-control"
+          [(ngModel)]="newanexos.CERT_CALIB_VALID_CALPERSONAL"
+          name="CERT_CALIB_VALID_CALPERSONAL"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>R/ONES FABRICANTE PARA CALIBRACIÓN</label>
+        <select
+          id="RNES_FABRICANTE_CALIBRACION"
+          class="form-control"
+          [(ngModel)]="newanexos.RNES_FABRICANTE_CALIBRACION"
+          name="RNES_FABRICANTE_CALIBRACION"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>GUIA RAPIDA OPERACIÓN</label>
+        <select
+          id="GUIA_RAPIDA_OPERACION"
+          class="form-control"
+          [(ngModel)]="newanexos.GUIA_RAPIDA_OPERACION"
+          name="GUIA_RAPIDA_OPERACION"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>R/ONES FABRICANTE ACCES CONSUMIBLES</label>
+        <select
+          id="RNES_FABRICANTE_ACEOS_CBLES"
+          class="form-control"
+          [(ngModel)]="newanexos.RNES_FABRICANTE_ACEOS_CBLES"
+          name="RNES_FABRICANTE_ACEOS_CBLES"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>PROTOCOLO PROVEEDOR</label>
+        <select
+          id="PROTOCOLO_PROVEEDOR"
+          class="form-control"
+          [(ngModel)]="newanexos.PROTOCOLO_PROVEEDOR"
+          name="PROTOCOLO_PROVEEDOR"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CRON MANTENIMIENTO TIEMPO GARANTIA</label>
+        <select
+          id="CRONOGRAMA_MANTENIMIENTO_T_G"
+          class="form-control"
+          [(ngModel)]="newanexos.CRONOGRAMA_MANTENIMIENTO_T_G"
+          name="CRONOGRAMA_MANTENIMIENTO_T_G"
+          required
+        >
+          <option>Anexo</option>
+          <option>No Anexo</option>
+          <option selected>No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label >Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtOBSERVACIONES"
+          placeholder="OBSERVACIONES"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Registrar Anexos
+    </button>
+  </form>
+</div>

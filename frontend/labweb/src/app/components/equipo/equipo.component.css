@@ -1,0 +1,13 @@
+h1 {
+  margin-top: 5px;
+  text-align: center;
+}
+.img-circle {
+  border-radius: 80%;
+  width: 100px;
+}
+
+.img-thumb {
+  width: 40px;
+  height: 40px;
+}

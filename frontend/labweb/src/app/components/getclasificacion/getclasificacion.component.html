@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Información de Clasificación de Equipo # {{ infoI.NUM_HOJA_VIDA }}</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newclasificacion" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+
+        <strong>Clasificación de Equipo:</strong>
+        {{ info.CLASIFICACION_DE_EQUIPO }} <br />
+        <strong>Clasificación de Uso:</strong>
+        {{ info.CLASIFICACION_USO }} <br />
+        <strong>Clasificación Biomédica:</strong>
+        {{ info.CLASIFICACION_BIOMEDICA }} <br />
+        <strong>Tecnológia Predonominante:</strong>
+        {{ info.TECNOLOGIA_PREDOMINANTE }} <br />
+        <strong>Clasificación del Riesgo:</strong>
+        {{ info.CLASIFICACION_RIESGO }} <br />
+        <strong>Clase Riesgo Eléctrico:</strong>
+        {{ info.CLASE_RIESGO_ELECTRICO }} <br />
+        <strong>Tipo Riesgo Eléctrico:</strong>
+        {{ info.TIPO_RIESGO_ELECTRICO }} <br />
+        <strong>Clases de Software:</strong>
+        {{ info.CLASES_SOFTWARE }} <br />
+        <strong>Complejidad Tecnológica del Equipo:</strong>
+        {{ info.COMPLEJIDAD_TECNOLOGICA_EQUIPO }} <br />
+        <strong>Fuentes de Alimentación:</strong>
+        {{ info.FUENTES_ALIMENTACION }} <br />
+        <strong>Ciclo de Mantenimiento:</strong>
+        {{ info.CICLO_MANTENIMIENTO }} <br />
+        <strong>Ciclo de Calibración/Validación y/o Calificación:</strong>
+        {{ info.CICLO_CALIB_VALID_CALPERSONAL }} <br />
+      </p>
+    </div>
+  </div>
+</div>

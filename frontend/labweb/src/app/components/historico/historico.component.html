@@ -1,0 +1,177 @@
+<div class="container">
+  <h1>
+    Agregar Historico de Mantenimiento, Calibración/Validación del equipo.
+  </h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newhistorico" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="guardarInfo(f)" #f="ngForm">
+    <div class="form-group col-md-5 animated fadeIn">
+      <label>Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="newHistorico.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+        required
+      >
+        <option
+          *ngFor="let equipo of equipos"
+          selected
+          value="{{ equipo.NUM_HOJA_VIDA }}"
+        >
+          {{ equipo.NUM_HOJA_VIDA }} - {{ equipo.Nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-5 animated fadeIn">
+      <label>Seleccionar consecutivo orden</label>
+      <select
+        id="Consecutivo_Orden"
+        class="form-control"
+        [(ngModel)]="newHistorico.Consecutivo_Orden"
+        name="Consecutivo_Orden"
+        required
+      >
+        <option
+          *ngFor="let item1 of cons_orden"
+          selected
+          value="{{ item1.Consecutivo_Orden }}"
+        >
+          {{ item1.Consecutivo_Orden }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo de Servicio</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtTipo_Servicio"
+          placeholder="Tipo Servicio"
+          [(ngModel)]="newHistorico.Tipo_Servicio"
+          name="Tipo_Servicio"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha</label>
+
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha"
+          placeholder="Fecha"
+          [(ngModel)]="newHistorico.Fecha"
+          name="Fecha"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Costo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCosto"
+          placeholder="Costo"
+          [(ngModel)]="newHistorico.Costo"
+          name="Costo"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSeral">Serial</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRepuestos"
+          placeholder="Repuestos"
+          [(ngModel)]="newHistorico.Repuestos"
+          name="Repuestos"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtActivo">Activo Fijo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHH"
+          placeholder="HH"
+          [(ngModel)]="newHistorico.HH"
+          name="HH"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtArea">Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHP"
+          placeholder="HP"
+          [(ngModel)]="newHistorico.HP"
+          name="HP"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtObservaciones"
+          placeholder="Observaciones"
+          [(ngModel)]="newHistorico.Observaciones"
+          name="Observaciones"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable"
+          placeholder="Nombre_Responsable"
+          [(ngModel)]="newHistorico.Nombre_Responsable"
+          name="Nombre_Responsable"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable"
+          placeholder="Cargo_Responsable"
+          [(ngModel)]="newHistorico.Cargo_Responsable"
+          name="Cargo_Responsable"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Reporte"
+          placeholder="Nombre_Responsable_Reporte"
+          [(ngModel)]="newHistorico.Nombre_Responsable_Reporte"
+          name="Nombre_Responsable_Reporte"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Guardar Historico de Mantenimiento del Equipo
+    </button>
+  </form>
+</div>

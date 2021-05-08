@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Información Institucional de Equipo # {{ infoI.NUM_HOJA_VIDA }}</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newinfo" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+        <strong>Email del Laboratorio:</strong>
+        {{ info.Email_Laboratorio }} <br />
+        <strong>Fecha de Ejecución de Hoja de Vida:</strong>
+        {{ info.Fecha_Ejecucion_Hoja_Vida }} <br />
+        <strong>Lider del Proceso:</strong>
+        {{ info.Lider_Proceso }} <br />
+        <strong>Cargo:</strong>
+        {{ info.Cargo }} <br />
+      </p>
+    </div>
+  </div>
+</div>

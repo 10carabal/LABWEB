@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Cronograma del plan de Mantenimiento de Equipos</h1>
+  <hr />
+
+  <div class="card-columns mb-5">
+    <div
+      [appColorear]
+      class="card"
+      *ngFor="let mantenimiento of mantenimientos"
+    >
+      <div class="card-body">
+        <h5 class="card-title">
+          Equipo {{ mantenimiento.Nombre }} - Hoja de Vida
+          {{ mantenimiento.NUM_HOJA_VIDA }}
+        </h5>
+        <p class="card-text">
+          Fecha de Ejecución:
+          {{ mantenimiento.FECHA_EJECUCION }}
+          Frecuencia de Mantenimiento:
+          {{ mantenimiento.FREC_MENTO_PREVENTIVO }} Estado de Ejecución:
+          {{ mantenimiento.ESTADO_EJECUCION }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

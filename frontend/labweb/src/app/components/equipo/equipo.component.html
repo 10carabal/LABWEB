@@ -1,0 +1,45 @@
+<!-- <nav class="navbar navbar-dark bg-dark justify-content-between">
+  <a class="navbar-brand">Biblioteca de equipos</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar equipo" aria-label="Buscar equipo">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+</nav>
+<br> -->
+<h1 class="animated fadeIn fast">Biblioteca de Equipos</h1>
+<div class="row">
+  <div class="col">
+    <ul class="list-group mb-2" *ngFor="let equipo of equipos">
+      <li class="list-group-item animated fadeIn">
+        <div class="row">
+          <div class="col-2">
+            <img
+              class="img-thumbnail img-circle"
+              [src]="equipo.Imagen_Equipo"
+            />
+          </div>
+          <div class="col-10">
+            # {{ equipo.NUM_HOJA_VIDA }} - Nombre: {{ equipo.Nombre }} - Marca:
+            {{ equipo.Marca }} Modelo: {{ equipo.Modelo }} - Serial:
+            {{ equipo.Serial }} <br />Activo Fijo: {{ equipo.Activo_Fijo }}
+            Área:
+            {{ equipo.Area }} Sub Área: {{ equipo.Sub_Area }} Registro
+            Sanitario: {{ equipo.Registro_Sanitario }} Permiso Comercialización
+            {{ equipo.Permiso_Comercializacion }}
+          </div>
+        </div>
+        <label
+          class="badge badge-success mb-5"
+          routerLink="/hojavida/{{ equipo.NUM_HOJA_VIDA }}"
+          >Ver hoja de vida</label
+        >
+        -
+        <label
+          class="badge badge-primary mb-5"
+          routerLink="/inventario/{{ equipo.NUM_HOJA_VIDA }}"
+          >Ver Inventario</label
+        >
+      </li>
+    </ul>
+  </div>
+</div>

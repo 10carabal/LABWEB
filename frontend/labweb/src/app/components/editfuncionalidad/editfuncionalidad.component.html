@@ -1,0 +1,159 @@
+<div class="container">
+  <h1>Editar RMA009 Inspección de Funcionalidad del Equipo.</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA009" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Laboratorio</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtLaboratorio"
+          placeholder="Laboratorio"
+          [(ngModel)]="rma009.Laboratorio"
+          name="Laboratorio"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Ejecución</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Ejecucion"
+          placeholder="Fecha_Ejecucion"
+          [(ngModel)]="rma009.Fecha_Ejecucion"
+          name="Fecha_Ejecucion"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Nombre Responsable</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable"
+          placeholder="Nombre Responsable"
+          [(ngModel)]="rma009.Nombre_Responsable"
+          name="Nombre_Responsable"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Cargo Responsable</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable"
+          placeholder="Cargo Responsable"
+          [(ngModel)]="rma009.Cargo_Responsable"
+          name="Cargo_Responsable"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtActivo">Activo Fijo</label>
+ -->
+        <label>Funcionamiento Equipo</label>
+        <select
+          id="Funcionamiento_Equipo"
+          class="form-control"
+          [(ngModel)]="rma009.Funcionamiento_Equipo"
+          name="Funcionamiento_Equipo"
+          required
+        >
+          <option selected>BE Buen Estado</option>
+          <option>ME Mal Estado</option>
+          <option>NA No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtArea">Area</label>
+ -->
+        <label>Estado Entorno</label>
+        <select
+          id="Estado_Entorno"
+          class="form-control"
+          [(ngModel)]="rma009.Estado_Entorno"
+          name="Estado_Entorno"
+          required
+        >
+          <option selected>BE Buen Estado</option>
+          <option>ME Mal Estado</option>
+          <option>NA No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <label>Estado Accesorio Consumibles</label>
+        <select
+          id="Estado_Accesorio_Consumibles"
+          class="form-control"
+          [(ngModel)]="rma009.Estado_Accesorio_Consumibles"
+          name="Estado_Accesorio_Consumibles"
+          required
+        >
+          <option selected>BE Buen Estado</option>
+          <option>ME Mal Estado</option>
+          <option>NA No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Estado lineas Alimentación</label>
+        <select
+          id="Estado_lineas_Alimentacion"
+          class="form-control"
+          [(ngModel)]="rma009.Estado_lineas_Alimentacion"
+          name="Estado_lineas_Alimentacion"
+          required
+        >
+          <option selected>BE Buen Estado</option>
+          <option>ME Mal Estado</option>
+          <option>NA No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Estado Almacenamiento</label>
+        <select
+          id="Estado_Almacenamiento"
+          class="form-control"
+          [(ngModel)]="rma009.Estado_Almacenamiento"
+          name="Estado_Almacenamiento"
+          required
+        >
+          <option selected>BE Buen Estado</option>
+          <option>ME Mal Estado</option>
+          <option>NA No Aplica</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Documentación Presente</label>
+        <select
+          id="Documentacion_Presente"
+          class="form-control"
+          [(ngModel)]="rma009.Documentacion_Presente"
+          name="Documentacion_Presente"
+          required
+        >
+          <option selected>BE Buen Estado</option>
+          <option>ME Mal Estado</option>
+          <option>NA No Aplica</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>

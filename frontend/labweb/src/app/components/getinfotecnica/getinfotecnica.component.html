@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Información Técnica de Equipo # {{ infoI.NUM_HOJA_VIDA }}</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newinfotecnica" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+
+        Otras_Recomendaciones
+        <strong>Código ECRI:</strong>
+        {{ info.Codigo_ECRI }} <br />
+        <strong>Nomenclatura Internacional:</strong>
+        {{ info.Nomenclatura_Internacional }} <br />
+        <strong>Nomenclatura:</strong>
+        {{ info.Nomenclatura }} <br />
+        <strong>Tipo Equipo:</strong>
+        {{ info.Tipo_Equipo }} <br />
+        <strong>Firmware:</strong>
+        {{ info.Firmware }} <br />
+        <strong>Software:</strong>
+        {{ info.Software }} <br />
+        <strong>Rango Voltaje:</strong>
+        {{ info.Rango_Voltaje }} <br />
+        <strong>Corriente:</strong>
+        {{ info.Corriente }} <br />
+        <strong>Potencia:</strong>
+        {{ info.Potencia }} <br />
+        <strong>Frecuencia HZ:</strong>
+        {{ info.Frecuencia_HZ }} <br />
+        <strong>Dimensiones CM:</strong>
+        {{ info.Dimensiones_CM }} <br />
+        <strong>Presión:</strong>
+        {{ info.Presion }} <br />
+        <strong>Temperatura:</strong>
+        {{ info.Temperatura }} <br />
+        <strong>Peso KGS:</strong>
+        {{ info.Peso_KGS }} <br />
+        <strong>Humedad:</strong>
+        {{ info.Humedad }} <br />
+        <strong>RPM:</strong>
+        {{ info.RPM }} <br />
+        <strong>Descripción del Equipo:</strong>
+        {{ info.Descripcion_Equipo }} <br />
+        <strong>Otras Recomendaciones:</strong>
+        {{ info.Otras_Recomendaciones }} <br />
+      </p>
+    </div>
+  </div>
+</div>

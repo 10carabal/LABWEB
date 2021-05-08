@@ -1,0 +1,302 @@
+<div class="container">
+  <h1>RMA006 Informe Mantenimiento</h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA006" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm">
+    <div class="form-group col-md-5 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="newrma006.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-5 animated fadeIn">
+      <label>Seleccionar consecutivo orden</label>
+      <select
+        id="Consecutivo_Orden"
+        class="form-control"
+        [(ngModel)]="newrma006.Consecutivo_Orden"
+        name="Consecutivo_Orden"
+        required
+      >
+        <option
+          *ngFor="let item1 of cons_orden"
+          selected
+          value="{{ item1.Consecutivo_Orden }}"
+        >
+          {{ item1.Consecutivo_Orden }}
+        </option>
+      </select>
+    </div>
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo de Mantenimiento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtTipo_Mantenimiento"
+          placeholder="Tipo Mantenimiento"
+          [(ngModel)]="newrma006.Tipo_Mantenimiento"
+          name="Tipo_Mantenimiento"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Imagen Antes Mantenimiento</label>
+        <input
+          type="file"
+          class="form-control"
+          id="txtImagen_Antes_Mantenimiento"
+          placeholder="Imagen_Antes_Mantenimiento"
+          [(ngModel)]="newrma006.Imagen_Antes_Mantenimiento"
+          name="Imagen_Antes_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Imagen Después Mantenimiento</label>
+        <input
+          type="file"
+          class="form-control"
+          id="txtImagen_Despues_Mantenimiento"
+          placeholder="Imagen_Despues_Mantenimiento"
+          [(ngModel)]="newrma006.Imagen_Despues_Mantenimiento"
+          name="Imagen_Despues_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Mantenimiento</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Mantenimiento"
+          placeholder="Fecha_Mantenimiento"
+          [(ngModel)]="newrma006.Fecha_Mantenimiento"
+          name="Fecha_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Hora de Inicio</label>
+        <input
+          type="time"
+          class="form-control"
+          id="txtHora_Inicio"
+          placeholder="Hora_Inicio"
+          [(ngModel)]="newrma006.Hora_Inicio"
+          name="Hora_Inicio"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Hora Finalización</label>
+        <input
+          type="time"
+          class="form-control"
+          id="txtHora_Fin"
+          placeholder="Hora_Fin"
+          [(ngModel)]="newrma006.Hora_Fin"
+          name="Hora_Fin"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo Equipo</label>
+        <select
+          id="Tipo_Equipo"
+          class="form-control"
+          [(ngModel)]="newrma006.Tipo_Equipo"
+          name="Tipo_Equipo"
+          required
+        >
+          <option selected>Médico</option>
+          <option>Odontológico</option>
+          <option>Laboratorio</option>
+          <option>Simulación</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Limpieza</label>
+        <select
+          id="Limpieza"
+          class="form-control"
+          [(ngModel)]="newrma006.Limpieza"
+          name="Limpieza"
+          required
+        >
+          <option selected>N/P</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Reemplazo de Accesorios</label>
+
+        <select
+          id="Reemplazo_Accesorios"
+          class="form-control"
+          [(ngModel)]="newrma006.Reemplazo_Accesorios"
+          name="Reemplazo_Accesorios"
+          required
+        >
+          <option selected>N/P</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtActividades_Realizadas"
+          placeholder="Actividades Realizadas"
+          [(ngModel)]="newrma006.Actividades_Realizadas"
+          name="Actividades_Realizadas"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtObservacion_Mantenimiento"
+          placeholder="Observación Mantenimiento"
+          [(ngModel)]="newrma006.Observacion_Mantenimiento"
+          name="Observacion_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtEstado_Equipo"
+          placeholder="Estado Equipo"
+          [(ngModel)]="newrma006.Estado_Equipo"
+          name="Estado_Equipo"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTest_Funcionalidad"
+          placeholder="Test Funcionalidad"
+          [(ngModel)]="newrma006.Test_Funcionalidad"
+          name="Test_Funcionalidad"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHerramientas_Utilizadas"
+          placeholder="Herramientas Utilizadas"
+          [(ngModel)]="newrma006.Herramientas_Utilizadas"
+          name="Herramientas_Utilizadas"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtEquipo_Proteccion_Personal"
+          placeholder="Equipo de Protección Personal"
+          [(ngModel)]="newrma006.Equipo_Proteccion_Personal"
+          name="Equipo_Proteccion_Personal"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Mento"
+          placeholder="Nombre Responsable Mantenimiento"
+          [(ngModel)]="newrma006.Nombre_Responsable_Mento"
+          name="Nombre_Responsable_Mento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable_Mento"
+          placeholder="Cargo Responsable Mantenimiento"
+          [(ngModel)]="newrma006.Cargo_Responsable_Mento"
+          name="Cargo_Responsable_Mento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Recibir"
+          placeholder="Nombre de quien Recibe"
+          [(ngModel)]="newrma006.Nombre_Responsable_Recibir"
+          name="Nombre_Responsable_Recibir"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable_Recibir"
+          placeholder="Cargo de quien Recibe"
+          [(ngModel)]="newrma006.Cargo_Responsable_Recibir"
+          name="Cargo_Responsable_Recibir"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Guardar Informe Mantenimiento
+    </button>
+  </form>
+</div>

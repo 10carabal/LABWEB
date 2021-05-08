@@ -1,0 +1,156 @@
+<div class="container">
+  <h1>RMA010 Matriz de Solicitudes del Equipo.</h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA010" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="rma010.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+        required
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-5 animated fadeIn">
+      <label>Seleccionar consecutivo orden</label>
+      <select
+        id="Consecutivo_Orden"
+        class="form-control"
+        [(ngModel)]="rma010.Consecutivo_Orden"
+        name="Consecutivo_Orden"
+        required
+      >
+        <option
+          *ngFor="let item1 of cons_orden"
+          selected
+          value="{{ item1.Consecutivo_Orden }}"
+        >
+          {{ item1.Consecutivo_Orden }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Solicitud</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Solicitud"
+          placeholder="Fecha_Solicitud"
+          [(ngModel)]="rma010.Fecha_Solicitud"
+          name="Fecha_Solicitud"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Descripción Solicitud</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtDescripcion_Solicitud"
+          placeholder="Descripción Solicitud"
+          [(ngModel)]="rma010.Descripcion_Solicitud"
+          name="Descripcion_Solicitud"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Presupuesto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCDIS_Presupuesto"
+          placeholder="CDIS Presupuesto"
+          [(ngModel)]="rma010.CDIS_Presupuesto"
+          name="CDIS_Presupuesto"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Ejecución</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Ejecucion"
+          placeholder="Fecha_Ejecucion"
+          [(ngModel)]="rma010.Fecha_Ejecucion"
+          name="Fecha_Ejecucion"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Ejecutado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtEJECUTADO"
+          placeholder="Ejecutado"
+          [(ngModel)]="rma010.EJECUTADO"
+          name="EJECUTADO"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>No Ejecutado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtNO_EJECUTADO"
+          placeholder="No Ejecutado"
+          [(ngModel)]="rma010.NO_EJECUTADO"
+          name="NO_EJECUTADO"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtArea">Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPersonal_Encargado"
+          placeholder="Personal Encargado"
+          [(ngModel)]="rma010.Personal_Encargado"
+          name="Personal_Encargado"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtArea">Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTotal_Solicitudes"
+          placeholder="Total Solicitudes"
+          [(ngModel)]="rma010.Total_Solicitudes"
+          name="Total_Solicitudes"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Generar Matriz de Solicitudes del Equipo
+    </button>
+  </form>
+</div>

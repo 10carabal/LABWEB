@@ -1,0 +1,220 @@
+<div class="container">
+  <h1>Actualizar Documentos del Proveedor</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+
+  <div class="row">
+    <div class="col text-right">
+      <button
+        routerLink="/newdocumentosproveedor"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>MANUAL_USUARIO</label>
+        <select
+          id="MANUAL_USUARIO"
+          class="form-control"
+          [(ngModel)]="infoI.MANUAL_USUARIO"
+          name="MANUAL_USUARIO"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>MANUAL_SERVICIO</label>
+        <select
+          id="MANUAL_SERVICIO"
+          class="form-control"
+          [(ngModel)]="infoI.MANUAL_SERVICIO"
+          name="MANUAL_SERVICIO"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>GUIA_USO</label>
+        <select
+          id="GUIA_USO"
+          class="form-control"
+          [(ngModel)]="infoI.GUIA_USO"
+          name="GUIA_USO"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>MANUAL DE PARTES</label>
+        <select
+          id="MANUAL_PARTES"
+          class="form-control"
+          [(ngModel)]="infoI.MANUAL_PARTES"
+          name="MANUAL_PARTES"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>MANUAL DE DESPIECE</label>
+        <select
+          id="MANUAL_DESPIECE"
+          class="form-control"
+          [(ngModel)]="infoI.MANUAL_DESPIECE"
+          name="MANUAL_DESPIECE"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>PLANOS</label>
+        <select
+          id="PLANOS"
+          class="form-control"
+          [(ngModel)]="infoI.PLANOS"
+          name="PLANOS"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CARTA GARANTIA</label>
+        <select
+          id="CARTA_GARANTIA"
+          class="form-control"
+          [(ngModel)]="infoI.CARTA_GARANTIA"
+          name="CARTA_GARANTIA"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>REGISTRO SANITARIO PROVEEDOR</label>
+        <select
+          id="REGISTRO_SANITARIO_PROVEEDOR"
+          class="form-control"
+          [(ngModel)]="infoI.REGISTRO_SANITARIO_PROVEEDOR"
+          name="REGISTRO_SANITARIO_PROVEEDOR"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>DECLARACION_IMPORTACION</label>
+        <select
+          id="DECLARACION_IMPORTACION"
+          class="form-control"
+          [(ngModel)]="infoI.DECLARACION_IMPORTACION"
+          name="DECLARACION_IMPORTACION"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CHECKLIST FABRICACIÓN</label>
+        <select
+          id="CHECKLIST_FABRICACION"
+          class="form-control"
+          [(ngModel)]="infoI.CHECKLIST_FABRICACION"
+          name="CHECKLIST_FABRICACION"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>HOJAS DE VIDA PERSONAL TECNICO</label>
+        <select
+          id="HOJAS_VIDA_PERSONAL_TECNICO"
+          class="form-control"
+          [(ngModel)]="infoI.HOJAS_VIDA_PERSONAL_TECNICO"
+          name="HOJAS_VIDA_PERSONAL_TECNICO"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CRONOGRAMA DE VISITAS</label>
+        <select
+          id="CRONOGRAMA_VISITAS"
+          class="form-control"
+          [(ngModel)]="infoI.CRONOGRAMA_VISITAS"
+          name="CRONOGRAMA_VISITAS"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>REPUESTOS DISPONIBLES</label>
+        <select
+          id="REPUESTOS_DISPONIBLES"
+          class="form-control"
+          [(ngModel)]="infoI.REPUESTOS_DISPONIBLES"
+          name="REPUESTOS_DISPONIBLES"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CERTIFICADO CALIBRACIÓN/VALIDACIÓN</label>
+        <select
+          id="CERT_CALIB_VALID_CALPERSONAL"
+          class="form-control"
+          [(ngModel)]="infoI.CERT_CALIB_VALID_CALPERSONAL"
+          name="CERT_CALIB_VALID_CALPERSONAL"
+          required
+        >
+          <option>Si</option>
+          <option>No</option>
+          <option selected>N/P</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>

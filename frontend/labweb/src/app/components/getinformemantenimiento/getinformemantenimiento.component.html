@@ -1,0 +1,89 @@
+<div class="container">
+  <br />
+  <h1>
+    RMA006 Informe de Mantenimiento Preventivo/Correctivo <br />
+    Equipo # {{ formatos.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA006" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let rma006 of formatos">
+    <div class="card-header">
+      <strong>{{ rma006.Nombre }} </strong>
+    </div>
+    <div class="row">
+      <img
+        class="col-md-6 card-img-top"
+        [src]="rma006.Imagen_Antes_Mantenimiento"
+        alt="Card image cap"
+      />
+      <img
+        class="col-md-6 card-img-top"
+        [src]="rma006.Imagen_Despues_Mantenimiento"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos Generales del Equipo</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ rma006.NUM_HOJA_VIDA }} <br />
+        <strong>Fecha de Mantenimiento:</strong>
+        {{ rma006.Fecha_Mantenimiento }} <br />
+        <strong>Marca:</strong>
+        {{ rma006.Marca }} <br />
+        <strong>Modelo:</strong>
+        {{ rma006.Modelo }} <br />
+        <strong>Serial:</strong>
+        {{ rma006.Serial }} <br />
+        <strong>Activo Fijo:</strong>
+        {{ rma006.Activo_Fijo }} <br />
+        <strong>Frecuencia HZ:</strong>
+        {{ rma006.Frecuencia_HZ }} <br />
+        <strong>Consecutivo Orden:</strong>
+        {{ rma006.Consecutivo_Orden }} <br />
+        <strong>Hora Inicio:</strong>
+        {{ rma006.Hora_Inicio }} <br />
+        <strong>Hora Finalización:</strong>
+        {{ rma006.Hora_Fin }} <br />
+        <strong>Ubicación:</strong>
+        {{ rma006.Sub_Area }} <br />
+      </p>
+      <h4 class="card-title">Descripción del Mantenimiento</h4>
+      <p class="card-text">
+        <strong>Tipo Equipo:</strong>
+        {{ rma006.Tipo_Equipo }} <br />
+        <strong>Actividades Realizadas:</strong>
+        {{ rma006.Actividades_Realizadas }} <br />
+        <strong>Observación Mantenimiento:</strong>
+        {{ rma006.Observacion_Mantenimiento }} <br />
+        <strong>Estado del Equipo:</strong>
+        {{ rma006.Estado_Equipo }} <br />
+        <strong>Test Funcionalidad:</strong>
+        {{ rma006.Test_Funcionalidad }} <br />
+        <strong>Herramientas Utilizadas:</strong>
+        {{ rma006.Herramientas_Utilizadas }} <br />
+        <strong>Limpieza:</strong>
+        {{ rma006.Limpieza }} <br />
+        <strong>Reemplazo Accesorios:</strong>
+        {{ rma006.Reemplazo_Accesorios }} <br />
+        <strong>Equipo Protección Personal:</strong>
+        {{ rma006.Equipo_Proteccion_Personal }} <br />
+        <strong>Nombre Responsable Mantenimiento:</strong>
+        {{ rma006.Nombre_Responsable_Mento }} <br />
+        <strong>Cargo Responsable Mantenimiento:</strong>
+        {{ rma006.Cargo_Responsable_Mento }} <br />
+        <strong>Nombre quien Recibe:</strong>
+        {{ rma006.Nombre_Responsable_Recibir }} <br />
+        <strong>Cargo quien Recibe:</strong>
+        {{ rma006.Cargo_Responsable_Recibir }} <br />
+      </p>
+    </div>
+  </div>
+</div>

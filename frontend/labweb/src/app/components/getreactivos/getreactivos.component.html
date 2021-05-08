@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>
+    Información de Reactivos y Accesorios de Equipo # {{ infoI.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newreactivos" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+        <strong>Listado de Reactivos:</strong>
+        {{ info.LISTADO_REACTIVOS }} <br />
+        <strong>Accesorio 1:</strong>
+        {{ info.ACCESORIO_1 }} <br />
+        <strong>Marca/Licencia Accesorio 1:</strong>
+        {{ info.MARCA_LICENCIA_ACCESORIO_1 }} <br />
+        <strong>Modelo o Versión Accesorio 1:</strong>
+        {{ info.MODELO_VERSION_ACCESORIO_1 }} <br />
+        <strong>Serie Accesorio 1:</strong>
+        {{ info.SERIE_ACCESORIO_1 }} <br />
+        <strong>Accesorio 2:</strong>
+        {{ info.ACCESORIO_2 }} <br />
+        <strong>Marca/Licencia Accesorio 2:</strong>
+        {{ info.MARCA_LICENCIA_ACCESORIO_2 }} <br />
+        <strong>Modelo o Versión Accesorio 2:</strong>
+        {{ info.MODELO_VERSION_ACCESORIO_2 }} <br />
+        <strong>Serie Accesorio 2:</strong>
+        {{ info.SERIE_ACCESORIO_2 }} <br />
+        <strong>Accesorio 3:</strong>
+        {{ info.ACCESORIO_3 }} <br />
+        <strong>Marca/Licencia Accesorio 3:</strong>
+        {{ info.MARCA_LICENCIA_ACCESORIO_3 }} <br />
+        <strong>Modelo o Versión Accesorio 3:</strong>
+        {{ info.MODELO_VERSION_ACCESORIO_3 }} <br />
+        <strong>Serie Accesorio 3:</strong>
+        {{ info.SERIE_ACCESORIO_3 }} <br />
+      </p>
+    </div>
+  </div>
+</div>

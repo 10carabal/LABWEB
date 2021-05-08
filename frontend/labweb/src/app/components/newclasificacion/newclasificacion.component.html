@@ -1,0 +1,74 @@
+<div class="container">
+  <h1>Listado de Clasificación de equipos</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/clasificacion/nuevo" class="btn btn-primary">
+        <i class="fa fa-plus"></i> Agregar Información
+      </button>
+    </div>
+  </div>
+
+  <table
+    *ngIf="!cargando && clasificacion.length > 0"
+    class="table mt-3 animated fadeIn faster mb-5"
+  >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"># Hoja de Vida</th>
+        <th scope="col">Clasificación del Equipo</th>
+        <th scope="col">Tecnología Predominante</th>
+        <th scope="col">Ciclo Mantenimiento</th>
+        <th scope="col">Ciclo Validación</th>
+        <th scope="col">Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of clasificacion">
+        <th scope="row">{{ info.NUM_HOJA_VIDA }}</th>
+        <td>{{ info.CLASIFICACION_DE_EQUIPO }}</td>
+        <td>{{ info.TECNOLOGIA_PREDOMINANTE }}</td>
+        <td>{{ info.CICLO_MANTENIMIENTO }}</td>
+        <td>{{ info.CICLO_CALIB_VALID_CALPERSONAL }}</td>
+
+        <td>
+          <label
+            class="badge badge-success"
+            routerLink="/getclasificacion/{{ info.NUM_HOJA_VIDA }}"
+            >Ver Info</label
+          >
+          <br />
+          <button
+            class="btn btn-info mr-1"
+            [routerLink]="['/editclasificacion', info.NUM_HOJA_VIDA]"
+          >
+            <i class="fa fa-pen"></i>
+          </button>
+
+          <button class="btn btn-danger" (click)="borrarInfo(info)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    *ngIf="!cargando && clasificacion.length === 0"
+    class="alert alert-warning text-center mt-3 animated fadeIn faster"
+  >
+    <h4 class="alert-heading">No hay Registros.</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+  </div>
+  <div
+    *ngIf="cargando"
+    class="alert alert-info text-center mt-3 animated fadeIn faster"
+  >
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+      <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">Espere por favor.</p>
+  </div>
+</div>

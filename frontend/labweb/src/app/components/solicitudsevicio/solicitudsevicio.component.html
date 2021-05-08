@@ -1,0 +1,117 @@
+<div class="container">
+  <h1>RMA007 Solicitud de Servicio para los equipos de la USC.</h1>
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA007" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="rma007.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-6 animated fadeIn">
+        <label>Fecha Solicitud de Servicio </label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Solicitud_Servicio"
+          placeholder="Fecha Solicitud Servicio"
+          [(ngModel)]="rma007.Fecha_Solicitud_Servicio"
+          name="Fecha_Solicitud_Servicio"
+        />
+      </div>
+
+      <div class="form-group col-md-6 animated fadeIn">
+        <label>Hora de Solicitud</label>
+        <input
+          type="time"
+          class="form-control"
+          id="txtHora_Solicitud_Servicio"
+          placeholder="Hora Solicitud Servicio"
+          [(ngModel)]="rma007.Hora_Solicitud_Servicio"
+          name="Hora_Solicitud_Servicio"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtConsecutivo_Orden"
+          placeholder="Consecutivo Orden"
+          [(ngModel)]="rma007.Consecutivo_Orden"
+          name="Consecutivo_Orden"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtServicio"
+          placeholder="Servicio"
+          [(ngModel)]="rma007.Servicio"
+          name="Servicio"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtUbicacion"
+          placeholder="Ubicación"
+          [(ngModel)]="rma007.Ubicacion"
+          name="Ubicacion"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="textarea"
+          class="form-control"
+          id="txtDescripcion_Problema"
+          placeholder="Descripción Problema"
+          [(ngModel)]="rma007.Descripcion_Problema"
+          name="Descripcion_Problema"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable"
+          placeholder="Nombre Responsable"
+          [(ngModel)]="rma007.Nombre_Responsable"
+          name="Nombre_Responsable"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable"
+          placeholder="Cargo Responsable"
+          [(ngModel)]="rma007.Cargo_Responsable"
+          name="Cargo_Responsable"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Generar Solicitud de Servicio
+    </button>
+  </form>
+</div>

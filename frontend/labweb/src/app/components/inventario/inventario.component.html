@@ -1,0 +1,189 @@
+<div class="container">
+  <br />
+  <h1>
+    RMA003 Inventario Funcional de los equipos de la Universidad Santiago de
+    Cali
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/equipos" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let inventario of inventarios">
+    <div class="card-header">
+      <strong>{{ inventario.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos Primarios</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ inventario.NUM_HOJA_VIDA }} <br />
+        <strong>Marca:</strong>
+        {{ inventario.Marca }} <br />
+        <strong>Modelo:</strong>
+        {{ inventario.Modelo }} <br />
+        <strong>Serial:</strong>
+        {{ inventario.Serial }} <br />
+        <strong>Activo Fijo:</strong>
+        {{ inventario.Activo_Fijo }} <br />
+        <strong>Clasificación Riesgo:</strong>
+        {{ inventario.CLASIFICACION_RIESGO }} <br />
+        <strong>Área:</strong>
+        {{ inventario.Area }} -
+        <strong>Sub Área:</strong>
+        {{ inventario.Sub_Area }} - <strong>Registro_Sanitario:</strong>
+        {{ inventario.Registro_Sanitario }} <br />
+      </p>
+      <h4 class="card-title">Adquisición</h4>
+      <p class="card-text">
+        <strong>Fecha de Compra:</strong>
+        {{ inventario.FECHA_COMPRA }} -
+        <strong>Fecha de Instalación:</strong>
+        {{ inventario.FECHA_INSTALACION }} -
+        <strong>Fecha Inicio de Operación:</strong>
+        {{ inventario.FECHA_INICIO_OPERACION }} <br />
+        <strong>COSTO:</strong>
+        {{ inventario.COSTO_EQUIPO }} -
+        <strong>Factura:</strong>
+        {{ inventario.FACTURA }} -
+        <strong>Proveedor:</strong>
+        {{ inventario.PROVEEDOR }} -
+        <strong>Orden de Compra:</strong>
+        {{ inventario.ORDEN_DE_COMPRA }} <br />
+        <strong>Forma de Adquisición:</strong>
+        {{ inventario.FORMA_ADQUISICION }} -
+        <strong>Garantía en Años:</strong>
+        {{ inventario.GARANTIA_ANIOS }} -
+        <strong>Fin de la Garantía:</strong>
+        {{ inventario.FIN_GARANTIA }} -
+        <strong>Estado de Garantía:</strong>
+        {{ inventario.ESTADO_GARANTIA }} -
+        <strong>Estado Actual:</strong>
+        {{ inventario.ESTADO_ACTUAL }} <br />
+        <strong>Vida Útil:</strong>
+        {{ inventario.VIDA_UTIL }} -
+        <strong>Razón Vida Útil:</strong>
+        {{ inventario.RAZON_VIDA_UTIL }} -
+        <strong>Años de Uso:</strong>
+        {{ inventario.ANIOS_USO }} -
+        <strong>Ejecutor de Hoja de Vida:</strong>
+        {{ inventario.EJECUTOR_HOJA_VIDA }} -
+        <strong>Lider del Proceso:</strong>
+        {{ inventario.LIDER_PROCESO }} <br />
+        <strong>Fecha Ingreso Inventario:</strong>
+        {{ inventario.FECHA_INGRESO_INVENTARIO }} <br />
+      </p>
+      <h4 class="card-title">Datos del Equipo</h4>
+      <p class="card-text">
+        <strong>Código ECRI:</strong>
+        {{ inventario.Codigo_ECRI }} -
+        <strong>Nomenclatura Internacional:</strong>
+        {{ inventario.Nomenclatura_Internacional }} <br />
+        <strong>Clase Riesgo Eléctrico:</strong> -
+        {{ inventario.CLASE_RIESGO_ELECTRICO }}
+        <strong>Tipo Riesgo Eléctrico:</strong>
+        {{ inventario.TIPO_RIESGO_ELECTRICO }} -
+        <strong>Clasificación Biomédica:</strong>
+        {{ inventario.CLASIFICACION_BIOMEDICA }} -
+        <strong>Clasificación Uso:</strong>
+        {{ inventario.CLASIFICACION_USO }} <br />
+        <strong>Tecnología Predominante:</strong>
+        {{ inventario.TECNOLOGIA_PREDOMINANTE }} <br />
+        <strong>Descripción del Equipo:</strong>
+        {{ inventario.Descripcion_Equipo }} -
+        <strong>Voltaje:</strong>
+        {{ inventario.Rango_Voltaje }} -
+        <strong>Corriente:</strong>
+        {{ inventario.Corriente }} -
+        <strong>Potencia:</strong>
+        {{ inventario.Potencia }} -
+        <strong>Dimensiones CM:</strong>
+        {{ inventario.Dimensiones_CM }} <br />
+        <strong>Presión:</strong>
+        {{ inventario.Presion }} -
+        <strong>Frecuencia HZ:</strong>
+        {{ inventario.Frecuencia_HZ }} -
+        <strong>RPM:</strong>
+        {{ inventario.RPM }} -
+        <strong>Temperatura:</strong>
+        {{ inventario.Temperatura }} -
+        <strong>Peso KGS:</strong>
+        {{ inventario.Peso_KGS }} <br />
+      </p>
+      <h4 class="card-title">Fabricante y Proveedor</h4>
+      <p class="card-text">
+        <strong>Fabricante:</strong>
+        {{ inventario.FABRICANTE }} -
+        <strong>País de Origen Fabricante:</strong>
+        {{ inventario.PAIS_ORIGEN }} - <strong>Web del Fabricante:</strong> -
+        {{ inventario.WEB_FABRICANTE }} <br />
+        <strong>Proveedor:</strong>
+        {{ inventario.PROVEEDOR }} -
+        <strong>Ciudad del Proveedor:</strong>
+        {{ inventario.CIUDAD_PROVEEDOR }} -
+        <strong>Dirección del Proveedor:</strong>
+        {{ inventario.DIRECCION_PROVEEDOR }} <br />
+        <strong>Telefono Proveedor:</strong>
+        {{ inventario.TELEFONO_PROVEEDOR }} -
+        <strong>Web Proveedor:</strong>
+        {{ inventario.WEB_PROVEEDOR }}
+      </p>
+      <h4 class="card-title">Documentación Aportada por el Proveedor</h4>
+
+      <p class="card-text">
+        <strong>Manual de Usuario:</strong>
+        {{ inventario.MANUAL_USUARIO }} -
+        <strong>Manual de Servicio:</strong>
+        {{ inventario.MANUAL_SERVICIO }} - <strong>Guia de Uso:</strong>
+        {{ inventario.GUIA_USO }} <br />
+        <strong>Declaración de Importación:</strong>
+        {{ inventario.DECLARACION_IMPORTACION }} -
+        <strong>Checklist de Fabricación/Remisión:</strong>
+        {{ inventario.CHECKLIST_FABRICACION }} <br />
+        <strong
+          >Certificado de Calibración/Validación y/o Calificación
+          Operacional:</strong
+        >
+        {{ inventario.CERT_CALIB_VALID_CALPERSONAL }} <br />
+        <strong>Carta de Garantía:</strong>
+        {{ inventario.CARTA_GARANTIA }} -
+        <strong>Repuestos Disponibles:</strong>
+        {{ inventario.REPUESTOS_DISPONIBLES }}
+        - <strong>Cronograma de Visitas:</strong>
+        {{ inventario.CRONOGRAMA_VISITAS }} <br />
+        <strong>Hojas de Vida Personal Técnico:</strong>
+        {{ inventario.HOJAS_VIDA_PERSONAL_TECNICO }} -
+        <strong>Registro Sanitario del Proveedor:</strong>
+        {{ inventario.REGISTRO_SANITARIO_PROVEEDOR }}
+      </p>
+      <h4 class="card-title">Listado de Reactivos y Accesorios</h4>
+      <p class="card-text">
+        <strong>Accesorio 1:</strong>
+        {{ inventario.ACCESORIO_1 }} <br />
+        <strong>Accesorio 2:</strong>
+        {{ inventario.ACCESORIO_2 }} <br />
+        <strong>Accesorio 3:</strong>
+        {{ inventario.ACCESORIO_3 }} <br />
+        <strong>Listado Reactivos:</strong>
+        {{ inventario.LISTADO_REACTIVOS }} <br />
+      </p>
+      <h4 class="card-title">Clases de Software</h4>
+      <p class="card-text">
+        <strong>Clases de Software:</strong>
+        {{ inventario.CLASES_SOFTWARE }} <br />
+        <strong>Complejidad Tecnólogica del Equipo:</strong>
+        {{ inventario.COMPLEJIDAD_TECNOLOGICA_EQUIPO }} <br />
+        <strong>Ciclo de Mantenimiento:</strong>
+        {{ inventario.CICLO_MANTENIMIENTO }} <br />
+        <strong
+          >Ciclo Calibración/Validación y/o Calificación Operacional:</strong
+        >
+        {{ inventario.CICLO_CALIB_VALID_CALPERSONAL }} <br />
+      </p>
+    </div>
+  </div>
+</div>

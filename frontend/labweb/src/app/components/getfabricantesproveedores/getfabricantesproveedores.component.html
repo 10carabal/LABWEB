@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>
+    Información de Fabricantes y Proveedores de Equipo #
+    {{ infoI.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button
+        routerLink="/newfabricantesproveedores"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+
+        <strong>Fabricante:</strong>
+        {{ info.FABRICANTE }} <br />
+        <strong>País de Origen Fabricante:</strong>
+        {{ info.PAIS_ORIGEN }} <br />
+        <strong>Web Fabricante:</strong>
+        {{ info.WEB_FABRICANTE }} <br />
+        <strong>Representante:</strong>
+        {{ info.REPRESENTANTE }} <br />
+        <strong>Proveedor:</strong>
+        {{ info.PROVEEDOR }} <br />
+        <strong>Ciudad Proveedor:</strong>
+        {{ info.CIUDAD_PROVEEDOR }} <br />
+        <strong>Dirección Proveedor:</strong>
+        {{ info.DIRECCION_PROVEEDOR }} <br />
+        <strong>Telefono Proveedor:</strong>
+        {{ info.TELEFONO_PROVEEDOR }} <br />
+        <strong>Correo Proveedor:</strong>
+        {{ info.CORREO_PROVEEDOR }} <br />
+        <strong>Web Proveedor:</strong>
+        {{ info.WEB_PROVEEDOR }} <br />
+      </p>
+    </div>
+  </div>
+</div>

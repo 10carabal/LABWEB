@@ -1,0 +1,264 @@
+<div class="container">
+  <h1>Editar Datos de adquisición del equipo.</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newadquisicion" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Compra</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FECHA_COMPRA"
+          placeholder="FECHA_COMPRA"
+          [(ngModel)]="adquisicion.FECHA_COMPRA"
+          name="FECHA_COMPRA"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Fabricación</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FECHA_FABRICACION"
+          placeholder="FECHA_FABRICACION"
+          [(ngModel)]="adquisicion.FECHA_FABRICACION"
+          name="FECHA_FABRICACION"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Instalación</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FECHA_INSTALACION"
+          placeholder="FECHA_INSTALACION"
+          [(ngModel)]="adquisicion.FECHA_INSTALACION"
+          name="FECHA_INSTALACION"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha inicio de operación</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FECHA_INICIO_OPERACION"
+          placeholder="FECHA_INICIO_OPERACION"
+          [(ngModel)]="adquisicion.FECHA_INICIO_OPERACION"
+          name="FECHA_INICIO_OPERACION"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de acta de recibos</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FECHA_ACTA_RECIBOS"
+          placeholder="FECHA_ACTA_RECIBOS"
+          [(ngModel)]="adquisicion.FECHA_ACTA_RECIBOS"
+          name="FECHA_ACTA_RECIBOS"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de fin de la garantia</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FIN_GARANTIA"
+          placeholder="FIN DE GARANTIA"
+          [(ngModel)]="adquisicion.FIN_GARANTIA"
+          name="FIN_GARANTIA"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha Ingreso Inventario</label>
+        <input
+          type="date"
+          class="form-control"
+          id="FECHA_INGRESO_INVENTARIO"
+          placeholder="FECHA_INGRESO_INVENTARIO"
+          [(ngModel)]="adquisicion.FECHA_INGRESO_INVENTARIO"
+          name="FECHA_INGRESO_INVENTARIO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Costo del Equipo</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="COSTO_EQUIPO"
+          placeholder="COSTO DEL EQUIPO"
+          [(ngModel)]="adquisicion.COSTO_EQUIPO"
+          name="COSTO_EQUIPO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Forma de Adquisición</label>
+        <select
+          id="inputState"
+          class="form-control"
+          [(ngModel)]="adquisicion.FORMA_ADQUISICION"
+          name="FORMA_ADQUISICION"
+          required
+        >
+          <option selected>Compra Directa</option>
+          <option>Donación</option>
+          <option>Asignación</option>
+          <option>Comodato</option>
+          <option>Alquiler</option>
+        </select>
+        <!-- <input
+          type="text"
+          class="form-control"
+          id="FORMA_ADQUISICION"
+          placeholder="FORMA_ADQUISICION"
+          [(ngModel)]="adquisicion.FORMA_ADQUISICION"
+          name="FORMA_ADQUISICION"
+        /> -->
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label># de años de Garantia</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="GARANTIA_AÑOS"
+          placeholder="AÑOS DE GARANTIA"
+          [(ngModel)]="adquisicion.GARANTIA_ANIOS"
+          name="GARANTIA_ANIOS"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Estado de Garantia</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="ESTADO_GARANTIA"
+          placeholder="ESTADO DE GARANTIA"
+          [(ngModel)]="adquisicion.ESTADO_GARANTIA"
+          name="ESTADO_GARANTIA"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Estado Actual</label>
+            -->
+        <input
+          type="text"
+          class="form-control"
+          id="ESTADO_ACTUAL"
+          placeholder="ESTADO ACTUAL"
+          [(ngModel)]="adquisicion.ESTADO_ACTUAL"
+          name="ESTADO_ACTUAL"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Años de Uso</label>
+            -->
+        <input
+          type="text"
+          class="form-control"
+          id="AÑOS_USO"
+          placeholder="AÑOS DE USO"
+          [(ngModel)]="adquisicion.ANIOS_USO"
+          name="ANIOS_USO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Factura</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="FACTURA"
+          placeholder="FACTURA"
+          [(ngModel)]="adquisicion.FACTURA"
+          name="FACTURA"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Orden de Compra</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="ORDEN_DE_COMPRA"
+          placeholder="ORDEN DE COMPRA"
+          [(ngModel)]="adquisicion.ORDEN_DE_COMPRA"
+          name="ORDEN_DE_COMPRA"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Vida Útil</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="VIDA_UTIL"
+          placeholder="VIDA UTIL"
+          [(ngModel)]="adquisicion.VIDA_UTIL"
+          name="VIDA_UTIL"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Razón Vida Útil</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="RAZON_VIDA_UTIL"
+          placeholder="RAZÓN VIDA UTIL"
+          [(ngModel)]="adquisicion.RAZON_VIDA_UTIL"
+          name="RAZON_VIDA_UTIL"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Ejecutor de Hoja de Vida</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="EJECUTOR_HOJA_VIDA"
+          placeholder="EJECUTOR DE HOJA DE VIDA"
+          [(ngModel)]="adquisicion.EJECUTOR_HOJA_VIDA"
+          name="EJECUTOR_HOJA_VIDA"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--         <label>Lider del Proceso</label>
+          -->
+        <input
+          type="text"
+          class="form-control"
+          id="LIDER_PROCESO"
+          placeholder="LIDER DEL PROCESO"
+          [(ngModel)]="adquisicion.LIDER_PROCESO"
+          name="LIDER_PROCESO"
+        />
+      </div>
+      <button type="submit" class="btn btn-success col-md-12 mb-5">
+        Actualizar
+      </button>
+    </div>
+  </form>
+</div>

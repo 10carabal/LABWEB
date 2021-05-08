@@ -1,0 +1,128 @@
+<div class="container">
+  <h1>
+    Equipo <small> {{ newequipos.Nombre }}</small>
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newequipos" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <form (ngSubmit)="guardarEquipo(f)" #f="ngForm">
+    <div class="form-row animated fadeIn fast">
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nombre"
+          [(ngModel)]="newequipos.Nombre"
+          name="Nombre"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtMarca"
+          placeholder="Marca"
+          [(ngModel)]="newequipos.Marca"
+          name="Marca"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtModelo"
+          placeholder="Módelo"
+          [(ngModel)]="newequipos.Modelo"
+          name="Modelo"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtSeral"
+          placeholder="Serial"
+          [(ngModel)]="newequipos.Serial"
+          name="Serial"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtActivo"
+          placeholder="Activo Fijo"
+          [(ngModel)]="newequipos.Activo_Fijo"
+          name="Activo_Fijo"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtArea"
+          placeholder="Área"
+          [(ngModel)]="newequipos.Area"
+          name="Area"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <input
+          type="text"
+          class="form-control"
+          id="txtSubArea"
+          placeholder="Sub Área"
+          [(ngModel)]="newequipos.Sub_Area"
+          name="Sub_Area"
+        />
+      </div>
+      <div class="form-group col-md-3 animated fadeIn">
+        <label>Registro Sanitario</label>
+        <select
+          class="form-control"
+          [(ngModel)]="newequipos.Registro_Sanitario"
+          name="Registro_Sanitario"
+        >
+          <option>Si</option>
+          <option selected>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3 animated fadeIn">
+        <label>Permiso Comercialización</label>
+        <select
+          class="form-control"
+          [(ngModel)]="newequipos.Permiso_Comercializacion"
+          name="Permiso_Comercializacion"
+        >
+          <option>Si</option>
+          <option selected>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="txtimagen">Subir Imagen</label>
+        <input
+          type="file"
+          class="form-control-file"
+          [(ngModel)]="newequipos.Imagen_Equipo"
+          name="Imagen_Equipo"
+          id="txtimagen"
+          required
+        />
+      </div>
+      <div class="form-group col-md-12 w-50">
+        <button type="submit" class="btn btn-primary mb-5 col-md-12">
+          Agregar Equipo
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

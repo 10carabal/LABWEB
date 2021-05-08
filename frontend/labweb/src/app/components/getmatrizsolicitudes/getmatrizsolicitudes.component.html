@@ -1,0 +1,46 @@
+<div class="container">
+  <br />
+  <h1>
+    RMA010 Matriz de Solicitudes del Equipo # {{ formatos.NUM_HOJA_VIDA }}
+  </h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA010" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let rma010 of formatos">
+    <div class="card-header">
+      <strong>{{ rma010.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Equipo</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ rma010.NUM_HOJA_VIDA }} <br />
+        <strong>Fecha de Solicitud:</strong>
+        {{ rma010.Fecha_Solicitud }} <br />
+        <strong>Consecutivo Orden:</strong>
+        {{ rma010.Consecutivo_Orden }} <br />
+        <strong>Descripción Solicitud:</strong>
+        {{ rma010.Descripcion_Solicitud }} <br />
+        <strong>CDIS Presupuesto:</strong>
+        {{ rma010.CDIS_Presupuesto }} <br />
+        <strong>Fecha de Ejecución:</strong>
+        {{ rma010.Fecha_Ejecucion }} <br />
+      </p>
+      <h4 class="card-title">Solicitudes</h4>
+      <p class="card-text">
+        <strong>Ejecutado:</strong>
+        {{ rma010.EJECUTADO }} <br />
+        <strong>No Ejecutado:</strong>
+        {{ rma010.NO_EJECUTADO }} <br />
+        <strong>Total Solicitudes:</strong>
+        {{ rma010.Total_Solicitudes }} <br />
+      </p>
+    </div>
+  </div>
+</div>

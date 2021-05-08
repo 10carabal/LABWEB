@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Información de Observaciones de Equipo # {{ infoI.NUM_HOJA_VIDA }}</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newobservaciones" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+        <strong>Fecha de Observación:</strong>
+        {{ info.Fecha_Observacion }} <br />
+        <strong>Observación:</strong>
+        {{ info.Observacion }} <br />
+        <strong>Responsable de Observación:</strong>
+        {{ info.Responsable_Observacion }} <br />
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+  <h1>Listado de Mantenimiento de equipos</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/mantenimiento/nuevo" class="btn btn-primary">
+        <i class="fa fa-plus"></i> Agregar Información
+      </button>
+    </div>
+  </div>
+
+  <table
+    *ngIf="!cargando && mantenimiento.length > 0"
+    class="table mt-3 animated fadeIn faster mb-5"
+  >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"># Hoja de Vida</th>
+        <th scope="col">Mantenimiento Propio</th>
+        <th scope="col">Por Orden Compra</th>
+        <th scope="col">Requiere Validación</th>
+        <th scope="col">Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of mantenimiento">
+        <th scope="row">{{ info.NUM_HOJA_VIDA }}</th>
+        <td>{{ info.Mantenimiento_Propio }}</td>
+        <td>{{ info.Por_Orden_Compra }}</td>
+        <td>{{ info.Requiere_Validacion }}</td>
+
+        <td>
+          <label
+            class="badge badge-success"
+            routerLink="/getmantenimiento/{{ info.NUM_HOJA_VIDA }}"
+            >Ver Info</label
+          >
+          <br />
+          <button
+            class="btn btn-info mr-1"
+            [routerLink]="['/editmantenimiento', info.NUM_HOJA_VIDA]"
+          >
+            <i class="fa fa-pen"></i>
+          </button>
+
+          <button class="btn btn-danger" (click)="borrarInfo(info)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    *ngIf="!cargando && mantenimiento.length === 0"
+    class="alert alert-warning text-center mt-3 animated fadeIn faster"
+  >
+    <h4 class="alert-heading">No hay Registros.</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+  </div>
+  <div
+    *ngIf="cargando"
+    class="alert alert-info text-center mt-3 animated fadeIn faster"
+  >
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+      <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">Espere por favor.</p>
+  </div>
+</div>

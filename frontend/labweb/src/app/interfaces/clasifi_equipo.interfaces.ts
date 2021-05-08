@@ -1,0 +1,17 @@
+export interface Clasifi_Equipo {
+
+    CLASIFICACIÓN_DE_EQUIPO: string;
+    CLASIFICACION_USO: string;
+    CLASIFICACION_BIOMEDICA: string;
+    TECNOLOGIA_PREDOMINANTE: string;
+    CLASIFICACION_RIESGO: string;
+    CLASE_RIESGO_ELECTRICO: string;
+    TIPO_RIESGO_ELECTRICO: string;
+    CLASES_SOFTWARE: string;
+    COMPLEJIDAD_TECNOLOGICA_EQUIPO: string;
+    FUENTES_ALIMENTACION: string;
+    CICLO_MANTENIMIENTO: string;
+    CICLO_CALIB_VALID_CALPERSONAL: string;
+
+
+}

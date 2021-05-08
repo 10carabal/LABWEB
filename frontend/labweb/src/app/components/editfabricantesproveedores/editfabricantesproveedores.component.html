@@ -1,0 +1,145 @@
+<div class="container">
+  <h1>Actualizar Datos de fabricantes y Proveedores</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+  <div class="row">
+    <div class="col text-right">
+      <button
+        routerLink="/newfabricantesproveedores"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtNombre">Nombre</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtFABRICANTE"
+          placeholder="FABRICANTE"
+          [(ngModel)]="infoI.FABRICANTE"
+          name="FABRICANTE"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtMarca">Marca</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPAIS_ORIGEN"
+          placeholder="PAÍS DE ORIGEN"
+          [(ngModel)]="infoI.PAIS_ORIGEN"
+          name="PAIS_ORIGEN"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtModelo">Modelo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtWEB_FABRICANTE"
+          placeholder="WEB FABRICANTE"
+          [(ngModel)]="infoI.WEB_FABRICANTE"
+          name="WEB_FABRICANTE"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSeral">Serial</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtREPRESENTANTE"
+          placeholder="REPRESENTANTE"
+          [(ngModel)]="infoI.REPRESENTANTE"
+          name="REPRESENTANTE"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtActivo">Activo Fijo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPROVEEDOR"
+          placeholder="PROVEEDOR"
+          [(ngModel)]="infoI.PROVEEDOR"
+          name="PROVEEDOR"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtArea">Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCIUDAD_PROVEEDOR"
+          placeholder="CIUDAD PROVEEDOR"
+          [(ngModel)]="infoI.CIUDAD_PROVEEDOR"
+          name="CIUDAD_PROVEEDOR"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtDIRECCION_PROVEEDOR"
+          placeholder="DIRECCIÓN PROVEEDOR"
+          [(ngModel)]="infoI.DIRECCION_PROVEEDOR"
+          name="DIRECCION_PROVEEDOR"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTELEFONO_PROVEEDOR"
+          placeholder="TELEFONO PROVEEDOR"
+          [(ngModel)]="infoI.TELEFONO_PROVEEDOR"
+          name="TELEFONO_PROVEEDOR"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="email"
+          class="form-control"
+          id="txtCORREO_PROVEEDOR"
+          placeholder="CORREO PROVEEDOR"
+          [(ngModel)]="infoI.CORREO_PROVEEDOR"
+          name="CORREO_PROVEEDOR"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtWEB_PROVEEDOR"
+          placeholder="WEB PROVEEDOR"
+          [(ngModel)]="infoI.WEB_PROVEEDOR"
+          name="WEB_PROVEEDOR"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>

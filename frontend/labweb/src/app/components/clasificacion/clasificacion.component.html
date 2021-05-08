@@ -1,0 +1,221 @@
+<div class="container">
+  <h1>Agregar Datos de Clasificación del equipo</h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newclasificacion" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="guardarInfo(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="newClasificacion.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+        required
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CLASIFICACIÓN DEl EQUIPO</label>
+        <select
+          id="CLASIFICACION_DE_EQUIPO"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CLASIFICACION_DE_EQUIPO"
+          name="CLASIFICACION_DE_EQUIPO"
+          required
+        >
+          <option selected>Médico</option>
+          <option>Odontológico</option>
+          <option>Laboratorio</option>
+          <option>Simulación</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label for="txtMarca">CLASIFICACIÓN DE USO</label>
+        <select
+          id="CLASIFICACION_USO"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CLASIFICACION_USO"
+          name="CLASIFICACION_USO"
+          required
+        >
+          <option selected>Médico</option>
+          <option>Básico</option>
+          <option>Ensayo</option>
+          <option>Laboratorio</option>
+          <option>Apoyo</option>
+        </select>
+        <!-- <input
+          type="text"
+          class="form-control"
+          id="txtCLASIFICACION_USO"
+          placeholder="CLASIFICACIÓN DE USO"
+          [(ngModel)]="newClasificacion.CLASIFICACION_USO"
+          name="CLASIFICACION_USO"
+          required
+        /> -->
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CLASIFICACIÓN BIOMEDICA</label>
+        <select
+          id="CLASIFICACION_BIOMEDICA"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CLASIFICACION_BIOMEDICA"
+          name="CLASIFICACION_BIOMEDICA"
+          required
+        >
+          <option selected>Diagnóstico</option>
+          <option>Prevención</option>
+          <option>Rehabilitación</option>
+          <option>Análisis de Laboratorio</option>
+          <option>Tratamiento y Mantenimiento de la Vida</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label for="txtSeral">TECNOLOGÍA PREDOMINANTE</label>
+        <select
+          id="TECNOLOGIA_PREDOMINANTE"
+          class="form-control"
+          [(ngModel)]="newClasificacion.TECNOLOGIA_PREDOMINANTE"
+          name="TECNOLOGIA_PREDOMINANTE"
+          required
+        >
+          <option selected>Mecánico</option>
+          <option>Eléctrico</option>
+          <option>Electrónico</option>
+          <option>Hidráulico</option>
+          <option>Neumático</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CLASIFICACIÓN DE RIESGO</label>
+        <select
+          id="CLASIFICACION_RIESGO"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CLASIFICACION_RIESGO"
+          name="CLASIFICACION_RIESGO"
+          required
+        >
+          <option>Muy Alto Riesgo III</option>
+          <option>Alto Riesgo IIB</option>
+          <option>Moderado Riesgo II A</option>
+          <option selected>Bajo Riesgo I</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CLASE RIESGO ELÉCTRICO</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCLASE_RIESGO_ELECTRICO"
+          placeholder="N/P"
+          [(ngModel)]="newClasificacion.CLASE_RIESGO_ELECTRICO"
+          name="CLASE_RIESGO_ELECTRICO"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>TIPO RIESGO ELÉCTRICO</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtTIPO_RIESGO_ELECTRICO"
+          placeholder="N/P"
+          [(ngModel)]="newClasificacion.TIPO_RIESGO_ELECTRICO"
+          name="TIPO_RIESGO_ELECTRICO"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CLASES DE SOFTWARE</label>
+        <select
+          id="CLASES_SOFTWARE"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CLASES_SOFTWARE"
+          name="CLASES_SOFTWARE"
+          required
+        >
+          <option selected>Programación</option>
+          <option>Sistema</option>
+          <option>Aplicación</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>COMPLEJIDAD TECNOLOGICA DEL EQUIPO</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCOMPLEJIDAD_TECNOLOGICA_EQUIPO"
+          placeholder="N/P"
+          [(ngModel)]="newClasificacion.COMPLEJIDAD_TECNOLOGICA_EQUIPO"
+          name="COMPLEJIDAD_TECNOLOGICA_EQUIPO"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>FUENTES DE ALIMENTACIÓN</label>
+        <select
+          id="FUENTES_ALIMENTACION"
+          class="form-control"
+          [(ngModel)]="newClasificacion.FUENTES_ALIMENTACION"
+          name="FUENTES_ALIMENTACION"
+          required
+        >
+          <option selected>Electricidad</option>
+          <option>Agua</option>
+          <option>Aire</option>
+          <option>Gas</option>
+          <option>Vapor</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CICLO MANTENIMIENTO</label>
+        <select
+          id="CICLO_MANTENIMIENTO"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CICLO_MANTENIMIENTO"
+          name="CICLO_MANTENIMIENTO"
+          required
+        >
+          <option>3 Meses</option>
+          <option>4 Meses</option>
+          <option>6 Meses</option>
+          <option selected>12 Meses</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>CICLO CALIBRACIÓN/VALIDACIÓN</label>
+        <select
+          id="CICLO_CALIB_VALID_CALPERSONAL"
+          class="form-control"
+          [(ngModel)]="newClasificacion.CICLO_CALIB_VALID_CALPERSONAL"
+          name="CICLO_CALIB_VALID_CALPERSONAL"
+          required
+        >
+          <option>3 Meses</option>
+          <option>4 Meses</option>
+          <option>6 Meses</option>
+          <option selected>12 Meses</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Guardar Clasificación de Equipo
+    </button>
+  </form>
+</div>

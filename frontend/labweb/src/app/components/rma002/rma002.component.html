@@ -1,0 +1,97 @@
+<div class="container">
+  <h1>RMA002 Guia rápida para los equipos de la USC.</h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA002" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="rma002.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtNombre">Nombre</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPARTES_EQUIPO"
+          placeholder="PARTES DEL EQUIPO"
+          [(ngModel)]="rma002.PARTES_EQUIPO"
+          name="PARTES_EQUIPO"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtMarca">Marca</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtACCESORIOS_EQUIPO"
+          placeholder="ACCESORIOS EQUIPO"
+          [(ngModel)]="rma002.ACCESORIOS_EQUIPO"
+          name="ACCESORIOS_EQUIPO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtModelo">Modelo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTECNOVIGILANCIA"
+          placeholder="TECNOVIGILANCIA"
+          [(ngModel)]="rma002.TECNOVIGILANCIA"
+          name="TECNOVIGILANCIA"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSeral">Serial</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtANTES_USO"
+          placeholder="ANTES DE USO"
+          [(ngModel)]="rma002.ANTES_USO"
+          name="ANTES_USO"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtActivo">Activo Fijo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtDESPUES_USO"
+          placeholder="DESPUES DE USO"
+          [(ngModel)]="rma002.DESPUES_USO"
+          name="DESPUES_USO"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Generar RMA002
+    </button>
+  </form>
+</div>

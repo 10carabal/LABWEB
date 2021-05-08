@@ -1,0 +1,70 @@
+<div class="container m-5">
+  <div class="col-md12 mt-5">
+    <h5 class="col-md-5 ml-4 pl-0">Bienvenido</h5>
+    <p class="ml-4 pl-0">POR FAVOR INGRESA NOMBRE DE USUARIO Y CONTRASEÑA</p>
+  </div>
+  <div class="row">
+    <form class="col-md-5 ml-5 pl-1">
+      <div class="form-group animated fadeIn fast">
+        <label for="exampleInputEmail1">Código</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingresar Código"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >Los mismos datos de ingreso de la USC</small
+        >
+      </div>
+      <div class="form-group animated fadeIn fast">
+        <label for="exampleInputPassword1">Clave</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Contraseña"
+        />
+      </div>
+      <input
+        type="submit"
+        value="Iniciar Sesión"
+        class="btn btn-outline-primary"
+      />
+    </form>
+    <div class="col md-7 text-center animated fadeIn">
+      <img src="./../../../assets/images/logo.png" />
+    </div>
+  </div>
+</div>
+
+<!-- FORMULARIO DE INICIO DE SESIÓN-->
+
+<!-- <form
+    class="col-md-5 ml-0 pl-0"
+    #frmAutenticacion="ngForm"
+    (ngSubmit)="iniciarSesion(frmAutenticacion)"
+  >
+    <div class="form-group">
+      <label for="txtcodigo">Código</label>
+      <input
+        type="text"
+        name="txtcodigo"
+        class="form-control"
+        required
+        pattern="[0-9]+"
+      />
+    </div>
+    <div class="form-group">
+      <label for="txtclave">Clave</label>
+      <input
+        type="password"
+        name="txtclave"
+        class="form-control"
+        
+      />
+    </div>
+
+    <input type="submit" value="Iniciar Sesión" class="btn btn-success" />
+  </form> -->

@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Información de Compra de Equipo # {{ infoI.NUM_HOJA_VIDA }}</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newadquisicion" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let info of infoI">
+    <div class="card-header">
+      <strong>{{ info.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Formato</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ info.NUM_HOJA_VIDA }} <br />
+        <strong>Fecha de Compra:</strong>
+        {{ info.FECHA_COMPRA }} <br />
+        <strong>Fecha de Fabricación:</strong>
+        {{ info.FECHA_FABRICACION }} <br />
+        <strong>Fecha de Instalación:</strong>
+        {{ info.FECHA_INSTALACION }} <br />
+        <strong>Fecha de Acta de Recibos:</strong>
+        {{ info.FECHA_ACTA_RECIBOS }} <br />
+        <strong>Fecha de Inicio de Operación:</strong>
+        {{ info.FECHA_INICIO_OPERACION }} <br />
+        <strong>Costo del Equipo:</strong>
+        {{ info.COSTO_EQUIPO }} <br />
+        <strong>Forma de adquisición:</strong>
+        {{ info.FORMA_ADQUISICION }} <br />
+        <strong>Garantía en Años:</strong>
+        {{ info.GARANTIA_ANIOS }} <br />
+        <strong>Estado Garantía:</strong>
+        {{ info.ESTADO_GARANTIA }} <br />
+        <strong>Fin Garantía:</strong>
+        {{ info.FIN_GARANTIA }} <br />
+        <strong>Estado Actual:</strong>
+        {{ info.ESTADO_ACTUAL }} <br />
+        <strong>Años de Uso:</strong>
+        {{ info.ANIOS_USO }} <br />
+        <strong>Factura:</strong>
+        {{ info.FACTURA }} <br />
+        <strong>Orden de Compra:</strong>
+        {{ info.ORDEN_DE_COMPRA }} <br />
+        <strong>Vida Útil:</strong>
+        {{ info.VIDA_UTIL }} <br />
+        <strong>Razón Vida Útil:</strong>
+        {{ info.RAZON_VIDA_UTIL }} <br />
+        <strong>Fecha de Ingreso al Inventario:</strong>
+        {{ info.FECHA_INGRESO_INVENTARIO }} <br />
+        <strong>Ejecutor de Hoja de Vida:</strong>
+        {{ info.EJECUTOR_HOJA_VIDA }} <br />
+        <strong>Lider de Proceso:</strong>
+        {{ info.LIDER_PROCESO }} <br />
+      </p>
+    </div>
+  </div>
+</div>

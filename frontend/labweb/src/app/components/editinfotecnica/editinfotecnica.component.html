@@ -1,0 +1,242 @@
+<div class="container">
+  <h1>Actualizar Información técnica del equipo.</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newinfotecnica" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtNombre">Nombre</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCodigo_ECRI"
+          placeholder="Codigo ECRI"
+          [(ngModel)]="tecnicaI.Codigo_ECRI"
+          name="Codigo_ECRI"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtMarca">Marca</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNomenclatura_Internacional"
+          placeholder="Nomenclatura_Internacional"
+          [(ngModel)]="tecnicaI.Nomenclatura_Internacional"
+          name="Nomenclatura_Internacional"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtModelo">Modelo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNomenclatura"
+          placeholder="Nomenclatura"
+          [(ngModel)]="tecnicaI.Nomenclatura"
+          name="Nomenclatura"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo de Equipo</label>
+        <select
+          id="txtTipo_Equipo"
+          class="form-control"
+          [(ngModel)]="tecnicaI.Tipo_Equipo"
+          name="Tipo_Equipo"
+          required
+        >
+          <option selected>Móvil</option>
+          <option>Fijo</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Firmware</label>
+        <select
+          id="txtFirmware"
+          class="form-control"
+          [(ngModel)]="tecnicaI.Firmware"
+          name="Firmware"
+          required
+        >
+          <option selected>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Software</label>
+        <select
+          id="txtSoftware"
+          class="form-control"
+          [(ngModel)]="tecnicaI.Software"
+          name="Software"
+          required
+        >
+          <option selected>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRango_Voltaje"
+          placeholder="Rango de Voltaje"
+          [(ngModel)]="tecnicaI.Rango_Voltaje"
+          name="Rango_Voltaje"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCorriente"
+          placeholder="Corriente"
+          [(ngModel)]="tecnicaI.Corriente"
+          name="Corriente"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPotencia"
+          placeholder="Potencia"
+          [(ngModel)]="tecnicaI.Potencia"
+          name="Potencia"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtFrecuencia"
+          placeholder="Frecuencia HZ"
+          [(ngModel)]="tecnicaI.Frecuencia_HZ"
+          name="Frecuencia_HZ"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtDimensiones"
+          placeholder="Dimensiones CM"
+          [(ngModel)]="tecnicaI.Dimensiones_CM"
+          name="Dimensiones_CM"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPresion"
+          placeholder="Presión"
+          [(ngModel)]="tecnicaI.Presion"
+          name="Presion"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTemperatura"
+          placeholder="Temperatura"
+          [(ngModel)]="tecnicaI.Temperatura"
+          name="Temperatura"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPeso_KGS"
+          placeholder="Peso KGS"
+          [(ngModel)]="tecnicaI.Peso_KGS"
+          name="Peso_KGS"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHumedad"
+          placeholder="Humedad"
+          [(ngModel)]="tecnicaI.Humedad"
+          name="Humedad"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRPM"
+          placeholder="RPM"
+          [(ngModel)]="tecnicaI.RPM"
+          name="RPM"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtDescripcion_Equipo"
+          placeholder="Descripción Equipo"
+          [(ngModel)]="tecnicaI.Descripcion_Equipo"
+          name="Descripcion_Equipo"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtOtras_Recomendaciones"
+          placeholder="Otras Recomendaciones"
+          [(ngModel)]="tecnicaI.Otras_Recomendaciones"
+          name="Otras_Recomendaciones"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>

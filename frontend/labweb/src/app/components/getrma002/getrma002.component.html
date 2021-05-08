@@ -1,0 +1,50 @@
+<div class="container">
+  <br />
+  <h1>RMA002 Guía Rapida de Equipo # {{ formatos.NUM_HOJA_VIDA }}</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA002" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="card text-center mb-5" *ngFor="let rma002 of formatos">
+    <div class="card-header">
+      <strong>{{ rma002.Nombre }} </strong>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Datos del Equipo</h4>
+      <p class="card-text">
+        <strong>Hoja de Vida No:</strong>
+        {{ rma002.NUM_HOJA_VIDA }} <br />
+        <strong>Ubicación:</strong>
+        {{ rma002.Sub_Area }} <br />
+        <strong>Nomenclatura:</strong>
+        {{ rma002.Nomenclatura }} <br />
+        <strong>Marca:</strong>
+        {{ rma002.Marca }} <br />
+        <strong>Modelo:</strong>
+        {{ rma002.Modelo }} <br />
+        <strong>Serial:</strong>
+        {{ rma002.Serial }} <br />
+        <strong>Activo Fijo:</strong>
+        {{ rma002.Activo_Fijo }} <br />
+      </p>
+      <h4 class="card-title">Partes del Equipo</h4>
+      <p class="card-text">
+        <strong>Partes del Equipo:</strong>
+        {{ rma002.PARTES_EQUIPO }} <br />
+        <strong>Accesorios del Equipo:</strong>
+        {{ rma002.ACCESORIOS_EQUIPO }} <br />
+        <strong>Tecnovigilancia:</strong>
+        {{ rma002.TECNOVIGILANCIA }} <br />
+        <strong>Antes de Utilizar el Equipo:</strong>
+        {{ rma002.ANTES_USO }} <br />
+        <strong>Despues de Utilizar el Equipo:</strong>
+        {{ rma002.DESPUES_USO }} <br />
+      </p>
+    </div>
+  </div>
+</div>

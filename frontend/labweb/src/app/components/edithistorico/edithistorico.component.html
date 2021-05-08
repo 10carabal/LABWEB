@@ -1,0 +1,140 @@
+<div class="container">
+  <h1>Editar Historico de Mantenimiento, Calibración/Validación del equipo.</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newhistorico" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo de Servicio</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtTipo_Servicio"
+          placeholder="Tipo Servicio"
+          [(ngModel)]="historico.Tipo_Servicio"
+          name="Tipo_Servicio"
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha</label>
+
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha"
+          placeholder="Fecha"
+          [(ngModel)]="historico.Fecha"
+          name="Fecha"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Costo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtCosto"
+          placeholder="Costo"
+          [(ngModel)]="historico.Costo"
+          name="Costo"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSeral">Serial</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRepuestos"
+          placeholder="Repuestos"
+          [(ngModel)]="historico.Repuestos"
+          name="Repuestos"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtActivo">Activo Fijo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHH"
+          placeholder="HH"
+          [(ngModel)]="historico.HH"
+          name="HH"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtArea">Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHP"
+          placeholder="HP"
+          [(ngModel)]="historico.HP"
+          name="HP"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtObservaciones"
+          placeholder="Observaciones"
+          [(ngModel)]="historico.Observaciones"
+          name="Observaciones"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable"
+          placeholder="Nombre_Responsable"
+          [(ngModel)]="historico.Nombre_Responsable"
+          name="Nombre_Responsable"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable"
+          placeholder="Cargo_Responsable"
+          [(ngModel)]="historico.Cargo_Responsable"
+          name="Cargo_Responsable"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Reporte"
+          placeholder="Nombre_Responsable_Reporte"
+          [(ngModel)]="historico.Nombre_Responsable_Reporte"
+          name="Nombre_Responsable_Reporte"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>

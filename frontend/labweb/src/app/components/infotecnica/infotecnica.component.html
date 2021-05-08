@@ -1,0 +1,259 @@
+<div class="container">
+  <h1>Agregar Información técnica del equipo.</h1>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newinfotecnica" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="guardarInfo(f)" #f="ngForm">
+    <div class="form-group col-md-6 animated fadeIn">
+      <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
+      <select
+        id="NUM_HOJA_VIDA"
+        class="form-control"
+        [(ngModel)]="newtecnica.NUM_HOJA_VIDA"
+        name="NUM_HOJA_VIDA"
+        required
+      >
+        <option
+          *ngFor="let item of equipos"
+          selected
+          value="{{ item.NUM_HOJA_VIDA }}"
+        >
+          {{ item.NUM_HOJA_VIDA }} - {{ item.Nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtNombre">Nombre</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCodigo_ECRI"
+          placeholder="Codigo ECRI"
+          [(ngModel)]="newtecnica.Codigo_ECRI"
+          name="Codigo_ECRI"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtMarca">Marca</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNomenclatura_Internacional"
+          placeholder="Nomenclatura_Internacional"
+          [(ngModel)]="newtecnica.Nomenclatura_Internacional"
+          name="Nomenclatura_Internacional"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtModelo">Modelo</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNomenclatura"
+          placeholder="Nomenclatura"
+          [(ngModel)]="newtecnica.Nomenclatura"
+          name="Nomenclatura"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo de Equipo</label>
+        <select
+          id="txtTipo_Equipo"
+          class="form-control"
+          [(ngModel)]="newtecnica.Tipo_Equipo"
+          name="Tipo_Equipo"
+          required
+        >
+          <option selected>Móvil</option>
+          <option>Fijo</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Firmware</label>
+        <select
+          id="txtFirmware"
+          class="form-control"
+          [(ngModel)]="newtecnica.Firmware"
+          name="Firmware"
+          required
+        >
+          <option selected>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Software</label>
+        <select
+          id="txtSoftware"
+          class="form-control"
+          [(ngModel)]="newtecnica.Software"
+          name="Software"
+          required
+        >
+          <option selected>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRango_Voltaje"
+          placeholder="Rango de Voltaje"
+          [(ngModel)]="newtecnica.Rango_Voltaje"
+          name="Rango_Voltaje"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCorriente"
+          placeholder="Corriente"
+          [(ngModel)]="newtecnica.Corriente"
+          name="Corriente"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPotencia"
+          placeholder="Potencia"
+          [(ngModel)]="newtecnica.Potencia"
+          name="Potencia"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtFrecuencia"
+          placeholder="Frecuencia HZ"
+          [(ngModel)]="newtecnica.Frecuencia_HZ"
+          name="Frecuencia_HZ"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtDimensiones"
+          placeholder="Dimensiones CM"
+          [(ngModel)]="newtecnica.Dimensiones_CM"
+          name="Dimensiones_CM"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPresion"
+          placeholder="Presión"
+          [(ngModel)]="newtecnica.Presion"
+          name="Presion"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTemperatura"
+          placeholder="Temperatura"
+          [(ngModel)]="newtecnica.Temperatura"
+          name="Temperatura"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtPeso_KGS"
+          placeholder="Peso KGS"
+          [(ngModel)]="newtecnica.Peso_KGS"
+          name="Peso_KGS"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHumedad"
+          placeholder="Humedad"
+          [(ngModel)]="newtecnica.Humedad"
+          name="Humedad"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtRPM"
+          placeholder="RPM"
+          [(ngModel)]="newtecnica.RPM"
+          name="RPM"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtDescripcion_Equipo"
+          placeholder="Descripción Equipo"
+          [(ngModel)]="newtecnica.Descripcion_Equipo"
+          name="Descripcion_Equipo"
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtOtras_Recomendaciones"
+          placeholder="Otras Recomendaciones"
+          [(ngModel)]="newtecnica.Otras_Recomendaciones"
+          name="Otras_Recomendaciones"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5 col-md-12">
+      Guardar Información técnica del Equipo
+    </button>
+  </form>
+</div>

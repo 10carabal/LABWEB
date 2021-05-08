@@ -1,0 +1,269 @@
+<div class="container">
+  <h1>Editar RMA006 Informe Mantenimiento</h1>
+  <hr />
+  <h5>Hoja de vida # {{ temp.NUM_HOJA_VIDA }}</h5>
+
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/newRMA006" class="btn btn-outline-danger">
+        <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="editarInfo(f)" #f="ngForm">
+    <div class="form-row" animated fadeIn fast>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo de Mantenimiento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtTipo_Mantenimiento"
+          placeholder="Tipo Mantenimiento"
+          [(ngModel)]="infomantenimiento.Tipo_Mantenimiento"
+          name="Tipo_Mantenimiento"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Imagen Antes Mantenimiento</label>
+        <input
+          type="file"
+          class="form-control"
+          id="txtImagen_Antes_Mantenimiento"
+          placeholder="Imagen_Antes_Mantenimiento"
+          [(ngModel)]="infomantenimiento.Imagen_Antes_Mantenimiento"
+          name="Imagen_Antes_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Imagen Después Mantenimiento</label>
+        <input
+          type="file"
+          class="form-control"
+          id="txtImagen_Despues_Mantenimiento"
+          placeholder="Imagen_Despues_Mantenimiento"
+          [(ngModel)]="infomantenimiento.Imagen_Despues_Mantenimiento"
+          name="Imagen_Despues_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Fecha de Mantenimiento</label>
+        <input
+          type="date"
+          class="form-control"
+          id="txtFecha_Mantenimiento"
+          placeholder="Fecha_Mantenimiento"
+          [(ngModel)]="infomantenimiento.Fecha_Mantenimiento"
+          name="Fecha_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Hora de Inicio</label>
+        <input
+          type="time"
+          class="form-control"
+          id="txtHora_Inicio"
+          placeholder="Hora_Inicio"
+          [(ngModel)]="infomantenimiento.Hora_Inicio"
+          name="Hora_Inicio"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Hora Finalización</label>
+        <input
+          type="time"
+          class="form-control"
+          id="txtHora_Fin"
+          placeholder="Hora_Fin"
+          [(ngModel)]="infomantenimiento.Hora_Fin"
+          name="Hora_Fin"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Tipo Equipo</label>
+        <select
+          id="Tipo_Equipo"
+          class="form-control"
+          [(ngModel)]="infomantenimiento.Tipo_Equipo"
+          name="Tipo_Equipo"
+          required
+        >
+          <option selected>Médico</option>
+          <option>Odontológico</option>
+          <option>Laboratorio</option>
+          <option>Simulación</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Limpieza</label>
+        <select
+          id="Limpieza"
+          class="form-control"
+          [(ngModel)]="infomantenimiento.Limpieza"
+          name="Limpieza"
+          required
+        >
+          <option selected>N/P</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <label>Reemplazo de Accesorios</label>
+
+        <select
+          id="Reemplazo_Accesorios"
+          class="form-control"
+          [(ngModel)]="infomantenimiento.Reemplazo_Accesorios"
+          name="Reemplazo_Accesorios"
+          required
+        >
+          <option selected>N/P</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtActividades_Realizadas"
+          placeholder="Actividades Realizadas"
+          [(ngModel)]="infomantenimiento.Actividades_Realizadas"
+          name="Actividades_Realizadas"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtObservacion_Mantenimiento"
+          placeholder="Observación Mantenimiento"
+          [(ngModel)]="infomantenimiento.Observacion_Mantenimiento"
+          name="Observacion_Mantenimiento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtEstado_Equipo"
+          placeholder="Estado Equipo"
+          [(ngModel)]="infomantenimiento.Estado_Equipo"
+          name="Estado_Equipo"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtTest_Funcionalidad"
+          placeholder="Test Funcionalidad"
+          [(ngModel)]="infomantenimiento.Test_Funcionalidad"
+          name="Test_Funcionalidad"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtHerramientas_Utilizadas"
+          placeholder="Herramientas Utilizadas"
+          [(ngModel)]="infomantenimiento.Herramientas_Utilizadas"
+          name="Herramientas_Utilizadas"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtEquipo_Proteccion_Personal"
+          placeholder="Equipo de Protección Personal"
+          [(ngModel)]="infomantenimiento.Equipo_Proteccion_Personal"
+          name="Equipo_Proteccion_Personal"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Mento"
+          placeholder="Nombre Responsable Mantenimiento"
+          [(ngModel)]="infomantenimiento.Nombre_Responsable_Mento"
+          name="Nombre_Responsable_Mento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable_Mento"
+          placeholder="Cargo Responsable Mantenimiento"
+          [(ngModel)]="infomantenimiento.Cargo_Responsable_Mento"
+          name="Cargo_Responsable_Mento"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtNombre_Responsable_Recibir"
+          placeholder="Nombre de quien Recibe"
+          [(ngModel)]="infomantenimiento.Nombre_Responsable_Recibir"
+          name="Nombre_Responsable_Recibir"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 animated fadeIn">
+        <!--                 <label for="txtSubArea">Sub Area</label>
+ -->
+        <input
+          type="text"
+          class="form-control"
+          id="txtCargo_Responsable_Recibir"
+          placeholder="Cargo de quien Recibe"
+          [(ngModel)]="infomantenimiento.Cargo_Responsable_Recibir"
+          name="Cargo_Responsable_Recibir"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-5 col-md-12">
+      Actualizar
+    </button>
+  </form>
+</div>
