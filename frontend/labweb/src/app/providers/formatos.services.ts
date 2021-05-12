@@ -13,9 +13,9 @@ import { Func_EquiposModel } from '../models/func_equipos';
 @Injectable()
 export class FormatosService {
 
-    //private url: string = 'http://labweb.usc.edu.co:8000/api';
+    private url: string = 'http://labweb.usc.edu.co:8000/api';
 
-    private url: string = "http://127.0.0.1:8000/api";
+    //private url: string = "http://127.0.0.1:8000/api";
     headers = new HttpHeaders({
         'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
