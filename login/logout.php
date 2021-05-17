@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  header('Location: /proyectoBienestar');
+  //header('Location: /proyectoBienestar');
 ?>
