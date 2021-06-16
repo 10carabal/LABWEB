@@ -10,10 +10,10 @@ class PlanMantenimiento extends Model
 
 
     protected $table = 'Tb_Cron_Plan_Mento_Equipos';
-    protected $primaryKey = 'NUM_HOJA_VIDA';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'NUM_HOJA_VIDA', 'FREC_MENTO_PREVENTIVO', 'FECHA_EJECUCION', 'ESTADO_EJECUCION', 'RESPONSABLE_MANTENIMIENTO',
-        'OBSERVACIONES_EQUIPO', 'COSTO_MANTENIMIENTO', 'Consecutivo_Orden'
+        'OBSERVACIONES_EQUIPO', 'COSTO_MANTENIMIENTO', 'Consecutivo_Orden', 'CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

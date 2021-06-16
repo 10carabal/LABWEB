@@ -15,7 +15,7 @@ class Inspe_Funcionalidad extends Model
         'NUM_HOJA_VIDA', 'Consecutivo_Orden', 'Laboratorio', 'Fecha_Ejecucion',
         'Nombre_Responsable', 'Cargo_Responsable', 'Funcionamiento_Equipo',
         'Estado_Entorno', 'Estado_Accesorio_Consumibles', 'Estado_lineas_Alimentacion', 'Estado_Almacenamiento',
-        'Documentacion_Presente'
+        'Documentacion_Presente','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

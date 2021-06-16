@@ -13,7 +13,7 @@ class Hist_Solicitudes_Equipos extends Model
     protected $fillable = [
         'NUM_HOJA_VIDA', 'Consecutivo_Orden', 'Tipo_Servicio', 'Fecha', 'Costo',
         'Repuestos', 'HH', 'HP', 'Observaciones', 'Nombre_Responsable',
-        'Cargo_Responsable', 'Nombre_Responsable_Reporte', 'Satisfaccion_Usuario'
+        'Cargo_Responsable', 'Nombre_Responsable_Reporte', 'Satisfaccion_Usuario', 'CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

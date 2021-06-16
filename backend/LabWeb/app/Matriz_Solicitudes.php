@@ -12,8 +12,8 @@ class Matriz_Solicitudes extends Model
     protected $fillable = [
         'NUM_HOJA_VIDA', 'Consecutivo_Orden',
         'Fecha_Solicitud', 'Descripcion_Solicitud', 'CDIS_Presupuesto',
-        'Fecha_Ejecucion', 'EJECUTADO', 'Personal_Encargado',
-        'NO_EJECUTADO', 'Total_Solicitudes'
+        'Fecha_Ejecucion', 'EJECUTADO',
+        'NO_EJECUTADO', 'Personal_Encargado','Total_Solicitudes','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

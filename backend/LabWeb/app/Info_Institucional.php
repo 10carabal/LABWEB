@@ -11,7 +11,7 @@ class Info_Institucional extends Model
     protected $fillable = [
         'NUM_HOJA_VIDA', 'Pais', 'Ciudad', 'Direccion', 'Nit_Universidad', 'RUT', 'Telefono',
         'Website', 'Email_Laboratorio', 'Fecha_Ejecucion_Hoja_Vida',
-        'Lider_Proceso', 'Cargo'
+        'Lider_Proceso', 'Cargo','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

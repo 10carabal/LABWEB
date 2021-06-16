@@ -15,7 +15,7 @@ class Info_Tecnica_Equipo extends Model
         'Tipo_Equipo', 'Firmware', 'Software',
         'Rango_Voltaje', 'Corriente', 'Potencia', 'Frecuencia_(HZ)',
         'Dimensiones_(CM)', 'Presion', 'Temperatura', 'Peso_KGS', 'Humedad', 'RPM',
-        'Descripcion_Equipo', 'Otras_Recomendaciones'
+        'Descripcion_Equipo', 'Otras_Recomendaciones','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

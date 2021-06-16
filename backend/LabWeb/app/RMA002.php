@@ -10,7 +10,7 @@ class RMA002 extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'NUM_HOJA_VIDA', 'PARTES_EQUIPO', 'ACCESORIOS_EQUIPO', 'TECNOVIGILANCIA', 'ANTES_USO',
-        'DESPUES_USO'
+        'DESPUES_USO','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

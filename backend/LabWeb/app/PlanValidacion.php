@@ -10,10 +10,10 @@ class PlanValidacion extends Model
 
 
     protected $table = 'Tb_Plan_Validacion';
-    protected $primaryKey = 'NUM_HOJA_VIDA';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'NUM_HOJA_VIDA', 'FCIA_VACION_CALIB', 'FECHA_EJECUCION', 'ESTADO_EJECUCION',
-        'OBSERVACIONES_EQUIPO', 'Consecutivo_Orden'
+        'OBSERVACIONES_EQUIPO', 'Consecutivo_Orden','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

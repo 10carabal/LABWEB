@@ -14,7 +14,7 @@ class Adq_Equipos extends Model
         'ESTADO_GARANTIA', 'FIN_GARANTIA', 'ESTADO_ACTUAL',
         'AÑOS_USO', 'FACTURA', 'ORDEN_DE_COMPRA', 'VIDA_UTIL', 'RAZON_VIDA_UTIL', 'FECHA_INGRESO_INVENTARIO',
         'EJECUTOR_HOJA_VIDA',
-        'LIDER_PROCESO'
+        'LIDER_PROCESO', 'CREATED_AT','UPDATED_AT'
     ];
 
     public function hojadevida()

@@ -16,7 +16,7 @@ class InformeMantenimiento extends Model
         'Reemplazo_Accesorios',
         'Herramientas_Utilizadas', 'Equipo_Proteccion_Personal', 'Nombre_Responsable_Mento',
         'Cargo_Responsable_Mento',
-        'Nombre_Responsable_Recibir', 'Cargo_Responsable_Recibir'
+        'Nombre_Responsable_Recibir', 'Cargo_Responsable_Recibir','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {

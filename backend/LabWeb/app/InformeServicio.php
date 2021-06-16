@@ -17,7 +17,7 @@ class InformeServicio extends Model
         'Insumos_Instalados',
         'Mediciones', 'Observaciones', 'Nombre_Responsable',
         'Cargo_Responsable',
-        'Nombre_Responsable_Recibir', 'Cargo_Responsable_Recibir'
+        'Nombre_Responsable_Recibir', 'Cargo_Responsable_Recibir','CREATED_AT', 'UPDATED_AT'
     ];
     public function hojadevida()
     {
