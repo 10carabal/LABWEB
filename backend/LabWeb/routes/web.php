@@ -90,3 +90,6 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('login', 'UsuariosController@login');
     Route::post('register', 'UsuariosController@register');
  */ });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
