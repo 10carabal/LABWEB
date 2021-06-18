@@ -65,11 +65,24 @@ return [
     */
 
     'providers' => [
+        //'users' => [
+        //    'driver' => 'eloquent',
+        //    'model' => App\User::class,
+        //],
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+            'driver' => 'ldap',
+            //'model' => LdapRecord\Models\ActiveDirectory\User::class,
+            'model' => LdapRecord\Models\OpenLDAP\User::class,
+            'rules' => [],
+            'database' => [
+                'model' => App\User::class,
+                'sync_passwords' => false,
+                'sync_attributes' => [
+                    'name' => 'cn',
+                    'email' => 'mail',
+                ],
+            ],
         ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
