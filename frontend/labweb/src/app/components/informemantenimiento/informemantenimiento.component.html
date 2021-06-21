@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm">
+  <form (ngSubmit)="generarSolicitud(f)" #f="ngForm" enctype="multipart/form-data">
     <div class="form-group col-md-5 animated fadeIn">
       <label for="NUM_HOJA_VIDA">Seleccionar hoja de vida</label>
       <select
@@ -68,6 +68,7 @@
           placeholder="Imagen_Antes_Mantenimiento"
           [(ngModel)]="newrma006.Imagen_Antes_Mantenimiento"
           name="Imagen_Antes_Mantenimiento"
+          (change)="onFileSelected($event, 1)"
           required
         />
       </div>
@@ -79,6 +80,7 @@
           id="txtImagen_Despues_Mantenimiento"
           placeholder="Imagen_Despues_Mantenimiento"
           [(ngModel)]="newrma006.Imagen_Despues_Mantenimiento"
+          (change)="onFileSelected($event, 2)"
           name="Imagen_Despues_Mantenimiento"
           required
         />

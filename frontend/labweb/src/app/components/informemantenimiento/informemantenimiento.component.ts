@@ -16,6 +16,8 @@ export class InformemantenimientoComponent implements OnInit {
 
   equipos: EquiposModel;
   newrma006 = new InformeMantenimientoModel();
+  imagenAntesMantenimiento: File = null;
+  imagenDespuesMantenimiento: File = null;
   status: string;
   cons_orden: Solicitud_ServicioModel;
 
@@ -58,6 +60,9 @@ export class InformemantenimientoComponent implements OnInit {
       console.log('Formulario no valído.');
       return;
     }
+    this.newrma006.imagenAntesMantenimiento = this.imagenAntesMantenimiento;
+    this.newrma006.imagenDespuesMantenimiento = this.imagenDespuesMantenimiento;
+
     Swal.fire({
       title: 'Espere',
       text: 'Guardando Información',
@@ -65,7 +70,6 @@ export class InformemantenimientoComponent implements OnInit {
       allowOutsideClick: false,
     });
     Swal.showLoading();
-
     this._formatosService
       .createRMA006(this.newrma006)
       .subscribe(
@@ -90,9 +94,36 @@ export class InformemantenimientoComponent implements OnInit {
           console.log(error);
           this.status = 'error';
           console.log(this.newrma006);
+          Swal.hideLoading();
+          Swal.fire({
+            title: "Error",
+            text: 'No se pudo guardar los datos.',
+            type: 'error',
+          });
+
         }
       );
   }
+  onFileSelected(event, image) {
+
+        const file:File = event.target.files[0];
+        //this.newrma006[event.target.name] = file;
+        if(image == 1){
+          this.imagenAntesMantenimiento = file;
+        }else
+        if(image == 2){
+          this.imagenDespuesMantenimiento = file;
+        }
+        console.log(file);
+        if (file) {
+
+
+            const formData = new FormData();
+
+            formData.append("thumbnail", file);
+
+        }
+    }
 }
 
 

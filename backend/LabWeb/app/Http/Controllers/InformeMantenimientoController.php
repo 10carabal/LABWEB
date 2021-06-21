@@ -91,12 +91,13 @@ class InformeMantenimientoController extends Controller
      */
     public function store(Request $request)
     {
-        $json = $request->input('json', null);
-        $params_array = json_decode($json, true);
-
+        //$json = $request->input('json', null);
+        //$params_array = json_decode($json, true);
+        $params_array = $request->all();
+        //return response()->json($params_array);
         if (!empty($params_array)) {
 
-
+            //return response()->json(empty($request->file("imagenAntesMantenimiento")) ? "vacio":"con image", 404);
             $validate = \Validator::make(
                 $params_array,
                 [
@@ -129,6 +130,7 @@ class InformeMantenimientoController extends Controller
                 # code...
                 $data = [
                     'code' => 404,
+                    "params" => $params_array,
                     'mensaje' => "No se guardó la información correctamente.",
                     'errors' => $validate->errors()
                 ];
@@ -171,8 +173,13 @@ class InformeMantenimientoController extends Controller
 
 
                 $rma006->save();
-
-
+                $pathImagenAntesMantenimiento = $request->file("imagenAntesMantenimiento")
+                ->storeAs(date("Ymd"), $rma006->id."_Imagen_Antes_Mantenimiento.".$request->file("imagenAntesMantenimiento")->extension(), "images");
+                $pathImagendespuesmantenimiento = $request->file("imagenDespuesMantenimiento")
+                ->storeAs(date("Ymd"), $rma006->id."_Imagen_Despues_Mantenimiento.".$request->file("imagenDespuesMantenimiento")->extension(), "images");
+                $rma006->Imagen_Antes_Mantenimiento = $pathImagenAntesMantenimiento;
+                $rma006->Imagen_Despues_Mantenimiento = $pathImagendespuesmantenimiento;
+                $rma006->save();
                 $data = [
                     'code' => 200,
                     'mensaje' => "Guardado Exitosamente."
@@ -227,7 +234,7 @@ class InformeMantenimientoController extends Controller
                 case 'pdf':
                     $dataObject = $rma006;
                     $pdf = PDF::loadView('pdf_templates.rma006', ["sheets" => $dataObject]);
-                    //return $pdf->stream();
+                    return $pdf->stream();
                     return $pdf->download('informemantenimiento_'.Carbon::now()->format("Ymd_His").'.pdf');
                     break;
                 case 'excel':

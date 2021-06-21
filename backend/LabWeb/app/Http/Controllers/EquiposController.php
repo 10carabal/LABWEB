@@ -27,8 +27,12 @@ class EquiposController extends Controller
     public function index()
     {
         $equipos = Equipos::select('NUM_HOJA_VIDA', 'Nombre', 'Imagen_Equipo', 'Marca', 'Modelo', 'Serial', 'Activo_Fijo', 'Area', 'Sub_Area', 'Registro_Sanitario', 'Permiso_Comercializacion')
-            ->get();
-        return response()->json($equipos, 200)->header('Content-Type', 'application/json');
+            ;
+        if(!empty(request()->name)){
+            $equipos->where("nombre", "like", "%".request()->name."%"); //Especifica el filtro en la columna nombre
+            $equipos->orWhere("NUM_HOJA_VIDA", "like", "%".request()->name."%"); //Especifica el filtro en la columna id
+        }
+        return response()->json($equipos->get(), 200)->header('Content-Type', 'application/json');
     }
 
     public function sacarImagen()
