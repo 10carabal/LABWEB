@@ -1,6 +1,7 @@
 export class RMA002Model {
 
     id: number;
+    ID: number;
     NUM_HOJA_VIDA: number;
     PARTES_EQUIPO: string;
     ACCESORIOS_EQUIPO: string;

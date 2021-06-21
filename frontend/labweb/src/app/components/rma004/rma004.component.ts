@@ -56,7 +56,7 @@ export class Rma004Component implements OnInit {
   generarSolicitud(form) {
     if (form.invalid) {
       console.log('Formulario no valído.');
-      return;
+      //return;
     }
     Swal.fire({
       title: 'Espere',

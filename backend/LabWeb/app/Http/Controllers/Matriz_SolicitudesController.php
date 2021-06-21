@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use DB;
 use App\Matriz_Solicitudes;
 
+use PDF;
+use Carbon\Carbon;
+
 class Matriz_SolicitudesController extends Controller
 {
     /**
@@ -167,6 +170,23 @@ class Matriz_SolicitudesController extends Controller
     public function show($id)
     {
         $rma010 = Matriz_Solicitudes::where("NUM_HOJA_VIDA", "=", $id)->get();
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $dataObject = $rma010;
+                    $pdf = PDF::loadView('pdf_templates.rma010', ["sheets" => $dataObject]);
+                    //return $pdf->stream();
+                    return $pdf->download('matrizsolicitudes'.Carbon::now()->format("Ymd_His").'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         return response()->json($rma010);
         /* $rma010 = Matriz_Solicitudes::find($id);
         if (is_object($rma010)) {

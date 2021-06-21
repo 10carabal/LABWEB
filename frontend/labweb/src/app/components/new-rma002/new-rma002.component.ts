@@ -80,6 +80,19 @@ export class NewRMA002Component implements OnInit {
 
     });
   }
+  download(rma002: RMA002Model){
+    console.log("Descarga iniciada", rma002.ID);
+    this._formatosService.getPDFRMA002I(""+rma002.NUM_HOJA_VIDA)
+      .subscribe((data: any) => {
+        console.log(data);
 
+      },
+        (errorServicio) => {
+
+          console.log(errorServicio.statusText);
+          console.log(errorServicio.message);
+
+        });
+  }
 }
 

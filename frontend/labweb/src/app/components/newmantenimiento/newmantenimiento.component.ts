@@ -79,6 +79,6 @@ export class NewmantenimientoComponent implements OnInit {
 
     });
   }
-
+  
 }
 

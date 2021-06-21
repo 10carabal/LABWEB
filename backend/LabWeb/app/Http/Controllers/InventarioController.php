@@ -30,7 +30,83 @@ class InventarioController extends Controller
 
     public function inventario($id)
     {
-        $inventario = DB::table('Tb_Equipos')
+        $inventario = $this->getAllData()->get();
+
+        return response()->json($inventario, 200)->header('Content-Type', 'application/json', );;
+    }
+
+
+
+
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    { }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    private function getAllData(){
+        return DB::table('Tb_Equipos')
             ->join('Tb_Clasificacion_Equipo', 'Tb_Equipos.NUM_HOJA_VIDA', '=', 'Tb_Clasificacion_Equipo.NUM_HOJA_VIDA')
             ->join('Tb_adquisicion_equipos', 'Tb_Equipos.NUM_HOJA_VIDA', '=', 'Tb_adquisicion_equipos.NUM_HOJA_VIDA')
             ->join('Tb_Fabricantes_Proveedores', 'Tb_Equipos.NUM_HOJA_VIDA', '=', 'Tb_Fabricantes_Proveedores.NUM_HOJA_VIDA')
@@ -117,77 +193,6 @@ class InventarioController extends Controller
             )
             ->where('Tb_Equipos.NUM_HOJA_VIDA', '=', $id)
 
-            ->get();
-
-        return response()->json($inventario, 200)->header('Content-Type', 'application/json', );;
-    }
-
-
-
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    { }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            ;
     }
 }

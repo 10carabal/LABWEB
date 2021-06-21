@@ -7,6 +7,8 @@ use DB;
 use App\InformeMantenimiento;
 use Symfony\Component\HttpFoundation\Response;
 
+use PDF;
+use Carbon\Carbon;
 
 class InformeMantenimientoController extends Controller
 {
@@ -132,6 +134,15 @@ class InformeMantenimientoController extends Controller
                 ];
             } else {
                 # code...
+                $auxDateTimeI = Carbon::parse($params_array['Fecha_Mantenimiento']);
+                $textTimeI = explode(":", $params_array['Hora_Inicio']);
+                $auxDateTimeI->setHour($textTimeI[0]);
+                $auxDateTimeI->setMinute($textTimeI[1]);
+
+                $auxDateTimeF = $auxDateTimeI->copy();
+                $textTimeF = explode(":", $params_array['Hora_Fin']);
+                $auxDateTimeF->setHour($textTimeF[0]);
+                $auxDateTimeF->setMinute($textTimeF[1]);
 
                 $rma006 = new InformeMantenimiento();
                 $rma006->NUM_HOJA_VIDA = $params_array['NUM_HOJA_VIDA'];
@@ -146,9 +157,11 @@ class InformeMantenimientoController extends Controller
                 $rma006->Cargo_Responsable_Mento = $params_array['Cargo_Responsable_Mento'];
                 $rma006->Nombre_Responsable_Recibir = $params_array['Nombre_Responsable_Recibir'];
                 $rma006->Cargo_Responsable_Recibir = $params_array['Cargo_Responsable_Recibir'];
+
                 $rma006->Fecha_Mantenimiento = $params_array['Fecha_Mantenimiento'];
-                $rma006->Hora_Inicio = $params_array['Hora_Inicio'];
-                $rma006->Hora_Fin = $params_array['Hora_Fin'];
+                $rma006->Hora_Inicio = $auxDateTimeI;
+                $rma006->Hora_Fin = $auxDateTimeF;
+
                 $rma006->Observacion_Mantenimiento = $params_array['Observacion_Mantenimiento'];
                 $rma006->Estado_Equipo = $params_array['Estado_Equipo'];
                 $rma006->Test_Funcionalidad = $params_array['Test_Funcionalidad'];
@@ -208,6 +221,23 @@ class InformeMantenimientoController extends Controller
     public function show($id)
     {
         $rma006 = InformeMantenimiento::where("NUM_HOJA_VIDA", "=", $id)->get();
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $dataObject = $rma006;
+                    $pdf = PDF::loadView('pdf_templates.rma006', ["sheets" => $dataObject]);
+                    //return $pdf->stream();
+                    return $pdf->download('informemantenimiento_'.Carbon::now()->format("Ymd_His").'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         return response()->json($rma006);
         /* $rma006 = InformeMantenimiento::find($id);
         if (is_object($rma006)) {

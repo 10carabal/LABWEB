@@ -75,7 +75,13 @@ export class FormatosService {
     borrarRMA004(id: any) {
         return this.http.delete(`${this.url}/planmantenimiento/${id}`);
     }
-
+    getPDFRMA004I(id: string, open: boolean = true): string {
+      const route = "planmantenimiento";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
     getCronogramaMantenimiento(endpoint) {
 
         let headers = this.headers;
@@ -139,6 +145,14 @@ export class FormatosService {
     borrarRMA005(id: any) {
         return this.http.delete(`${this.url}/planvalidacion/${id}`);
     }
+    getPDFRMA005I(id: string, open: boolean = true): string {
+      const route = "planvalidacion";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
+
     getCronogramaValidacion(endpoint) {
 
         let headers = this.headers;
@@ -153,7 +167,7 @@ export class FormatosService {
         return this.http.get(`${this.url}/${endpoint}/${id}`, { headers }).toPromise()
             .then((response: any) => response);
     }
-    //SEVICIOS DE HOJA DE VIDA 
+    //SEVICIOS DE HOJA DE VIDA
 
     getRMA001I(id): Observable<any> {
         let headers1 = new HttpHeaders({
@@ -170,7 +184,7 @@ export class FormatosService {
             .then((response: any) => response);
     }
 
-    //SEVICIOS DE INVENTARIO 
+    //SEVICIOS DE INVENTARIO
 
     getRMA003I(id): Observable<any> {
         let headers1 = new HttpHeaders({
@@ -186,7 +200,13 @@ export class FormatosService {
             .toPromise()
             .then((response: any) => response);
     }
-
+    getPDFRMA003I(id: string, open: boolean = true): string {
+      const route = "inventario";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
 
     //SERVICIOS DE INFORME MANTENIMIENTO RMA006
     createRMA006(rma006: InformeMantenimientoModel): Observable<any> {
@@ -242,7 +262,13 @@ export class FormatosService {
     borrarRMA006(id: any) {
         return this.http.delete(`${this.url}/informemantenimiento/${id}`);
     }
-
+    getPDFRMA006I(id: string, open: boolean = true): string {
+      const route = "informemantenimiento";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
     //SERVICIOS DE SOLICITUD DE SERVICIO RMA007
     createRMA007(rma007: Solicitud_ServicioModel): Observable<any> {
         let json = JSON.stringify(rma007);
@@ -352,7 +378,13 @@ export class FormatosService {
     borrarRMA008(id: any) {
         return this.http.delete(`${this.url}/informeservicio/${id}`);
     }
-
+    getPDFRMA008I(id: string, open: boolean = true): string {
+      const route = "informeservicio";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
 
     //SERVICIOS DE FUNCIONALIDAD DE EQUIPOS e INSPECCIÓN FUNCIONALIDAD
     createRMA009(funcionalidad: Func_EquiposModel): Observable<any> {
@@ -409,7 +441,13 @@ export class FormatosService {
     borrarRMA009(id: any) {
         return this.http.delete(`${this.url}/funcionalidadequipos/${id}`);
     }
-
+    getPDFRMA009I(id: string, open: boolean = true): string {
+      const route = "funcionalidadequipos";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
     //SERVICIOS DE MATRIZ DE SOLICITUDES RMA010
     createRMA010(rma010: Matriz_SolicitudesModel): Observable<any> {
         let json = JSON.stringify(rma010);
@@ -464,6 +502,13 @@ export class FormatosService {
     borrarRMA010(id: any) {
         return this.http.delete(`${this.url}/matrizsolicitudes/${id}`);
     }
+    getPDFRMA010I(id: string, open: boolean = true): string {
+      const route = "matrizsolicitudes";
+      if(open){
+        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+      }
+      return `${this.url}/${route}/${id}?download=pdf`;
+    }
     //SERVICIOS DE GUIA RAPIDA PARA LOS EQUIPOS RMA002
     createRMA002(rma002: RMA002Model): Observable<any> {
         let json = JSON.stringify(rma002);
@@ -499,6 +544,14 @@ export class FormatosService {
 
         });
         return this.http.get(`${this.url}/RMA002/${id}`, id);
+    }
+    getPDFRMA002I(id: string): Observable<any> {
+      let headers1 = new HttpHeaders({
+          'Content-Type': 'application/x-www-form-urlencoded',
+
+      });
+      window.open(`${this.url}/guiarapida/${id}?download=pdf`, "_blank");
+      return this.http.get(`${this.url}/guiarapida/${id}?download=pdf`);
     }
 
     getRMA002() {

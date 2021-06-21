@@ -78,6 +78,8 @@ export class Newrma004Component implements OnInit {
 
     });
   }
-
+  download(info: PlanMantenimientoModel){
+    this._formatosService.getPDFRMA004I(""+info.NUM_HOJA_VIDA);
+  }
 }
 

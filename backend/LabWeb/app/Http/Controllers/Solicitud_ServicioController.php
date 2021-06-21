@@ -16,7 +16,7 @@ class Solicitud_ServicioController extends Controller
 
     public function index()
     {
-        $solicitudS = Solicitud_Servicio::all()->toJson();
+        $solicitudS = Solicitud_Servicio::select(["*",  "CONSECUTIVO_ORDEN as Consecutivo_Orden"])->get()->toJson();
         return response($solicitudS, 200)->header('Content-Type', 'application/json', );
     }
 
