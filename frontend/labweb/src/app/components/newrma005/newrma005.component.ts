@@ -78,6 +78,8 @@ export class Newrma005Component implements OnInit {
 
     });
   }
-
+  download(info: PlanValidacionModel){
+    this._formatosService.getPDFRMA005I(""+info.NUM_HOJA_VIDA);
+  }
 }
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Func_Equipos;
 
+use PDF;
+use Carbon\Carbon;
 
 class Func_EquiposController extends Controller
 {
@@ -17,7 +19,8 @@ class Func_EquiposController extends Controller
     public function index()
     {
 
-        $funcionalidad = Func_Equipos::all()->toJson();
+        //$funcionalidad = Func_Equipos::all()->toJson();
+        $funcionalidad = DB::table("TB_INSP_FUNCIONALIDAD_EQUIPOS")->select("*")->get();
         return response($funcionalidad, 200)->header('Content-Type', 'application/json', );
 
 
@@ -137,7 +140,25 @@ class Func_EquiposController extends Controller
      */
     public function show($id)
     {
-        $funcionalidad = Func_Equipos::where("NUM_HOJA_VIDA", "=", $id)->get();
+        //$funcionalidad = Func_Equipos::where("NUM_HOJA_VIDA", "=", $id)->get();
+        $funcionalidad = DB::table("TB_INSP_FUNCIONALIDAD_EQUIPOS")->select("*")->get();
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $dataObject = $funcionalidad;
+                    $pdf = PDF::loadView('pdf_templates.rma009', ["sheets" => $dataObject]);
+                    //return $pdf->stream();
+                    return $pdf->download('funcionalidadequipos'.Carbon::now()->format("Ymd_His").'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         return response()->json($funcionalidad);
         /* $funcionalidad = Func_Equipos::find($id);
         if (is_object($funcionalidad)) {

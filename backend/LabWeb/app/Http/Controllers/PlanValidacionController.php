@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\PlanValidacion;
-
+use PDF;
+use Carbon\Carbon;
 class PlanValidacionController extends Controller
 {
     /**
@@ -119,7 +120,7 @@ class PlanValidacionController extends Controller
                 'mensaje' => "No has enviado ningún dato."
             ];
         }
-        /* 
+        /*
         $planvalidacion = DB::table('Tb_Plan_Validacion')->insert(array(
             'FCIA_VACION_CALIB' => $request->input('FCIA_VACION_CALIB'),
             'FECHA_EJECUCION' => $request->input('FECHA_EJECUCION'),
@@ -164,6 +165,22 @@ class PlanValidacionController extends Controller
     public function show($id)
     {
         $validacion = PlanValidacion::where("NUM_HOJA_VIDA", "=", $id)->get();
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $dataObject = $validacion;
+                    $pdf = PDF::loadView('pdf_templates.rma005', ["sheets" => $dataObject]);
+                    return $pdf->download('plan_validacion_'.Carbon::now()->format("Ymd_His").'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         return response()->json($validacion);
         /* $validacion = PlanValidacion::find($id);
         if (is_object($validacion)) {

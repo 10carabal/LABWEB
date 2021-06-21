@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\RMA002;
-
+use PDF;
 
 class RMA002Controller extends Controller
 {
@@ -146,6 +146,23 @@ class RMA002Controller extends Controller
      */
     public function show($id)
     {
+        $dataObject = RMA002::where("NUM_HOJA_VIDA", "=", $id)->first();
+
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $pdf = PDF::loadView('pdf_templates.rma002', ["sheet" => $dataObject]);
+                    return $pdf->download('invoice_'.$dataObject->ID.'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         $rma002 = RMA002::where("NUM_HOJA_VIDA", "=", $id)->get();
         return response()->json($rma002);
         /* $rma002 = RMA002::find($id);

@@ -5,7 +5,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 // Para no mostrar errores visuales en la pagina
-ini_set("display_errors", "off");
+ini_set("display_errors", "on");
 
 //iniciar protocolos de sesion
 session_start();
@@ -15,7 +15,7 @@ session_start();
 //setlocale(LC_ALL,"es_ES");
 
 //Pedir archivo que se encarga de manejar la conexion con la base de datos
-require '../data_base/database.php';
+require '../database.php';
 
 oci_commit($conn);
 

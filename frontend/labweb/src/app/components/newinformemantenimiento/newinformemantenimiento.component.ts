@@ -79,6 +79,8 @@ export class NewinformemantenimientoComponent implements OnInit {
 
     });
   }
-
+  download(info: InformeMantenimientoModel){
+    this._formatosService.getPDFRMA006I(""+info.NUM_HOJA_VIDA);
+  }
 }
 

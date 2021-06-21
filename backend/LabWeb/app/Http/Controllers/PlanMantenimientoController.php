@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\PlanMantenimiento;
 
+use Carbon\Carbon;
+use PDF;
 class PlanMantenimientoController extends Controller
 {
     /**
@@ -154,7 +156,7 @@ class PlanMantenimientoController extends Controller
                 'mensaje' => "No has enviado ningún dato."
             ];
         }
-        /* 
+        /*
         $planmantenimiento = DB::table('Tb_Cron_Plan_Mento_Equipos')->insert(array(
             'FREC_MENTO_PREVENTIVO' => $request->input('FREC_MENTO_PREVENTIVO'),
             'FECHA_EJECUCION' => $request->input('FECHA_EJECUCION'),
@@ -175,6 +177,24 @@ class PlanMantenimientoController extends Controller
     public function show($id)
     {
         $mante = PlanMantenimiento::where("NUM_HOJA_VIDA", "=", $id)->get();
+
+
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $dataObject = $mante;
+                    $pdf = PDF::loadView('pdf_templates.rma004', ["sheets" => $dataObject]);
+                    return $pdf->download('plan_mantenimiento_'.Carbon::now()->format("Ymd_His").'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         return response()->json($mante);
         /* $mante = PlanMantenimiento::find($id);
         if (is_object($mante)) {

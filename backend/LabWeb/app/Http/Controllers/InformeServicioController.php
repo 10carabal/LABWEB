@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\InformeServicio;
 
+use PDF;
+use Carbon\Carbon;
 
 class InformeServicioController extends Controller
 {
@@ -192,6 +194,23 @@ class InformeServicioController extends Controller
     public function show($id)
     {
         $rma008 = InformeServicio::where("NUM_HOJA_VIDA", "=", $id)->get();
+        if(!empty(request()->download)){
+            $download = request()->download;
+            switch ($download) {
+                case 'pdf':
+                    $dataObject = $rma008;
+                    $pdf = PDF::loadView('pdf_templates.rma008', ["sheets" => $dataObject]);
+                    //return $pdf->stream();
+                    return $pdf->download('informeservicio'.Carbon::now()->format("Ymd_His").'.pdf');
+                    break;
+                case 'excel':
+
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         return response()->json($rma008);
         /* $rma008 = InformeServicio::find($id);
         if (is_object($rma008)) {

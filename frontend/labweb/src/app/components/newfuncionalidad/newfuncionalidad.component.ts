@@ -78,6 +78,8 @@ export class NewfuncionalidadComponent implements OnInit {
 
     });
   }
-
+  download(info: Func_EquiposModel){
+    this._formatosService.getPDFRMA009I(""+info.NUM_HOJA_VIDA);
+  }
 }
 

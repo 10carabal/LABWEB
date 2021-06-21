@@ -78,6 +78,8 @@ export class NewinformeservicioComponent implements OnInit {
 
     });
   }
-
+  download(info: InformeServicioModel){
+    this._formatosService.getPDFRMA008I(""+info.NUM_HOJA_VIDA);
+  }
 }
 

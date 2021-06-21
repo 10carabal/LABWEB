@@ -78,6 +78,8 @@ export class NewmatrizsolicitudesComponent implements OnInit {
 
     });
   }
-
+  download(info: Matriz_SolicitudesModel){
+    this._formatosService.getPDFRMA010I(""+info.NUM_HOJA_VIDA);
+  }
 }
 

@@ -27,6 +27,9 @@ export class InventarioComponent implements OnInit {
     });
 
   }
+  download(info: Inventario){
+    this._formatosService.getPDFRMA003I(info.id);
+  }
 }
 
 
