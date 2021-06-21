@@ -3,8 +3,8 @@ export class InformeMantenimientoModel {
     NUM_HOJA_VIDA: number;
     Consecutivo_Orden: number;
     Tipo_Mantenimiento: string;
-    Imagen_Antes_Mantenimiento: string;
-    Imagen_Despues_Mantenimiento: string;
+    Imagen_Antes_Mantenimiento: File | string;
+    Imagen_Despues_Mantenimiento: File | string;
     Fecha_Mantenimiento: string;
     Hora_Inicio: number;
     Hora_Fin: number;

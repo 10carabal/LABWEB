@@ -80,6 +80,13 @@ export class EquiposService {
             .toPromise()
             .then((response: any) => response);
     }
+    getEquiposWhere(endpoint, filterText: string) {
+        let headers = this.headers;
+        return this.http
+            .get(`${this.url}/${endpoint}?name=${filterText}`, { headers })
+            .toPromise()
+            .then((response: any) => response);
+    }
     borrarEquipo(id: any) {
         return this.http.delete(`${this.url}/equipos/${id}`);
     }

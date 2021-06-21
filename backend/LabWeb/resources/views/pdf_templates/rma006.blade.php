@@ -49,12 +49,22 @@
                 <span>{{$sheet->TIPO_MANTENIMIENTO}}</span>
             </li>
             <li>
-                <b>IMAGEN ANTES MANTENIMIENTO: </b>
-                <span>{{$sheet->IMAGEN_ANTES_MANTENIMIENTO}}</span>
+                <b>IMAGEN ANTES MANTENIMIENTO: </b><br/>
+                {{--<span>{{$sheet->IMAGEN_ANTES_MANTENIMIENTO}}</span>--}}
+                @php
+                    if (file_exists(public_path("images/".$sheet->IMAGEN_ANTES_MANTENIMIENTO))) {
+                        echo "<img src='".public_path("images/".$sheet->IMAGEN_ANTES_MANTENIMIENTO)."'/>";
+                    }
+                @endphp
             </li>
             <li>
-                <b>IMAGEN DESPUES MANTENIMIENTO: </b>
-                <span>{{$sheet->IMAGEN_DESPUES_MANTENIMIENTO}}</span>
+                <b>IMAGEN DESPUES MANTENIMIENTO: </b><br/>
+                {{--<span>{{$sheet->IMAGEN_DESPUES_MANTENIMIENTO}}</span>--}}
+                @php
+                    if (file_exists(public_path("images/".$sheet->IMAGEN_ANTES_MANTENIMIENTO))) {
+                        echo "<img src='".public_path("images/".$sheet->IMAGEN_DESPUES_MANTENIMIENTO)."'/>";
+                    }
+                @endphp
             </li>
             <li>
                 <b>FECHA MANTENIMIENTO: </b>

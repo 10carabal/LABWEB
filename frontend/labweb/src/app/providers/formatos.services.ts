@@ -211,6 +211,11 @@ export class FormatosService {
     //SERVICIOS DE INFORME MANTENIMIENTO RMA006
     createRMA006(rma006: InformeMantenimientoModel): Observable<any> {
         let json = JSON.stringify(rma006);
+        const formData = new FormData();
+        Object.keys(rma006).map((key) => {
+            formData.append(key, rma006[key]);
+        });
+        console.log(formData, rma006.Imagen_Antes_Mantenimiento);
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -219,9 +224,7 @@ export class FormatosService {
             'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
-        return this.http.post(`${this.url}/informemantenimiento/`, params, {
-            headers: headers1,
-        });
+        return this.http.post(`${this.url}/informemantenimiento/`, formData);
     }
     updateRMA006(rma006: InformeMantenimientoModel, id): Observable<any> {
         let json = JSON.stringify(rma006);

@@ -2,11 +2,15 @@
   <h1>Listado de Equipos en el Inventario</h1>
   <hr />
   <div class="row">
+    <div class="col">
+      <input class="form-control" placeholder="Search..." (keyup)="searchBy()" [(ngModel)]="searchByText" />
+    </div>
     <div class="col text-right">
       <button routerLink="/equipo/nuevo" class="btn btn-primary">
         <i class="fa fa-plus"></i> Agregar Equipo
       </button>
     </div>
+    
   </div>
 
   <table

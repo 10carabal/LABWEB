@@ -13,8 +13,12 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 export class NewequipoComponent implements OnInit {
   cargando = false;
   equipos: EquiposModel[] = [];
+  public searchByText:  string;
+  timeout: number = -1;
 
-  constructor(private _equiposService: EquiposService, private router: Router) { }
+  constructor(private _equiposService: EquiposService, private router: Router) { 
+    this.searchByText = "";
+  }
 
   ngOnInit(): void {
     this.cargando = true;
@@ -25,6 +29,7 @@ export class NewequipoComponent implements OnInit {
         this.cargando = false;
       },
         (errorServicio) => {
+          //this.cargando = false;
 
           console.log(errorServicio.statusText);
           console.log(errorServicio.message);
@@ -71,5 +76,25 @@ export class NewequipoComponent implements OnInit {
       }
 
     });
+  }
+  searchBy(){
+    clearTimeout(this.timeout);
+    const cthis = this;
+    this.timeout = setTimeout(function(){ 
+      cthis.cargando = true;
+      cthis._equiposService.getEquiposWhere('equipos', cthis.searchByText)
+        .then((data: any) => {
+          console.log(data);
+          cthis.equipos = data;
+          cthis.cargando = false;
+        },
+        (errorServicio) => {
+          //this.cargando = false;
+
+          console.log(errorServicio.statusText);
+          console.log(errorServicio.message);
+
+        });
+    }, 1000);
   }
 }
