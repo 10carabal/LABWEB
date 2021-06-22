@@ -60,8 +60,8 @@ export class InformemantenimientoComponent implements OnInit {
       console.log('Formulario no valído.');
       return;
     }
-    this.newrma006.imagenAntesMantenimiento = this.imagenAntesMantenimiento;
-    this.newrma006.imagenDespuesMantenimiento = this.imagenDespuesMantenimiento;
+    this.newrma006.Imagen_Antes_Mantenimiento = this.imagenAntesMantenimiento;
+    this.newrma006.Imagen_Despues_Mantenimiento = this.imagenDespuesMantenimiento;
 
     Swal.fire({
       title: 'Espere',
@@ -106,24 +106,24 @@ export class InformemantenimientoComponent implements OnInit {
   }
   onFileSelected(event, image) {
 
-        const file:File = event.target.files[0];
-        //this.newrma006[event.target.name] = file;
-        if(image == 1){
-          this.imagenAntesMantenimiento = file;
-        }else
-        if(image == 2){
-          this.imagenDespuesMantenimiento = file;
-        }
-        console.log(file);
-        if (file) {
+    const file: File = event.target.files[0];
+    //this.newrma006[event.target.name] = file;
+    if (image == 1) {
+      this.imagenAntesMantenimiento = file;
+    } else
+      if (image == 2) {
+        this.imagenDespuesMantenimiento = file;
+      }
+    console.log(file);
+    if (file) {
 
 
-            const formData = new FormData();
+      const formData = new FormData();
 
-            formData.append("thumbnail", file);
+      formData.append("thumbnail", file);
 
-        }
     }
+  }
 }
 
 
