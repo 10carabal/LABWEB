@@ -14,13 +14,15 @@ class CreateTbUsuarioTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('Tb_Usuario', function (Blueprint $table) {
-			$table->integer('CODIGO', 10, 0);
-			$table->integer('CLAVE', 10, 0);
-			$table->integer('PERFIL', 10, 0)->index('PERFIL');
-			$table->string('remember_token', 110);
-			$table->timestamps(6);
-		});
+        if (!Schema::hasTable('Tb_Usuario')){
+            Schema::create('Tb_Usuario', function (Blueprint $table) {
+                $table->integer('CODIGO', 10, 0);
+                $table->integer('CLAVE', 10, 0);
+                $table->integer('PERFIL', 10, 0)->index('PERFIL');
+                $table->string('remember_token', 110);
+                $table->timestamps(6);
+            });
+        }
 	}
 
 

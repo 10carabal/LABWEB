@@ -118,6 +118,10 @@ Route::group(['middleware' => ['cors']], function () {
 
     //STIKERSSSSSS
 
-
-
+    //Login
+    Route::resource('/users', "API\AuthController");
+    Route::post('/tokens/create', "API\AuthController@create");
+    Route::get('test/{id}', function($id){
+        return \Illuminate\Support\Facades\Hash::make($id);
+    });
 });

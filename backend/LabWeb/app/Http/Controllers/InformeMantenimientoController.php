@@ -150,8 +150,8 @@ class InformeMantenimientoController extends Controller
                 $rma006->NUM_HOJA_VIDA = $params_array['NUM_HOJA_VIDA'];
                 $rma006->Consecutivo_Orden = $params_array['Consecutivo_Orden'];
                 $rma006->Tipo_Mantenimiento = $params_array['Tipo_Mantenimiento'];
-                $rma006->Imagen_Antes_Mantenimiento = $params_array['Imagen_Antes_Mantenimiento'];
-                $rma006->Imagen_Despues_Mantenimiento = $params_array['Imagen_Despues_Mantenimiento'];
+                $rma006->Imagen_Antes_Mantenimiento = "";
+                $rma006->Imagen_Despues_Mantenimiento = "";
                 $rma006->Tipo_Equipo = $params_array['Tipo_Equipo'];
                 $rma006->Actividades_Realizadas = $params_array['Actividades_Realizadas'];
                 $rma006->Reemplazo_Accesorios = $params_array['Reemplazo_Accesorios'];
@@ -173,10 +173,10 @@ class InformeMantenimientoController extends Controller
 
 
                 $rma006->save();
-                $pathImagenAntesMantenimiento = $request->file("imagenAntesMantenimiento")
-                ->storeAs(date("Ymd"), $rma006->id."_Imagen_Antes_Mantenimiento.".$request->file("imagenAntesMantenimiento")->extension(), "images");
-                $pathImagendespuesmantenimiento = $request->file("imagenDespuesMantenimiento")
-                ->storeAs(date("Ymd"), $rma006->id."_Imagen_Despues_Mantenimiento.".$request->file("imagenDespuesMantenimiento")->extension(), "images");
+                $pathImagenAntesMantenimiento = $request->file("Imagen_Antes_Mantenimiento")
+                ->storeAs(date("Ymd"), $rma006->id."_Imagen_Antes_Mantenimiento.".$request->file("Imagen_Antes_Mantenimiento")->extension(), "images");
+                $pathImagendespuesmantenimiento = $request->file("Imagen_Despues_Mantenimiento")
+                ->storeAs(date("Ymd"), $rma006->id."_Imagen_Despues_Mantenimiento.".$request->file("Imagen_Despues_Mantenimiento")->extension(), "images");
                 $rma006->Imagen_Antes_Mantenimiento = $pathImagenAntesMantenimiento;
                 $rma006->Imagen_Despues_Mantenimiento = $pathImagendespuesmantenimiento;
                 $rma006->save();
