@@ -60,8 +60,8 @@ export class InformemantenimientoComponent implements OnInit {
       console.log('Formulario no valído.');
       return;
     }
-    this.newrma006.imagenAntesMantenimiento = this.imagenAntesMantenimiento;
-    this.newrma006.imagenDespuesMantenimiento = this.imagenDespuesMantenimiento;
+    this.newrma006.Imagen_Antes_Mantenimiento = this.imagenAntesMantenimiento;
+    this.newrma006.Imagen_Despues_Mantenimiento = this.imagenDespuesMantenimiento;
 
     Swal.fire({
       title: 'Espere',

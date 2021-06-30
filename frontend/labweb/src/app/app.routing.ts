@@ -1,3 +1,4 @@
+import { CanActivateViaAuthGuardGuard } from './guards/can-activate-via-auth-guard.guard';
 import { Newrma004Component } from './components/newrma004/newrma004.component';
 import { Newrma005Component } from './components/newrma005/newrma005.component';
 import { Editrma005Component } from './components/editrma005/editrma005.component';
@@ -33,10 +34,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import {
-    CronogramaCalibracionCalificacionComponent
+  CronogramaCalibracionCalificacionComponent
 } from './components/cronograma-calibracion-calificacion/cronograma-calibracion-calificacion.component';
 import {
-    CronogramaMantenimientoComponent
+  CronogramaMantenimientoComponent
 } from './components/cronograma-mantenimiento/cronograma-mantenimiento.component';
 
 
@@ -102,121 +103,373 @@ import { Editrma004Component } from './components/editrma004/editrma004.componen
 // DEFINIR RUTAS
 const APP_ROUTES: Routes = [
 
-    { path: '', component: EquipoComponent },
-    { path: 'inicio', component: EquipoComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'buscar/:equipo_actual', component: BuscadorComponent },
+  { path: '', component: EquipoComponent },
+  { path: 'inicio', component: EquipoComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'buscar/:equipo_actual', component: BuscadorComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'menu', component: MenuprincipalComponent },
+  {
+    path: 'menu', component: MenuprincipalComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getadquisicion/:id', component: GetadquisicionComponent },
-    { path: 'adquisicion/:id', component: AdquisicionComponent },
-    { path: 'newadquisicion', component: NewadquisicionComponent },
-    { path: 'editadqusicion/:id', component: EditadquisicionComponent },
+  {
+    path: 'getadquisicion/:id', component: GetadquisicionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'adquisicion/:id', component: AdquisicionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newadquisicion', component: NewadquisicionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editadqusicion/:id', component: EditadquisicionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getclasificacion/:id', component: GetclasificacionComponent },
-    { path: 'clasificacion/:id', component: ClasificacionComponent },
-    { path: 'newclasificacion', component: NewclasificacionComponent },
-    { path: 'editclasificacion/:id', component: EditclasificacionComponent },
+  {
+    path: 'getclasificacion/:id', component: GetclasificacionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'clasificacion/:id', component: ClasificacionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newclasificacion', component: NewclasificacionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editclasificacion/:id', component: EditclasificacionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getdocumentosanexoshv/:id', component: GetdocumentosanexoshvComponent },
-    { path: 'documentosanexoshv/:id', component: DocumentosanexosComponent },
-    { path: 'newdocumentosanexoshv', component: NewdocumentosanexoshvComponent },
-    { path: 'editdocumentosanexoshv/:id', component: EditdocumentosanexoshvComponent },
+  {
+    path: 'getdocumentosanexoshv/:id', component: GetdocumentosanexoshvComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'documentosanexoshv/:id', component: DocumentosanexosComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newdocumentosanexoshv', component: NewdocumentosanexoshvComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editdocumentosanexoshv/:id', component: EditdocumentosanexoshvComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getdocumentosproveedor/:id', component: GetdocumentosproveedorComponent },
-    { path: 'documentosproveedor/:id', component: DocumentosproveedorComponent },
-    { path: 'newdocumentosproveedor', component: NewdocumentosproveedorComponent },
-    { path: 'editdocumentosproveedor/:id', component: EditdocumentosproveedorComponent },
+  {
+    path: 'getdocumentosproveedor/:id', component: GetdocumentosproveedorComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'documentosproveedor/:id', component: DocumentosproveedorComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newdocumentosproveedor', component: NewdocumentosproveedorComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editdocumentosproveedor/:id', component: EditdocumentosproveedorComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'equipos', component: EquipoComponent },
-    { path: 'newequipos', component: NewequipoComponent },
-    { path: 'equipo/:id', component: EquipocreadoComponent },
-    { path: 'editequipo/:id', component: EditEquipoComponent },
+  {
+    path: 'equipos', component: EquipoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newequipos', component: NewequipoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'equipo/:id', component: EquipocreadoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editequipo/:id', component: EditEquipoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getfabricantesproveedores/:id', component: GetfabricantesproveedoresComponent },
-    { path: 'fabricantesproveedores/:id', component: FabricantesproveedoresComponent },
-    { path: 'newfabricantesproveedores', component: NewfabricantesproveedoresComponent },
-    { path: 'editfabricantesproveedores/:id', component: EditfabricantesproveedoresComponent },
-
-
-    { path: 'gethistorico/:id', component: GethistoricoComponent },
-    { path: 'historico/:id', component: HistoricoComponent },
-    { path: 'newhistorico', component: NewhistoricoComponent },
-    { path: 'edithistorico/:id', component: EdithistoricoComponent },
-
-    { path: 'getinfo/:id', component: GetinfoinstitucionalComponent },
-    { path: 'infoinstitucional/:id', component: InfoinstitucionalComponent },
-    { path: 'newinfo', component: NewinfoinstitucionalComponent },
-    { path: 'editinfo/:id', component: EditInfoInstitucionalComponent },
-
-    { path: 'getinfotecnica/:id', component: GetinfotecnicaComponent },
-    { path: 'infotecnica/:id', component: InfotecnicaComponent },
-    { path: 'newinfotecnica', component: NewinfotecnicaComponent },
-    { path: 'editinfotecnica/:id', component: EditinfotecnicaComponent },
-
-    { path: 'getmantenimiento/:id', component: GetmantenimientoComponent },
-    { path: 'mantenimiento/:id', component: MantenimientoComponent },
-    { path: 'newmantenimiento', component: NewmantenimientoComponent },
-    { path: 'editmantenimiento/:id', component: EditmantenimientoComponent },
-
-    { path: 'getobservaciones/:id', component: GetobservacionesComponent },
-    { path: 'observaciones/:id', component: ObservacionesComponent },
-    { path: 'newobservaciones', component: NewobservacionesComponent },
-    { path: 'editobservaciones/:id', component: EditobservacionesComponent },
-
-    { path: 'getreactivos/:id', component: GetreactivosComponent },
-    { path: 'reactivos/:id', component: ReactivosComponent },
-    { path: 'newreactivos', component: NewreactivosComponent },
-    { path: 'editreactivos/:id', component: EditreactivosComponent },
+  {
+    path: 'getfabricantesproveedores/:id', component: GetfabricantesproveedoresComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'fabricantesproveedores/:id', component: FabricantesproveedoresComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newfabricantesproveedores', component: NewfabricantesproveedoresComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editfabricantesproveedores/:id', component: EditfabricantesproveedoresComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
 
-    // formatos
-    { path: 'hojavida/:id', component: HojavidaComponent },
+  {
+    path: 'gethistorico/:id', component: GethistoricoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'historico/:id', component: HistoricoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newhistorico', component: NewhistoricoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'edithistorico/:id', component: EdithistoricoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getRMA002/:id', component: Getrma002Component },
-    { path: 'RMA002/:id', component: Rma002Component },
-    { path: 'newRMA002', component: NewRMA002Component },
-    { path: 'editRMA002/:id', component: EditRMA002Component },
+  {
+    path: 'getinfo/:id', component: GetinfoinstitucionalComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'infoinstitucional/:id', component: InfoinstitucionalComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newinfo', component: NewinfoinstitucionalComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editinfo/:id', component: EditInfoInstitucionalComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'inventario/:id', component: InventarioComponent },
+  {
+    path: 'getinfotecnica/:id', component: GetinfotecnicaComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'infotecnica/:id', component: InfotecnicaComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newinfotecnica', component: NewinfotecnicaComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editinfotecnica/:id', component: EditinfotecnicaComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'planmantenimiento/:id', component: CronogramaMantenimientoComponent },
-    { path: 'RMA004/:id', component: Rma004Component },
-    { path: 'newRMA004', component: Newrma004Component },
-    { path: 'editRMA004/:id', component: Editrma004Component },
+  {
+    path: 'getmantenimiento/:id', component: GetmantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'mantenimiento/:id', component: MantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newmantenimiento', component: NewmantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editmantenimiento/:id', component: EditmantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'plancalibracion/:id', component: CronogramaCalibracionCalificacionComponent },
-    { path: 'RMA005/:id', component: Rma005Component },
-    { path: 'newRMA005', component: Newrma005Component },
-    { path: 'editRMA005/:id', component: Editrma005Component },
+  {
+    path: 'getobservaciones/:id', component: GetobservacionesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'observaciones/:id', component: ObservacionesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newobservaciones', component: NewobservacionesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editobservaciones/:id', component: EditobservacionesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getRMA006/:id', component: GetinformemantenimientoComponent },
-    { path: 'RMA006/:id', component: InformemantenimientoComponent },
-    { path: 'newRMA006', component: NewinformemantenimientoComponent },
-    { path: 'editRMA006/:id', component: EditinformemantenimientoComponent },
+  {
+    path: 'getreactivos/:id', component: GetreactivosComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'reactivos/:id', component: ReactivosComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newreactivos', component: NewreactivosComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editreactivos/:id', component: EditreactivosComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getRMA007/:id', component: GetsolicitudservicioComponent },
-    { path: 'RMA007/:id', component: SolicitudsevicioComponent },
-    { path: 'newRMA007', component: NewsolicitudservicioComponent },
-    { path: 'editRMA007/:id', component: EditsolicitudservicioComponent },
 
-    { path: 'getRMA008/:id', component: GetinformeservicioComponent },
-    { path: 'RMA008/:id', component: InformeservicioComponent },
-    { path: 'newRMA008', component: NewinformeservicioComponent },
-    { path: 'editRMA008/:id', component: EditinformeservicioComponent },
+  // formatos
+  {
+    path: 'hojavida/:id', component: HojavidaComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getRMA009/:id', component: InspefuncionalidadComponent },
-    { path: 'RMA009/:id', component: FuncionalidadequiposComponent },
-    { path: 'newRMA009', component: NewfuncionalidadComponent },
-    { path: 'editRMA009/:id', component: EditfuncionalidadComponent },
+  {
+    path: 'getRMA002/:id', component: Getrma002Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA002/:id', component: Rma002Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA002', component: NewRMA002Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA002/:id', component: EditRMA002Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: 'getRMA010/:id', component: GetmatrizsolicitudesComponent },
-    { path: 'RMA010/:id', component: MatrizsolicitudesComponent },
-    { path: 'newRMA010', component: NewmatrizsolicitudesComponent },
-    { path: 'editRMA010/:id', component: EditmatrizsolicitudesComponent },
+  {
+    path: 'inventario/:id', component: InventarioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
 
-    { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
+  {
+    path: 'planmantenimiento/:id', component: CronogramaMantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA004/:id', component: Rma004Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA004', component: Newrma004Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA004/:id', component: Editrma004Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  {
+    path: 'plancalibracion/:id', component: CronogramaCalibracionCalificacionComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA005/:id', component: Rma005Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA005', component: Newrma005Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA005/:id', component: Editrma005Component,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  {
+    path: 'getRMA006/:id', component: GetinformemantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA006/:id', component: InformemantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA006', component: NewinformemantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA006/:id', component: EditinformemantenimientoComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  {
+    path: 'getRMA007/:id', component: GetsolicitudservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA007/:id', component: SolicitudsevicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA007', component: NewsolicitudservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA007/:id', component: EditsolicitudservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  {
+    path: 'getRMA008/:id', component: GetinformeservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA008/:id', component: InformeservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA008', component: NewinformeservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA008/:id', component: EditinformeservicioComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  {
+    path: 'getRMA009/:id', component: InspefuncionalidadComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA009/:id', component: FuncionalidadequiposComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA009', component: NewfuncionalidadComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA009/:id', component: EditfuncionalidadComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  {
+    path: 'getRMA010/:id', component: GetmatrizsolicitudesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'RMA010/:id', component: MatrizsolicitudesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'newRMA010', component: NewmatrizsolicitudesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+  {
+    path: 'editRMA010/:id', component: EditmatrizsolicitudesComponent,
+    canActivate: [CanActivateViaAuthGuardGuard]
+  },
+
+  { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
 ];
 
 // EXPORTAR CONFIGURACIÓN

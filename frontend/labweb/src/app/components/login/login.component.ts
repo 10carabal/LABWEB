@@ -1,3 +1,5 @@
+import { SessionToken } from './../../providers/user/SessionTokenInterface';
+import { UserService } from './../../providers/user/user.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
   loading: boolean;
 
   constructor(
-
+    public userService: UserService
 
   ) { }
 
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
     let body = {
       codigo: frmAutenticacion.value.codigo,
       clave: frmAutenticacion.value.clave,
-
+      token_name: 'angular_app'
 
     };
 
@@ -35,6 +37,12 @@ export class LoginComponent implements OnInit {
       console.log(this.clave);
 
     this.loading = true;
+    this.userService.login(body).subscribe((data: SessionToken) => {
+      console.log(data);
+      if(data.message == "Success"){
+        localStorage.setItem("token_user", data.token)
+      }
+    })
     /* try {
       const response = await this.http
         .post(this.url1 + "/login/login.php", body, options)

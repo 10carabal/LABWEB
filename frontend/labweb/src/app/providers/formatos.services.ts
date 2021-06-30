@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { PlanValidacionModel } from './../models/planvalidacion';
 import { PlanMantenimientoModel } from './../models/planmantenimiento';
 import { RMA002Model } from './../models/rma002';
@@ -16,15 +17,15 @@ export class FormatosService {
     //private url: string = 'http://labweb.usc.edu.co:8000/api';
 
     private url: string = "http://127.0.0.1:8000/api";
-    headers = new HttpHeaders({
-        'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    headers: HttpHeaders = new HttpHeaders({
+
+
     });
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private userService: UserService) {
         console.log(' servicio de equipos inicializado');
-
+        //this.headers.append('Authorization', this.userService.getToken());
+        this.headers = this.headers.set('Authorization', this.userService.getToken());
     }
 
     //SERVICIOS DE CRONOGRAMA MANTENIMIENTO
@@ -33,9 +34,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/planmantenimiento/`, params, {
@@ -47,9 +50,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/planmantenimiento/` + id, params, {
@@ -59,6 +64,8 @@ export class FormatosService {
     getRMA004I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA004/${id}`, id);
@@ -103,9 +110,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/planvalidacion/`, params, {
@@ -117,9 +126,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/planvalidacion/` + id, params, {
@@ -129,6 +140,8 @@ export class FormatosService {
     getRMA005I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA005/${id}`, id);
@@ -172,6 +185,8 @@ export class FormatosService {
     getRMA001I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA001/${id}`, id);
@@ -189,6 +204,8 @@ export class FormatosService {
     getRMA003I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA003/${id}`, id);
@@ -219,9 +236,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/informemantenimiento/`, formData);
@@ -231,9 +250,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/informemantenimiento/` + id, params, {
@@ -243,6 +264,8 @@ export class FormatosService {
     getRMA006I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA006/${id}`, id);
@@ -278,9 +301,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/solicitudservicio/`, params, {
@@ -292,9 +317,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/solicitudservicio/` + id, params, {
@@ -304,6 +331,8 @@ export class FormatosService {
     getRMA007I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA007/${id}`, id);
@@ -333,9 +362,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/informeservicio/`, params, {
@@ -347,9 +378,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/informeservicio/` + id, params, {
@@ -359,6 +392,8 @@ export class FormatosService {
     getRMA008I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA008/${id}`, id);
@@ -395,9 +430,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/funcionalidadequipos/`, params, {
@@ -409,9 +446,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/funcionalidadequipos/` + id, params, {
@@ -421,6 +460,8 @@ export class FormatosService {
     getRMA009I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA009/${id}`, id);
@@ -457,9 +498,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/matrizsolicitudes/`, params, {
@@ -471,9 +514,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/matrizsolicitudes/` + id, params, {
@@ -483,6 +528,8 @@ export class FormatosService {
     getRMA010I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA010/${id}`, id);
@@ -518,9 +565,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/guiarapida/`, params, {
@@ -532,9 +581,11 @@ export class FormatosService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/guiarapida/` + id, params, {
@@ -544,6 +595,8 @@ export class FormatosService {
     getRMA002I(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/RMA002/${id}`, id);
@@ -551,6 +604,8 @@ export class FormatosService {
     getPDFRMA002I(id: string): Observable<any> {
       let headers1 = new HttpHeaders({
           'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': this.userService.getToken(),
+          'Accept': 'application/json',
 
       });
       window.open(`${this.url}/guiarapida/${id}?download=pdf`, "_blank");

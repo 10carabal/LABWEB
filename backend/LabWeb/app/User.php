@@ -20,7 +20,7 @@ class User extends Authenticatable implements LdapAuthenticatable
      */
 
     protected $table = 'Tb_Usuario';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'ID';
     protected $fillable = [
         'CODIGO', 'CLAVE', 'PERFIL','REMEMBER_TOKEN','CREATED_AT', 'UPDATED_AT'
     ];

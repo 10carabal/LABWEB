@@ -46,12 +46,12 @@ Route::group(['middleware' => ['cors']], function () {
     Route::resource('inventario', 'InventarioController'); //RMA003
 
 
-    //RMA004 
+    //RMA004
     Route::get('RMA004', 'PlanMantenimientoController@getFormato');
     Route::resource('planmantenimiento', 'PlanMantenimientoController');
 
 
-    //RMA005 
+    //RMA005
     Route::get('RMA005', 'PlanValidacionController@getFormato');
     Route::resource('planvalidacion', 'PlanValidacionController');
 
@@ -93,3 +93,5 @@ Route::group(['middleware' => ['cors']], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('register', 'Auth\RegisterController@storeUser');
+Route::post('login', 'Auth\LoginController@authenticate');

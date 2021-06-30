@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 
+
 class AuthController extends Controller
 {
     /**
@@ -24,23 +25,35 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $cred = [
-            "CODIGO" => request()->email,
-            "CLAVE" => request()->password,
+            "CODIGO" => $request->codigo,
+            "CLAVE" => $request->clave,
         ];
         //return $cred;
-        $user =  User::where([["codigo","=",request()->email]])->first();
-
-        if (Hash::check(request()->password, $user->password)) {
-            return "S";
+        $user =  User::where([["codigo","=",$request->codigo]])->first();
+        if(empty($user)){
+            return response([
+                'description' => "unauthorized",
+                'message' => 'Error:'
+            ], 401);
         }
-        return "N";
-        $token = request()->user()->createToken(request()->token_name);
+        if (Hash::check($request->clave, $user->CLAVE)) {
+            Auth::login($user);
+            //return Auth::user();
+            $token = Auth::user()->createToken($request->token_name)->plainTextToken;
+            return response()->json([
+                'token' => $token,
+                'message' => 'Success'
+            ]);
+        }
+        return response()->json([
+            'description' => "unauthorized",
+            'message' => 'Error'
+        ], 401);
 
-        return ['token' => $token->plainTextToken];
     }
 
     /**
