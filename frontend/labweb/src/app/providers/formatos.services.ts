@@ -14,12 +14,10 @@ import { Func_EquiposModel } from '../models/func_equipos';
 @Injectable()
 export class FormatosService {
 
-    //private url: string = 'http://labweb.usc.edu.co:8000/api';
+    private url: string = 'http://labweb.usc.edu.co:8000/api';
 
     private url: string = "http://127.0.0.1:8000/api";
     headers: HttpHeaders = new HttpHeaders({
-
-
     });
 
     constructor(private http: HttpClient, private userService: UserService) {
@@ -83,11 +81,11 @@ export class FormatosService {
         return this.http.delete(`${this.url}/planmantenimiento/${id}`);
     }
     getPDFRMA004I(id: string, open: boolean = true): string {
-      const route = "planmantenimiento";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "planmantenimiento";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
     getCronogramaMantenimiento(endpoint) {
 
@@ -159,11 +157,11 @@ export class FormatosService {
         return this.http.delete(`${this.url}/planvalidacion/${id}`);
     }
     getPDFRMA005I(id: string, open: boolean = true): string {
-      const route = "planvalidacion";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "planvalidacion";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
 
     getCronogramaValidacion(endpoint) {
@@ -218,11 +216,11 @@ export class FormatosService {
             .then((response: any) => response);
     }
     getPDFRMA003I(id: string, open: boolean = true): string {
-      const route = "inventario";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "inventario";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
 
     //SERVICIOS DE INFORME MANTENIMIENTO RMA006
@@ -289,11 +287,11 @@ export class FormatosService {
         return this.http.delete(`${this.url}/informemantenimiento/${id}`);
     }
     getPDFRMA006I(id: string, open: boolean = true): string {
-      const route = "informemantenimiento";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "informemantenimiento";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
     //SERVICIOS DE SOLICITUD DE SERVICIO RMA007
     createRMA007(rma007: Solicitud_ServicioModel): Observable<any> {
@@ -417,11 +415,11 @@ export class FormatosService {
         return this.http.delete(`${this.url}/informeservicio/${id}`);
     }
     getPDFRMA008I(id: string, open: boolean = true): string {
-      const route = "informeservicio";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "informeservicio";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
 
     //SERVICIOS DE FUNCIONALIDAD DE EQUIPOS e INSPECCIÓN FUNCIONALIDAD
@@ -486,11 +484,11 @@ export class FormatosService {
         return this.http.delete(`${this.url}/funcionalidadequipos/${id}`);
     }
     getPDFRMA009I(id: string, open: boolean = true): string {
-      const route = "funcionalidadequipos";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "funcionalidadequipos";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
     //SERVICIOS DE MATRIZ DE SOLICITUDES RMA010
     createRMA010(rma010: Matriz_SolicitudesModel): Observable<any> {
@@ -553,11 +551,11 @@ export class FormatosService {
         return this.http.delete(`${this.url}/matrizsolicitudes/${id}`);
     }
     getPDFRMA010I(id: string, open: boolean = true): string {
-      const route = "matrizsolicitudes";
-      if(open){
-        window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
-      }
-      return `${this.url}/${route}/${id}?download=pdf`;
+        const route = "matrizsolicitudes";
+        if (open) {
+            window.open(`${this.url}/${route}/${id}?download=pdf`, "_blank");
+        }
+        return `${this.url}/${route}/${id}?download=pdf`;
     }
     //SERVICIOS DE GUIA RAPIDA PARA LOS EQUIPOS RMA002
     createRMA002(rma002: RMA002Model): Observable<any> {
@@ -607,9 +605,10 @@ export class FormatosService {
           'Authorization': this.userService.getToken(),
           'Accept': 'application/json',
 
-      });
-      window.open(`${this.url}/guiarapida/${id}?download=pdf`, "_blank");
-      return this.http.get(`${this.url}/guiarapida/${id}?download=pdf`);
+
+        });
+        window.open(`${this.url}/guiarapida/${id}?download=pdf`, "_blank");
+        return this.http.get(`${this.url}/guiarapida/${id}?download=pdf`);
     }
 
     getRMA002() {
