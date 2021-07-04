@@ -8,10 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use LdapRecord\Laravel\Auth\LdapAuthenticatable;
 use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
-
+use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable implements LdapAuthenticatable
 {
-    use Notifiable, AuthenticatesWithLdap;
+    use Notifiable, AuthenticatesWithLdap, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,7 @@ class User extends Authenticatable implements LdapAuthenticatable
      */
 
     protected $table = 'Tb_Usuario';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'ID';
     protected $fillable = [
         'CODIGO', 'CLAVE', 'PERFIL','REMEMBER_TOKEN','CREATED_AT', 'UPDATED_AT'
     ];
@@ -56,7 +56,7 @@ class User extends Authenticatable implements LdapAuthenticatable
      */
     public function getAuthPassword()
     {
-        return $this->password;
+        return $this->clave;
     }
 
     /**

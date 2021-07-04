@@ -1,0 +1,992 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.5
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:8889
+-- Tiempo de generación: 30-06-2021 a las 06:00:37
+-- Versión del servidor: 5.7.30
+-- Versión de PHP: 7.4.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `USU_LAB`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `MIGRATIONS`
+--
+
+CREATE TABLE `MIGRATIONS` (
+  `ID` bigint(20) DEFAULT NULL,
+  `MIGRATION` varchar(255) DEFAULT NULL,
+  `BATCH` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `MIGRATIONS`
+--
+
+INSERT INTO `MIGRATIONS` (`ID`, `MIGRATION`, `BATCH`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(NULL, '2019_12_14_000001_create_personal_access_tokens_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `PASSWORD_RESETS`
+--
+
+CREATE TABLE `PASSWORD_RESETS` (
+  `EMAIL` varchar(2000) DEFAULT NULL,
+  `TOKEN` varchar(2000) DEFAULT NULL,
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\User', 11, 'postman', '97db0f607ba9b879db923082da27d94f31457d32d69f2b5047656b510972c5e9', '[\"*\"]', NULL, '2021-06-26 08:32:35', '2021-06-26 08:32:35'),
+(2, 'App\\User', 11, 'postman', '913b60fa75878fed5d12c466e9f70393db317e331a8626141d2f85176834b767', '[\"*\"]', NULL, '2021-06-26 08:37:00', '2021-06-26 08:37:00'),
+(3, 'App\\User', 11, 'postman', 'e05b9d53464ce3de1b64285e2af992308a72aa2ada3068e8473e5f964c5c0929', '[\"*\"]', NULL, '2021-06-26 08:37:13', '2021-06-26 08:37:13'),
+(4, 'App\\User', 11, 'postman', '631b35dcbd37281e19fbff8b5c713d106dce65c9c40d6f3aa8d53c4d53c7b772', '[\"*\"]', NULL, '2021-06-26 08:46:45', '2021-06-26 08:46:45'),
+(5, 'App\\User', 11, 'postman', '78459e27ae02b8b388f90a6228d8bac57116b7b4635954d5421b11477c117ef6', '[\"*\"]', NULL, '2021-06-26 08:46:53', '2021-06-26 08:46:53'),
+(6, 'App\\User', 11, 'postman', '8af26682b06fd97e834c8953776b99cef60ae0d8c19f3dc179e42277ea1881f0', '[\"*\"]', NULL, '2021-06-26 08:51:18', '2021-06-26 08:51:18'),
+(7, 'App\\User', 13, 'postman', '9e29baaa130fbcd4da4273b6b00fea44a75136e5bbcb15aaa8dac6f61840fa51', '[\"*\"]', NULL, '2021-06-29 09:08:26', '2021-06-29 09:08:26'),
+(8, 'App\\User', 13, 'postman', 'fd80519867d7b1412fe60e03bf0f100ad11e036e86a32d1478a1b3e313b50482', '[\"*\"]', NULL, '2021-06-29 09:11:57', '2021-06-29 09:11:57'),
+(9, 'App\\User', 13, 'postman', 'cfa150de1670bf5198bb97675e8ee18b4fe94b449e413bd27466e2ee4ac67930', '[\"*\"]', NULL, '2021-06-29 09:20:54', '2021-06-29 09:20:54'),
+(10, 'App\\User', 13, 'postman', 'c4de3009ef55f7c267ecfa4f3cd350310907dc6b02732bd9dbaf5baf1e79dd6a', '[\"*\"]', NULL, '2021-06-29 09:22:55', '2021-06-29 09:22:55'),
+(11, 'App\\User', 13, 'postman', '60a71f58550d382cefab6dc681f096663c00cec3417946604c219923af9896f6', '[\"*\"]', NULL, '2021-06-29 09:23:17', '2021-06-29 09:23:17'),
+(12, 'App\\User', 13, 'angular_app', 'a9c2ce4f28e23b1a7eaf841903e7b9f2d65e59cca18907bc482c388109637ead', '[\"*\"]', NULL, '2021-06-29 10:38:26', '2021-06-29 10:38:26'),
+(13, 'App\\User', 13, 'angular_app', 'ad031b851542ab25d1af918c09b488a8286ce2f75dc72c7097f69587f01726df', '[\"*\"]', '2021-06-30 10:52:53', '2021-06-30 10:24:21', '2021-06-30 10:52:53'),
+(14, 'App\\User', 13, 'angular_app', '2377b5055a2db148468eaf9b0c21b3918fd86b8155b789d4436e1e68aa24b096', '[\"*\"]', NULL, '2021-06-30 10:53:16', '2021-06-30 10:53:16'),
+(15, 'App\\User', 13, 'angular_app', '0f16a2238bc3d62e3d83e7f5b3e6502c64326cc8799886e48c9aa4d5b1ff01b0', '[\"*\"]', '2021-06-30 10:54:49', '2021-06-30 10:53:21', '2021-06-30 10:54:49');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_ADQUISICION_EQUIPOS`
+--
+
+CREATE TABLE `TB_ADQUISICION_EQUIPOS` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `FECHA_COMPRA` datetime DEFAULT NULL,
+  `FECHA_FABRICACION` datetime DEFAULT NULL,
+  `FECHA_INSTALACION` datetime DEFAULT NULL,
+  `FECHA_INICIO_OPERACION` datetime DEFAULT NULL,
+  `COSTO_EQUIPO` decimal(38,0) DEFAULT '0',
+  `FORMA_ADQUISICION` varchar(2000) DEFAULT 'Compra Directa',
+  `FECHA_ACTA_RECIBOS` datetime DEFAULT NULL,
+  `GARANTIA_ANIOS` decimal(38,0) DEFAULT '0',
+  `ESTADO_GARANTIA` varchar(110) DEFAULT 'N/P',
+  `FIN_GARANTIA` datetime DEFAULT NULL,
+  `ESTADO_ACTUAL` varchar(110) DEFAULT 'N/P',
+  `ANIOS_USO` decimal(38,0) DEFAULT '0',
+  `FACTURA` varchar(110) DEFAULT 'N/P',
+  `ORDEN_DE_COMPRA` varchar(1110) DEFAULT 'N/P',
+  `VIDA_UTIL` decimal(38,0) DEFAULT '0',
+  `RAZON_VIDA_UTIL` varchar(110) DEFAULT 'N/P',
+  `FECHA_INGRESO_INVENTARIO` datetime DEFAULT NULL,
+  `EJECUTOR_HOJA_VIDA` varchar(110) DEFAULT 'N/P',
+  `LIDER_PROCESO` varchar(110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_ADQUISICION_EQUIPOS`
+--
+
+INSERT INTO `TB_ADQUISICION_EQUIPOS` (`ID`, `NUM_HOJA_VIDA`, `FECHA_COMPRA`, `FECHA_FABRICACION`, `FECHA_INSTALACION`, `FECHA_INICIO_OPERACION`, `COSTO_EQUIPO`, `FORMA_ADQUISICION`, `FECHA_ACTA_RECIBOS`, `GARANTIA_ANIOS`, `ESTADO_GARANTIA`, `FIN_GARANTIA`, `ESTADO_ACTUAL`, `ANIOS_USO`, `FACTURA`, `ORDEN_DE_COMPRA`, `VIDA_UTIL`, `RAZON_VIDA_UTIL`, `FECHA_INGRESO_INVENTARIO`, `EJECUTOR_HOJA_VIDA`, `LIDER_PROCESO`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, '2021-06-01 00:00:00', '2021-06-01 00:00:00', '2021-06-01 00:00:00', '2021-06-01 00:00:00', '0', 'Compra Directa', '2021-06-01 00:00:00', '0', 'N/P', '2021-06-02 00:00:00', 'N/P', '0', 'N/P', '1', '0', 'N/P', '2021-06-01 00:00:00', 'juan', 'juan', '2021-06-17 02:46:53.000000', '2021-06-17 02:53:25.000000'),
+(2, 3, '2021-06-04 00:00:00', '2021-06-05 00:00:00', '2021-06-10 00:00:00', '2021-06-11 00:00:00', '0', 'Compra Directa', '2021-06-03 00:00:00', '0', 'N/P', '2021-06-01 00:00:00', 'N/P', '0', 'N/P', '3', '0', 'N/P', '2021-06-12 00:00:00', '3', '3', '2021-06-17 02:49:29.000000', '2021-06-17 02:53:35.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_CLASIFICACION_EQUIPO`
+--
+
+CREATE TABLE `TB_CLASIFICACION_EQUIPO` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CLASIFICACION_DE_EQUIPO` varchar(600) DEFAULT 'Médico',
+  `CLASIFICACION_USO` varchar(600) DEFAULT 'Médico',
+  `CLASIFICACION_BIOMEDICA` varchar(600) DEFAULT 'Diagnóstico',
+  `TECNOLOGIA_PREDOMINANTE` varchar(600) DEFAULT 'Mecánico',
+  `CLASIFICACION_RIESGO` varchar(600) DEFAULT 'Bajo Riesgo I',
+  `CLASE_RIESGO_ELECTRICO` varchar(110) DEFAULT 'N/P',
+  `TIPO_RIESGO_ELECTRICO` varchar(110) DEFAULT 'N/P',
+  `CLASES_SOFTWARE` varchar(600) DEFAULT 'Programación',
+  `COMPLEJIDAD_TECNOLOGICA_EQUIPO` varchar(110) DEFAULT 'N/P',
+  `FUENTES_ALIMENTACION` varchar(600) DEFAULT 'Electricidad',
+  `CICLO_MANTENIMIENTO` varchar(600) DEFAULT '12 Meses',
+  `CICLO_CALIB_VALID_CALPERSONAL` varchar(600) DEFAULT '12 Meses',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_CLASIFICACION_EQUIPO`
+--
+
+INSERT INTO `TB_CLASIFICACION_EQUIPO` (`ID`, `NUM_HOJA_VIDA`, `CLASIFICACION_DE_EQUIPO`, `CLASIFICACION_USO`, `CLASIFICACION_BIOMEDICA`, `TECNOLOGIA_PREDOMINANTE`, `CLASIFICACION_RIESGO`, `CLASE_RIESGO_ELECTRICO`, `TIPO_RIESGO_ELECTRICO`, `CLASES_SOFTWARE`, `COMPLEJIDAD_TECNOLOGICA_EQUIPO`, `FUENTES_ALIMENTACION`, `CICLO_MANTENIMIENTO`, `CICLO_CALIB_VALID_CALPERSONAL`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 3, 'Odontológico', 'Ensayo', 'Rehabilitación', 'Mecánico', 'Bajo Riesgo I', 'N/P', 'N/P', 'Programación', 'N/P', 'Electricidad', '12 Meses', '12 Meses', '2021-06-17 03:05:43.000000', '2021-06-17 03:05:43.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_CRON_PLAN_MENTO_EQUIPOS`
+--
+
+CREATE TABLE `TB_CRON_PLAN_MENTO_EQUIPOS` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `FREC_MENTO_PREVENTIVO` varchar(2000) DEFAULT '12 Meses',
+  `FECHA_EJECUCION` datetime DEFAULT NULL,
+  `ESTADO_EJECUCION` varchar(2000) DEFAULT 'N/P',
+  `RESPONSABLE_MANTENIMIENTO` varchar(110) DEFAULT 'N/P',
+  `OBSERVACIONES_EQUIPO` varchar(1100) DEFAULT 'N/P',
+  `COSTO_MANTENIMIENTO` bigint(20) DEFAULT NULL,
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_CRON_PLAN_MENTO_EQUIPOS`
+--
+
+INSERT INTO `TB_CRON_PLAN_MENTO_EQUIPOS` (`ID`, `NUM_HOJA_VIDA`, `FREC_MENTO_PREVENTIVO`, `FECHA_EJECUCION`, `ESTADO_EJECUCION`, `RESPONSABLE_MANTENIMIENTO`, `OBSERVACIONES_EQUIPO`, `COSTO_MANTENIMIENTO`, `CONSECUTIVO_ORDEN`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, '12 Meses', '2021-02-21 00:00:00', 'EQUIPOFUERADESERVICIO', 'RM', 'OE', 12000, 1, '2021-06-20 17:29:46.000000', '2021-06-20 17:29:46.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_DOCUMENTACION_PROVEEDOR`
+--
+
+CREATE TABLE `TB_DOCUMENTACION_PROVEEDOR` (
+  `ID` bigint(20) DEFAULT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `MANUAL_USUARIO` varchar(1100) DEFAULT 'N/P',
+  `MANUAL_SERVICIO` varchar(1100) DEFAULT 'N/P',
+  `GUIA_USO` varchar(1100) DEFAULT 'N/P',
+  `MANUAL_PARTES` varchar(1100) DEFAULT 'N/P',
+  `MANUAL_DESPIECE` varchar(1100) DEFAULT 'N/P',
+  `PLANOS` varchar(1100) DEFAULT 'N/P',
+  `CARTA_GARANTIA` varchar(1100) DEFAULT 'N/P',
+  `REGISTRO_SANITARIO_PROVEEDOR` varchar(1100) DEFAULT 'N/P',
+  `DECLARACION_IMPORTACION` varchar(1100) DEFAULT 'N/P',
+  `CHECKLIST_FABRICACION` varchar(1100) DEFAULT 'N/P',
+  `HOJAS_VIDA_PERSONAL_TECNICO` varchar(1100) DEFAULT 'N/P',
+  `CRONOGRAMA_VISITAS` varchar(1100) DEFAULT 'N/P',
+  `REPUESTOS_DISPONIBLES` varchar(1100) DEFAULT 'N/P',
+  `CERT_CALIB_VALID_CALPERSONAL` varchar(1100) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_EQUIPOS`
+--
+
+CREATE TABLE `TB_EQUIPOS` (
+  `ID` double NOT NULL,
+  `NUM_HOJA_VIDA` double DEFAULT NULL,
+  `NOMBRE` varchar(110) DEFAULT 'N/P',
+  `IMAGEN_EQUIPO` varchar(2200) DEFAULT 'N/P',
+  `MARCA` varchar(110) DEFAULT 'N/P',
+  `MODELO` varchar(110) DEFAULT 'N/P',
+  `SERIAL` varchar(110) DEFAULT 'N/P',
+  `ACTIVO_FIJO` varchar(110) DEFAULT 'N/P',
+  `AREA` varchar(110) DEFAULT 'N/P',
+  `SUB_AREA` varchar(110) DEFAULT 'N/P',
+  `REGISTRO_SANITARIO` varchar(2000) DEFAULT 'No',
+  `PERMISO_COMERCIALIZACION` varchar(2000) DEFAULT 'No',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_EQUIPOS`
+--
+
+INSERT INTO `TB_EQUIPOS` (`ID`, `NUM_HOJA_VIDA`, `NOMBRE`, `IMAGEN_EQUIPO`, `MARCA`, `MODELO`, `SERIAL`, `ACTIVO_FIJO`, `AREA`, `SUB_AREA`, `REGISTRO_SANITARIO`, `PERMISO_COMERCIALIZACION`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'No', 'No', NULL, NULL),
+(2, 2, 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'No', 'No', NULL, NULL),
+(3, 3, 'NEVERA PANORÁMICA ', 'C:\\fakepath\\1144188983.png', 'Bayern', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'Si', 'Si', '2021-06-17 02:32:21.000000', '2021-06-17 02:32:21.000000'),
+(4, 4, 'TESTcv', 'C:\\fakepath\\d10.jpg', 'Bayern', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'Si', 'Si', '2021-06-17 02:39:11.000000', '2021-06-17 02:39:11.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_FABRICANTES_PROVEEDORES`
+--
+
+CREATE TABLE `TB_FABRICANTES_PROVEEDORES` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `FABRICANTE` varchar(110) DEFAULT 'N/P',
+  `PAIS_ORIGEN` varchar(110) DEFAULT 'N/P',
+  `WEB_FABRICANTE` varchar(110) DEFAULT 'N/P',
+  `REPRESENTANTE` varchar(110) DEFAULT 'N/P',
+  `PROVEEDOR` varchar(110) DEFAULT 'N/P',
+  `CIUDAD_PROVEEDOR` varchar(110) DEFAULT 'N/P',
+  `DIRECCION_PROVEEDOR` varchar(110) DEFAULT 'N/P',
+  `TELEFONO_PROVEEDOR` bigint(20) DEFAULT NULL,
+  `CORREO_PROVEEDOR` varchar(110) DEFAULT 'N/P',
+  `WEB_PROVEEDOR` varchar(110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_HIST_SOLICITUDES_EQUIPO`
+--
+
+CREATE TABLE `TB_HIST_SOLICITUDES_EQUIPO` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `TIPO_SERVICIO` varchar(1110) DEFAULT 'N/P',
+  `FECHA` datetime DEFAULT NULL,
+  `COSTO` varchar(1110) DEFAULT 'N/P',
+  `REPUESTOS` varchar(1110) DEFAULT 'N/P',
+  `HH` bigint(20) DEFAULT '0',
+  `HP` bigint(20) DEFAULT '0',
+  `OBSERVACIONES` varchar(1110) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE` varchar(1110) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE` varchar(1110) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE_REPORTE` varchar(1110) DEFAULT 'N/P',
+  `SATISFACCION_USUARIO` varchar(1110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_INFORMACION_INSTITUCIONAL`
+--
+
+CREATE TABLE `TB_INFORMACION_INSTITUCIONAL` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `PAIS` varchar(110) DEFAULT 'Colombia',
+  `CIUDAD` varchar(1110) DEFAULT 'Cali',
+  `DIRECCION` varchar(1110) DEFAULT 'Calle 5 # 62-00 Barrio Pampalinda',
+  `NIT_UNIVERSIDAD` varchar(1110) DEFAULT '890303787-1',
+  `RUT` varchar(1110) DEFAULT '890303787-1',
+  `TELEFONO` varchar(1110) DEFAULT '5183000 EXT',
+  `WEBSITE` varchar(1110) DEFAULT 'www.usc.edu.co',
+  `EMAIL_LABORATORIO` varchar(1110) DEFAULT 'N/P',
+  `FECHA_EJECUCION_HOJA_VIDA` datetime DEFAULT NULL,
+  `LIDER_PROCESO` varchar(1110) DEFAULT 'N/P',
+  `CARGO` varchar(1110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_INFORMACION_INSTITUCIONAL`
+--
+
+INSERT INTO `TB_INFORMACION_INSTITUCIONAL` (`ID`, `NUM_HOJA_VIDA`, `PAIS`, `CIUDAD`, `DIRECCION`, `NIT_UNIVERSIDAD`, `RUT`, `TELEFONO`, `WEBSITE`, `EMAIL_LABORATORIO`, `FECHA_EJECUCION_HOJA_VIDA`, `LIDER_PROCESO`, `CARGO`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 2, 'Colombia', 'Cali', 'Calle 5 # 62-00 Barrio Pampalinda', '890303787-1', '890303787-1', '5183000 EXT', 'www.usc.edu.co', 'oterod11@hotmail.com', '2021-06-01 00:00:00', 'Daniel Otero', 'DA10', '2021-06-17 03:08:32.000000', '2021-06-17 03:08:32.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_INFORMACION_TECNICA_EQUIPO`
+--
+
+CREATE TABLE `TB_INFORMACION_TECNICA_EQUIPO` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CODIGO_ECRI` varchar(110) DEFAULT 'N/P',
+  `NOMENCLATURA_INTERNACIONAL` varchar(1110) DEFAULT 'N/P',
+  `NOMENCLATURA` varchar(1110) DEFAULT 'N/P',
+  `TIPO_EQUIPO` varchar(2000) DEFAULT 'Móvil',
+  `FIRMWARE` varchar(2000) DEFAULT 'No',
+  `SOFTWARE` varchar(2000) DEFAULT 'No',
+  `RANGO_VOLTAJE` bigint(20) DEFAULT '0',
+  `CORRIENTE` bigint(20) DEFAULT '0',
+  `POTENCIA` bigint(20) DEFAULT '0',
+  `FRECUENCIA_HZ` bigint(20) DEFAULT '0',
+  `DIMENSIONES_CM` bigint(20) DEFAULT '0',
+  `PRESION` bigint(20) DEFAULT '0',
+  `TEMPERATURA` bigint(20) DEFAULT '0',
+  `PESO_KGS` bigint(20) DEFAULT '0',
+  `HUMEDAD` bigint(20) DEFAULT '0',
+  `RPM` bigint(20) DEFAULT '0',
+  `DESCRIPCION_EQUIPO` varchar(1110) DEFAULT 'N/P',
+  `OTRAS_RECOMENDACIONES` varchar(1110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_INFORMACION_TECNICA_EQUIPO`
+--
+
+INSERT INTO `TB_INFORMACION_TECNICA_EQUIPO` (`ID`, `NUM_HOJA_VIDA`, `CODIGO_ECRI`, `NOMENCLATURA_INTERNACIONAL`, `NOMENCLATURA`, `TIPO_EQUIPO`, `FIRMWARE`, `SOFTWARE`, `RANGO_VOLTAJE`, `CORRIENTE`, `POTENCIA`, `FRECUENCIA_HZ`, `DIMENSIONES_CM`, `PRESION`, `TEMPERATURA`, `PESO_KGS`, `HUMEDAD`, `RPM`, `DESCRIPCION_EQUIPO`, `OTRAS_RECOMENDACIONES`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 2, '22', '22', '34343543543', 'Móvil', 'Si', 'Si', 0, 22, 0, 22, 22, 22, 0, 22, 22, 2, 'N/P', 'Conservar a 20 grados', '2021-06-17 03:07:50.000000', '2021-06-17 03:07:50.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_INFORME_MANTENIMIENTO`
+--
+
+CREATE TABLE `TB_INFORME_MANTENIMIENTO` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `TIPO_MANTENIMIENTO` varchar(110) DEFAULT 'N/P',
+  `IMAGEN_ANTES_MANTENIMIENTO` varchar(2000) DEFAULT NULL,
+  `IMAGEN_DESPUES_MANTENIMIENTO` varchar(2000) DEFAULT NULL,
+  `FECHA_MANTENIMIENTO` datetime DEFAULT NULL,
+  `HORA_INICIO` datetime DEFAULT NULL,
+  `HORA_FIN` datetime DEFAULT NULL,
+  `TIPO_EQUIPO` varchar(2000) DEFAULT 'Médico',
+  `ACTIVIDADES_REALIZADAS` varchar(1110) DEFAULT 'N/P',
+  `OBSERVACION_MANTENIMIENTO` varchar(1110) DEFAULT 'N/P',
+  `ESTADO_EQUIPO` varchar(1110) DEFAULT 'N/P',
+  `TEST_FUNCIONALIDAD` varchar(1110) DEFAULT 'N/P',
+  `LIMPIEZA` varchar(2000) DEFAULT 'N/P',
+  `REEMPLAZO_ACCESORIOS` varchar(2000) DEFAULT 'N/P',
+  `HERRAMIENTAS_UTILIZADAS` varchar(1110) DEFAULT 'N/P',
+  `EQUIPO_PROTECCION_PERSONAL` varchar(1110) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE_MENTO` varchar(110) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE_MENTO` varchar(110) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE_RECIBIR` varchar(110) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE_RECIBIR` varchar(110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_INFORME_MANTENIMIENTO`
+--
+
+INSERT INTO `TB_INFORME_MANTENIMIENTO` (`ID`, `NUM_HOJA_VIDA`, `CONSECUTIVO_ORDEN`, `TIPO_MANTENIMIENTO`, `IMAGEN_ANTES_MANTENIMIENTO`, `IMAGEN_DESPUES_MANTENIMIENTO`, `FECHA_MANTENIMIENTO`, `HORA_INICIO`, `HORA_FIN`, `TIPO_EQUIPO`, `ACTIVIDADES_REALIZADAS`, `OBSERVACION_MANTENIMIENTO`, `ESTADO_EQUIPO`, `TEST_FUNCIONALIDAD`, `LIMPIEZA`, `REEMPLAZO_ACCESORIOS`, `HERRAMIENTAS_UTILIZADAS`, `EQUIPO_PROTECCION_PERSONAL`, `NOMBRE_RESPONSABLE_MENTO`, `CARGO_RESPONSABLE_MENTO`, `NOMBRE_RESPONSABLE_RECIBIR`, `CARGO_RESPONSABLE_RECIBIR`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 3, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\126085974_3095162020584230_4011343961225577158_o.jpg', '2021-06-20 00:00:00', '2021-06-20 16:38:00', '2021-06-20 18:38:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'Si', 'Si', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-20 20:38:25.000000', '2021-06-20 20:38:25.000000'),
+(2, 3, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\778-200x300.jpg', '2021-06-20 00:00:00', '2021-06-20 21:02:00', '2021-06-20 21:12:00', 'Odontológico', 'Act 1', 'OM', 'EE', 'TF', 'Si', 'Si', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 01:38:09.000000', '2021-06-21 01:38:09.000000'),
+(3, 2, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\778-200x300.jpg', '2021-06-20 00:00:00', '2021-06-20 12:21:00', '2021-06-20 12:02:00', 'Laboratorio', 'Act 1', 'OM', 'EE', 'TF', 'Si', 'No', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 01:39:16.000000', '2021-06-21 01:39:16.000000'),
+(4, 3, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\778-200x300.jpg', '2021-06-20 00:00:00', '2021-06-20 21:44:00', '2021-06-20 21:44:00', 'Laboratorio', 'Act 1', 'OM', 'EE', 'TF', 'Si', 'Si', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 02:44:52.000000', '2021-06-21 02:44:52.000000'),
+(5, 3, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\778-200x300.jpg', '2021-06-20 00:00:00', '2021-06-20 21:49:00', '2021-06-20 22:49:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 02:53:28.000000', '2021-06-21 02:53:28.000000'),
+(6, 2, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\778-200x300.jpg', '2021-06-20 00:00:00', '2021-06-20 21:53:00', '2021-06-20 22:53:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 02:55:47.000000', '2021-06-21 02:55:47.000000'),
+(7, 1, 1, 'Preventivo', 'C:\\fakepath\\778-200x300.jpg', 'C:\\fakepath\\778-200x300.jpg', '2021-06-20 00:00:00', '2021-06-20 22:17:00', '2021-06-20 23:17:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 03:17:35.000000', '2021-06-21 03:17:35.000000'),
+(8, 3, 1, 'Preventivo', 'images/_Imagen_Antes_Mantenimientojpg', 'images/_Imagen_Despues_Mantenimientojpg', '2021-06-20 00:00:00', '2021-06-20 22:19:00', '2021-06-20 23:19:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 03:41:08.000000', '2021-06-21 03:41:09.000000'),
+(9, 3, 1, 'Preventivo', 'images/_Imagen_Antes_Mantenimiento.jpg', 'images/9_Imagen_Despues_Mantenimiento.jpg', '2021-06-20 00:00:00', '2021-06-20 22:47:00', '2021-06-20 23:47:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 03:47:11.000000', '2021-06-21 03:47:11.000000'),
+(10, 2, 1, 'Preventivo', 'images/10_Imagen_Antes_Mantenimiento.jpg', 'images/10_Imagen_Despues_Mantenimiento.jpg', '2021-06-20 00:00:00', '2021-06-20 23:02:00', '2021-06-20 00:02:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 04:02:24.000000', '2021-06-21 04:02:24.000000'),
+(11, 1, 1, 'Preventivo', '20210621/11_Imagen_Antes_Mantenimiento.jpg', '20210621/11_Imagen_Despues_Mantenimiento.jpg', '2021-06-20 00:00:00', '2021-06-20 23:07:00', '2021-06-20 23:07:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 04:07:25.000000', '2021-06-21 04:07:25.000000'),
+(12, 2, 1, 'Preventivo', '20210621/12_Imagen_Antes_Mantenimiento.jpg', '20210621/12_Imagen_Despues_Mantenimiento.jpg', '2021-06-20 00:00:00', '2021-06-20 23:17:00', '2021-06-20 00:17:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-21 04:17:59.000000', '2021-06-21 04:17:59.000000'),
+(13, 4, 1, 'Preventivo', '', '', '2021-06-22 00:00:00', '2021-06-22 21:04:00', '2021-06-22 21:04:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-23 02:04:38.000000', '2021-06-23 02:04:38.000000'),
+(14, 4, 1, 'Preventivo', '20210623/14_Imagen_Antes_Mantenimiento.jpg', '20210623/14_Imagen_Despues_Mantenimiento.jpg', '2021-06-22 00:00:00', '2021-06-22 21:04:00', '2021-06-22 21:04:00', 'Médico', 'Act 1', 'OM', 'EE', 'TF', 'N/P', 'N/P', 'HU', 'EPP', 'NR', 'CRM', 'NQR', 'CQR', '2021-06-23 02:05:59.000000', '2021-06-23 02:06:00.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_INFORME_SERVICIO_TECNICO`
+--
+
+CREATE TABLE `TB_INFORME_SERVICIO_TECNICO` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `CODIGO_PRESTADOR` varchar(110) DEFAULT 'N/P',
+  `SERVICIO` varchar(110) DEFAULT 'N/P',
+  `UBICACION` varchar(110) DEFAULT 'N/P',
+  `FECHA_INFORME` datetime DEFAULT NULL,
+  `PROBLEMA_DETECTADO` varchar(1110) DEFAULT 'N/P',
+  `ACTIVIDADES_REALIZADAS` varchar(1110) DEFAULT 'N/P',
+  `REPUESTOS_INSTALADOS` varchar(1110) DEFAULT 'N/P',
+  `ACCESORIOS_INSTALADOS` varchar(1110) DEFAULT 'N/P',
+  `INSUMOS_INSTALADOS` varchar(1110) DEFAULT 'N/P',
+  `MEDICIONES` varchar(110) DEFAULT 'N/P',
+  `OBSERVACIONES` varchar(1110) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE` varchar(110) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE` varchar(110) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE_RECIBIR` varchar(110) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE_RECIBIR` varchar(110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_INFORME_SERVICIO_TECNICO`
+--
+
+INSERT INTO `TB_INFORME_SERVICIO_TECNICO` (`ID`, `NUM_HOJA_VIDA`, `CONSECUTIVO_ORDEN`, `CODIGO_PRESTADOR`, `SERVICIO`, `UBICACION`, `FECHA_INFORME`, `PROBLEMA_DETECTADO`, `ACTIVIDADES_REALIZADAS`, `REPUESTOS_INSTALADOS`, `ACCESORIOS_INSTALADOS`, `INSUMOS_INSTALADOS`, `MEDICIONES`, `OBSERVACIONES`, `NOMBRE_RESPONSABLE`, `CARGO_RESPONSABLE`, `NOMBRE_RESPONSABLE_RECIBIR`, `CARGO_RESPONSABLE_RECIBIR`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 3, 1, '121221', 'S', 'U', '2021-06-21 00:00:00', 'Corto', 'Inspeccion', 'Cable', 'estaño', 'ninguno', 'M', 'O', 'N', 'C', 'NR', 'CRR', '2021-06-20 20:52:17.000000', '2021-06-20 20:52:17.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_INSP_FUNCIONALIDAD_EQUIPOS`
+--
+
+CREATE TABLE `TB_INSP_FUNCIONALIDAD_EQUIPOS` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `LABORATORIO` varchar(110) DEFAULT 'N/P',
+  `FECHA_EJECUCION` datetime DEFAULT NULL,
+  `NOMBRE_RESPONSABLE` varchar(110) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE` varchar(110) DEFAULT 'N/P',
+  `FUNCIONAMIENTO_EQUIPO` varchar(2000) DEFAULT 'BE Buen Estado',
+  `ESTADO_ENTORNO` varchar(2000) DEFAULT 'BE Buen Estado',
+  `ESTADO_ACCESORIO_CONSUMIBLES` varchar(2000) DEFAULT 'BE Buen Estado',
+  `ESTADO_LINEAS_ALIMENTACION` varchar(2000) DEFAULT 'BE Buen Estado',
+  `ESTADO_ALMACENAMIENTO` varchar(2000) DEFAULT 'BE Buen Estado',
+  `DOCUMENTACION_PRESENTE` varchar(2000) DEFAULT 'BE Buen Estado',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_INSP_FUNCIONALIDAD_EQUIPOS`
+--
+
+INSERT INTO `TB_INSP_FUNCIONALIDAD_EQUIPOS` (`ID`, `NUM_HOJA_VIDA`, `CONSECUTIVO_ORDEN`, `LABORATORIO`, `FECHA_EJECUCION`, `NOMBRE_RESPONSABLE`, `CARGO_RESPONSABLE`, `FUNCIONAMIENTO_EQUIPO`, `ESTADO_ENTORNO`, `ESTADO_ACCESORIO_CONSUMIBLES`, `ESTADO_LINEAS_ALIMENTACION`, `ESTADO_ALMACENAMIENTO`, `DOCUMENTACION_PRESENTE`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, 1, 'L', '2021-06-20 16:34:54', 'NR', 'CR', 'BE Buen Estado', 'BE Buen Estado', 'BE Buen Estado', 'BE Buen Estado', 'BE Buen Estado', 'BE Buen Estado', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_MANTENIMIENTO_EQUIPOS`
+--
+
+CREATE TABLE `TB_MANTENIMIENTO_EQUIPOS` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `MANTENIMIENTO_PROPIO` varchar(255) DEFAULT 'No',
+  `MANTENIMIENTO_CONTRATADO` varchar(255) DEFAULT 'No',
+  `POR_ORDEN_COMPRA` varchar(255) DEFAULT 'No',
+  `REQUIERE_CALIBRACION` varchar(255) DEFAULT 'No',
+  `REQUIERE_CAL_OPERACIONAL` varchar(255) DEFAULT 'No',
+  `REQUIERE_VALIDACION` varchar(255) DEFAULT 'No',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_MANTENIMIENTO_EQUIPOS`
+--
+
+INSERT INTO `TB_MANTENIMIENTO_EQUIPOS` (`ID`, `NUM_HOJA_VIDA`, `MANTENIMIENTO_PROPIO`, `MANTENIMIENTO_CONTRATADO`, `POR_ORDEN_COMPRA`, `REQUIERE_CALIBRACION`, `REQUIERE_CAL_OPERACIONAL`, `REQUIERE_VALIDACION`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 3, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', '2021-06-17 03:06:13.000000', '2021-06-17 03:06:36.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_MATRIZ_SEGTO_SOLICITUDES`
+--
+
+CREATE TABLE `TB_MATRIZ_SEGTO_SOLICITUDES` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `FECHA_SOLICITUD` datetime DEFAULT NULL,
+  `DESCRIPCION_SOLICITUD` varchar(1110) DEFAULT 'N/P',
+  `CDIS_PRESUPUESTO` bigint(20) DEFAULT '0',
+  `FECHA_EJECUCION` datetime DEFAULT NULL,
+  `EJECUTADO` bigint(20) DEFAULT '0',
+  `NO_EJECUTADO` bigint(20) DEFAULT '0',
+  `PERSONAL_ENCARGADO` varchar(110) DEFAULT 'N/P',
+  `TOTAL_SOLICITUDES` bigint(20) DEFAULT '0',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_MATRIZ_SEGTO_SOLICITUDES`
+--
+
+INSERT INTO `TB_MATRIZ_SEGTO_SOLICITUDES` (`ID`, `NUM_HOJA_VIDA`, `CONSECUTIVO_ORDEN`, `FECHA_SOLICITUD`, `DESCRIPCION_SOLICITUD`, `CDIS_PRESUPUESTO`, `FECHA_EJECUCION`, `EJECUTADO`, `NO_EJECUTADO`, `PERSONAL_ENCARGADO`, `TOTAL_SOLICITUDES`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, 1, '2021-06-20 00:00:00', 'DS', 1323, '2021-06-20 00:00:00', 1232, 213123, 'PE', 23, '2021-06-20 21:49:05.000000', '2021-06-20 21:49:05.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_OBSERVACIONES_ADICIONALES`
+--
+
+CREATE TABLE `TB_OBSERVACIONES_ADICIONALES` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `FECHA_OBSERVACION` datetime DEFAULT NULL,
+  `OBSERVACION` varchar(1110) DEFAULT 'N/P',
+  `RESPONSABLE_OBSERVACION` varchar(110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_PERFIL_USUARIO`
+--
+
+CREATE TABLE `TB_PERFIL_USUARIO` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_PERFIL` bigint(20) DEFAULT NULL,
+  `DESCRIPCION_PERFIL` varchar(2000) DEFAULT 'Empleado',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_PLAN_VALIDACION`
+--
+
+CREATE TABLE `TB_PLAN_VALIDACION` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `FCIA_VACION_CALIB` varchar(2000) DEFAULT '12 Meses',
+  `FECHA_EJECUCION` datetime DEFAULT NULL,
+  `ESTADO_EJECUCION` varchar(2000) DEFAULT 'N/P',
+  `OBSERVACIONES_EQUIPO` varchar(1100) DEFAULT 'N/P',
+  `CONSECUTIVO_ORDEN` bigint(20) DEFAULT NULL,
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_PLAN_VALIDACION`
+--
+
+INSERT INTO `TB_PLAN_VALIDACION` (`ID`, `NUM_HOJA_VIDA`, `FCIA_VACION_CALIB`, `FECHA_EJECUCION`, `ESTADO_EJECUCION`, `OBSERVACIONES_EQUIPO`, `CONSECUTIVO_ORDEN`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 4, '3 Meses', '2021-02-21 00:00:00', 'CALIBRACIÓNPROGRAMADA', 'OE', 1, '2021-06-20 18:09:30.000000', '2021-06-20 18:09:30.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_REACTIVOS_ACCESORIOS`
+--
+
+CREATE TABLE `TB_REACTIVOS_ACCESORIOS` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `LISTADO_REACTIVOS` varchar(2000) DEFAULT 'Sólidos',
+  `ACCESORIO_1` varchar(1100) DEFAULT 'N/P',
+  `MARCA_LICENCIA_ACCESORIO_1` varchar(110) DEFAULT 'N/P',
+  `MODELO_VERSION_ACCESORIO_1` varchar(110) DEFAULT 'N/P',
+  `SERIE_ACCESORIO_1` varchar(1110) DEFAULT NULL,
+  `ACCESORIO_2` varchar(1110) DEFAULT 'N/P',
+  `MARCA_LICENCIA_ACCESORIO_2` varchar(1110) DEFAULT 'N/P',
+  `MODELO_VERSION_ACCESORIO_2` varchar(1110) DEFAULT 'N/P',
+  `SERIE_ACCESORIO_2` varchar(1110) DEFAULT 'N/P',
+  `ACCESORIO_3` varchar(1110) DEFAULT 'N/P',
+  `MARCA_LICENCIA_ACCESORIO_3` varchar(1110) DEFAULT 'N/P',
+  `MODELO_VERSION_ACCESORIO_3` varchar(1110) DEFAULT 'N/P',
+  `SERIE_ACCESORIO_3` varchar(1110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_REACTIVOS_ACCESORIOS`
+--
+
+INSERT INTO `TB_REACTIVOS_ACCESORIOS` (`ID`, `NUM_HOJA_VIDA`, `LISTADO_REACTIVOS`, `ACCESORIO_1`, `MARCA_LICENCIA_ACCESORIO_1`, `MODELO_VERSION_ACCESORIO_1`, `SERIE_ACCESORIO_1`, `ACCESORIO_2`, `MARCA_LICENCIA_ACCESORIO_2`, `MODELO_VERSION_ACCESORIO_2`, `SERIE_ACCESORIO_2`, `ACCESORIO_3`, `MARCA_LICENCIA_ACCESORIO_3`, `MODELO_VERSION_ACCESORIO_3`, `SERIE_ACCESORIO_3`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, 'Liquidos', 'Blanco', 'Blanco', '1', '1', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', '2021-06-17 03:09:11.000000', '2021-06-17 03:09:11.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_RMA002`
+--
+
+CREATE TABLE `TB_RMA002` (
+  `ID` bigint(20) NOT NULL,
+  `NUM_HOJA_VIDA` bigint(20) DEFAULT NULL,
+  `PARTES_EQUIPO` varchar(1110) DEFAULT 'N/P',
+  `ACCESORIOS_EQUIPO` varchar(1110) DEFAULT 'N/P',
+  `TECNOVIGILANCIA` varchar(200) DEFAULT 'N/P',
+  `ANTES_USO` varchar(1110) DEFAULT 'N/P',
+  `DESPUES_USO` varchar(1110) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_RMA002`
+--
+
+INSERT INTO `TB_RMA002` (`ID`, `NUM_HOJA_VIDA`, `PARTES_EQUIPO`, `ACCESORIOS_EQUIPO`, `TECNOVIGILANCIA`, `ANTES_USO`, `DESPUES_USO`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1, 'portatil', 'mouse', 'vigente', 'uno', 'tres', '2021-06-20 05:40:53.000000', '2021-06-20 05:40:53.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_SOLICITUD_SERVICIO`
+--
+
+CREATE TABLE `TB_SOLICITUD_SERVICIO` (
+  `ID` double NOT NULL,
+  `CONSECUTIVO_ORDEN` double DEFAULT NULL,
+  `NUM_HOJA_VIDA` double DEFAULT NULL,
+  `FECHA_SOLICITUD_SERVICIO` datetime DEFAULT NULL,
+  `HORA_SOLICITUD_SERVICIO` datetime DEFAULT NULL,
+  `SERVICIO` varchar(200) DEFAULT 'N/P',
+  `UBICACION` varchar(200) DEFAULT 'N/P',
+  `DESCRIPCION_PROBLEMA` varchar(1100) DEFAULT 'N/P',
+  `NOMBRE_RESPONSABLE` varchar(200) DEFAULT 'N/P',
+  `CARGO_RESPONSABLE` varchar(200) DEFAULT 'N/P',
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_SOLICITUD_SERVICIO`
+--
+
+INSERT INTO `TB_SOLICITUD_SERVICIO` (`ID`, `CONSECUTIVO_ORDEN`, `NUM_HOJA_VIDA`, `FECHA_SOLICITUD_SERVICIO`, `HORA_SOLICITUD_SERVICIO`, `SERVICIO`, `UBICACION`, `DESCRIPCION_PROBLEMA`, `NOMBRE_RESPONSABLE`, `CARGO_RESPONSABLE`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(1, 1.1, 1, '2021-06-20 11:56:28', '2021-06-20 11:56:28', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', NULL, NULL),
+(2, 1.2, 1.1, '2021-06-20 11:56:28', '2021-06-20 11:56:28', 'N/P', 'N/P', 'N/P', 'N/P', 'N/P', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_USUARIO`
+--
+
+CREATE TABLE `TB_USUARIO` (
+  `ID` bigint(20) NOT NULL,
+  `CODIGO` varchar(200) DEFAULT NULL,
+  `CLAVE` varchar(200) DEFAULT NULL,
+  `PERFIL` bigint(20) DEFAULT NULL,
+  `REMEMBER_TOKEN` varchar(200) DEFAULT NULL,
+  `CREATED_AT` datetime(6) DEFAULT NULL,
+  `UPDATED_AT` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TB_USUARIO`
+--
+
+INSERT INTO `TB_USUARIO` (`ID`, `CODIGO`, `CLAVE`, `PERFIL`, `REMEMBER_TOKEN`, `CREATED_AT`, `UPDATED_AT`) VALUES
+(13, '19990001222@s.com', '$2y$10$eybb240tBTvzFRHwiADtquB3W193rSyXj2tTqBW12vgKS5gLZyks.', NULL, NULL, '2021-06-29 04:04:09.000000', '2021-06-29 04:04:09.000000');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `MIGRATIONS`
+--
+ALTER TABLE `MIGRATIONS`
+  ADD UNIQUE KEY `MIGRATIONS_ID_PK` (`ID`);
+
+--
+-- Indices de la tabla `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indices de la tabla `TB_ADQUISICION_EQUIPOS`
+--
+ALTER TABLE `TB_ADQUISICION_EQUIPOS`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_ADQUISICION_EQUIPOS_ID_PK` (`ID`);
+
+--
+-- Indices de la tabla `TB_CLASIFICACION_EQUIPO`
+--
+ALTER TABLE `TB_CLASIFICACION_EQUIPO`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_CLASIFICACION_EQUIPO_ID_PK` (`ID`);
+
+--
+-- Indices de la tabla `TB_CRON_PLAN_MENTO_EQUIPOS`
+--
+ALTER TABLE `TB_CRON_PLAN_MENTO_EQUIPOS`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `TB_CRON_PLAN_MENTO_EQUIPOS_FK1` (`NUM_HOJA_VIDA`);
+
+--
+-- Indices de la tabla `TB_EQUIPOS`
+--
+ALTER TABLE `TB_EQUIPOS`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_EQUIPOS_PK` (`ID`);
+
+--
+-- Indices de la tabla `TB_FABRICANTES_PROVEEDORES`
+--
+ALTER TABLE `TB_FABRICANTES_PROVEEDORES`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_HIST_SOLICITUDES_EQUIPO`
+--
+ALTER TABLE `TB_HIST_SOLICITUDES_EQUIPO`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_HIS_SOLICITUDE_EQUIP_ID_PK` (`ID`),
+  ADD KEY `TB_HIST_SOLICITUDES_EQUIPO_FK2` (`CONSECUTIVO_ORDEN`);
+
+--
+-- Indices de la tabla `TB_INFORMACION_INSTITUCIONAL`
+--
+ALTER TABLE `TB_INFORMACION_INSTITUCIONAL`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_INFORMACION_TECNICA_EQUIPO`
+--
+ALTER TABLE `TB_INFORMACION_TECNICA_EQUIPO`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_INFORME_MANTENIMIENTO`
+--
+ALTER TABLE `TB_INFORME_MANTENIMIENTO`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_INFORME_SERVICIO_TECNICO`
+--
+ALTER TABLE `TB_INFORME_SERVICIO_TECNICO`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_INFORM_SERVICI_TECNIC_ID_PK` (`ID`),
+  ADD KEY `TB_INFORM_SERVICIO_TECNICO_FK2` (`CONSECUTIVO_ORDEN`);
+
+--
+-- Indices de la tabla `TB_INSP_FUNCIONALIDAD_EQUIPOS`
+--
+ALTER TABLE `TB_INSP_FUNCIONALIDAD_EQUIPOS`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `TB_INSP_FUNC_EQUIPOS_IBFK_1` (`NUM_HOJA_VIDA`);
+
+--
+-- Indices de la tabla `TB_MANTENIMIENTO_EQUIPOS`
+--
+ALTER TABLE `TB_MANTENIMIENTO_EQUIPOS`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `TB_MANTENIMIENTO_EQUIPOS_FK_1` (`NUM_HOJA_VIDA`);
+
+--
+-- Indices de la tabla `TB_MATRIZ_SEGTO_SOLICITUDES`
+--
+ALTER TABLE `TB_MATRIZ_SEGTO_SOLICITUDES`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `TB_MATRIZ_SEGTO_SOLICITUD_FK_1` (`CONSECUTIVO_ORDEN`);
+
+--
+-- Indices de la tabla `TB_OBSERVACIONES_ADICIONALES`
+--
+ALTER TABLE `TB_OBSERVACIONES_ADICIONALES`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_PERFIL_USUARIO`
+--
+ALTER TABLE `TB_PERFIL_USUARIO`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_PLAN_VALIDACION`
+--
+ALTER TABLE `TB_PLAN_VALIDACION`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_PLAN_VALIDACION_ID_PK` (`ID`),
+  ADD KEY `TB_CRON_PL_CALIB_VALID_1` (`NUM_HOJA_VIDA`);
+
+--
+-- Indices de la tabla `TB_REACTIVOS_ACCESORIOS`
+--
+ALTER TABLE `TB_REACTIVOS_ACCESORIOS`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `TB_RMA002`
+--
+ALTER TABLE `TB_RMA002`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_RMA002_ID_PK` (`ID`),
+  ADD KEY `TB_RMA002_IBFK_1` (`NUM_HOJA_VIDA`);
+
+--
+-- Indices de la tabla `TB_SOLICITUD_SERVICIO`
+--
+ALTER TABLE `TB_SOLICITUD_SERVICIO`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_SOLICITUD_SERVICIO_PK` (`ID`),
+  ADD UNIQUE KEY `TB_SOLICITUD_SERVICIO_UK1` (`CONSECUTIVO_ORDEN`),
+  ADD UNIQUE KEY `TB_SOLICITUD_SERVICIO_INDEX1` (`NUM_HOJA_VIDA`);
+
+--
+-- Indices de la tabla `TB_USUARIO`
+--
+ALTER TABLE `TB_USUARIO`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TB_USUARIO_PK` (`ID`),
+  ADD UNIQUE KEY `TB_USUARIO_UK1` (`PERFIL`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_ADQUISICION_EQUIPOS`
+--
+ALTER TABLE `TB_ADQUISICION_EQUIPOS`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_CLASIFICACION_EQUIPO`
+--
+ALTER TABLE `TB_CLASIFICACION_EQUIPO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_CRON_PLAN_MENTO_EQUIPOS`
+--
+ALTER TABLE `TB_CRON_PLAN_MENTO_EQUIPOS`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_EQUIPOS`
+--
+ALTER TABLE `TB_EQUIPOS`
+  MODIFY `ID` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_FABRICANTES_PROVEEDORES`
+--
+ALTER TABLE `TB_FABRICANTES_PROVEEDORES`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_HIST_SOLICITUDES_EQUIPO`
+--
+ALTER TABLE `TB_HIST_SOLICITUDES_EQUIPO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_INFORMACION_INSTITUCIONAL`
+--
+ALTER TABLE `TB_INFORMACION_INSTITUCIONAL`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_INFORMACION_TECNICA_EQUIPO`
+--
+ALTER TABLE `TB_INFORMACION_TECNICA_EQUIPO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_INFORME_MANTENIMIENTO`
+--
+ALTER TABLE `TB_INFORME_MANTENIMIENTO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_INFORME_SERVICIO_TECNICO`
+--
+ALTER TABLE `TB_INFORME_SERVICIO_TECNICO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_INSP_FUNCIONALIDAD_EQUIPOS`
+--
+ALTER TABLE `TB_INSP_FUNCIONALIDAD_EQUIPOS`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_MANTENIMIENTO_EQUIPOS`
+--
+ALTER TABLE `TB_MANTENIMIENTO_EQUIPOS`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_MATRIZ_SEGTO_SOLICITUDES`
+--
+ALTER TABLE `TB_MATRIZ_SEGTO_SOLICITUDES`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_OBSERVACIONES_ADICIONALES`
+--
+ALTER TABLE `TB_OBSERVACIONES_ADICIONALES`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_PERFIL_USUARIO`
+--
+ALTER TABLE `TB_PERFIL_USUARIO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_PLAN_VALIDACION`
+--
+ALTER TABLE `TB_PLAN_VALIDACION`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_REACTIVOS_ACCESORIOS`
+--
+ALTER TABLE `TB_REACTIVOS_ACCESORIOS`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_RMA002`
+--
+ALTER TABLE `TB_RMA002`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_SOLICITUD_SERVICIO`
+--
+ALTER TABLE `TB_SOLICITUD_SERVICIO`
+  MODIFY `ID` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_USUARIO`
+--
+ALTER TABLE `TB_USUARIO`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;

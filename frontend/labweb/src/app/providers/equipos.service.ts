@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { Mantenimiento_EquiposModel } from './../models/mantenimiento_equipos';
 import { Info_Tecnica_EquipoModel } from './../models/info_tecnica_equipo';
 import { Reactivos_AccesoriosModel } from './../models/reactivos_accesorios';
@@ -18,11 +19,13 @@ export class EquiposService {
 
     headers = new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+        'Authorization': this.userService.getToken(),
+        'Accept': 'application/json',
+        //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+        //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
     });
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private userService: UserService) {
         console.log(' servicio de equipos inicializado');
     }
     //SERVICIOS DE INFORMACIÓN INSTITUCIONAL
@@ -31,8 +34,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/infoinstitucional/`, params, {
@@ -44,9 +49,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/infoinstitucional/` + id, params, {
@@ -56,6 +63,8 @@ export class EquiposService {
     getInfoI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/infoinstitucional/${id}`, id);
@@ -95,9 +104,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/equipos/`, params, {
@@ -109,9 +120,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/equipos/` + id, params, {
@@ -126,7 +139,8 @@ export class EquiposService {
     ObternerImagenEquipo(imagen) {
         let headers = new HttpHeaders({
             'Content-Type': 'application/json',
-            Accept: 'text/javascript',
+            'Authorization': this.userService.getToken(),
+            Accept: 'text/javascript, application/json',
         });
         return this.http
             .get(`${this.url} / imagenes / `, { headers })
@@ -143,7 +157,8 @@ export class EquiposService {
     getImagenEquipo() {
         let headers = new HttpHeaders({
             'Content-Type': 'application/json',
-            Accept: 'text/javascript',
+            'Authorization': this.userService.getToken(),
+            Accept: 'text/javascript, application/json',
         });
         return this.http
             .get(`${this.url} / imagenes`, { headers })
@@ -163,9 +178,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/compraequipos/`, params, {
@@ -177,9 +194,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/compraequipos/` + id, params, {
@@ -189,6 +208,8 @@ export class EquiposService {
     getCompraEquiposI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/compraequipos/${id}`, id);
@@ -210,9 +231,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/clasificacionequipos/`, params, {
@@ -224,9 +247,11 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/clasificacionequipos/` + id, params, {
@@ -236,6 +261,8 @@ export class EquiposService {
     getClasificacionEquiposI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/clasificacionequipos/${id}`, id);
@@ -253,15 +280,17 @@ export class EquiposService {
     }
 
 
-    //SERVICIOS DE REACTIVOS ACCESORIOS 
+    //SERVICIOS DE REACTIVOS ACCESORIOS
     createReactivosAccesorios(reactivos: Reactivos_AccesoriosModel): Observable<any> {
         let json = JSON.stringify(reactivos);
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/reactivos/`, params, {
@@ -273,8 +302,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/reactivos/` + id, params, {
@@ -284,6 +315,8 @@ export class EquiposService {
     getReactivosAccesoriosI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/reactivos/${id}`, id);
@@ -305,8 +338,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/infotecnicaequipo/`, params, {
@@ -318,8 +353,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/infotecnicaequipo/` + id, params, {
@@ -329,6 +366,8 @@ export class EquiposService {
     getInfoTecnicaI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/infotecnicaequipo/${id}`, id);
@@ -351,8 +390,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/historico/`, params, {
@@ -364,8 +405,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/historico/` + id, params, {
@@ -375,6 +418,8 @@ export class EquiposService {
     getHistoricoI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/historico/${id}`, id);
@@ -397,8 +442,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/mantenimientoequipos/`, params, {
@@ -410,8 +457,10 @@ export class EquiposService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/mantenimientoequipos/` + id, params, {
@@ -421,6 +470,8 @@ export class EquiposService {
     getMantenimientoI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/mantenimientoequipos/${id}`, id);
@@ -455,8 +506,8 @@ export class EquiposService {
     } */
 }
 
-//Subir 
-//git add . 
+//Subir
+//git add .
 // git commit -m "";
 //git push origin master
 //Descargar servidor

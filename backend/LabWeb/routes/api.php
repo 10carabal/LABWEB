@@ -1,4 +1,12 @@
 <?php
+//header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
+//header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+//header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+//$method = $_SERVER['REQUEST_METHOD'];
+//if ($method == "OPTIONS") {
+//    die();
+//}
 
 use Illuminate\Http\Request;
 
@@ -16,8 +24,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::group(['middleware' => ['cors']], function () {
+    //Login
+    Route::resource('/users', "API\AuthController");
+    Route::post('/tokens/create', "API\AuthController@create");
+    Route::post('test/{id}', function($id){
+        return response()->json(["message"=>"Exito"]);
+    });
+});
+Route::group(['middleware' => ['cors', 'auth:sanctum']], function () {
 
     //JOINS INVENTARIO
     Route::get('datosprimariosinventario', 'EquiposController@getdatosprimarios');
@@ -117,7 +132,6 @@ Route::group(['middleware' => ['cors']], function () {
     Route::get('informemantenimiento/image/{filename}', 'InformeMantenimientoController@getImage');
 
     //STIKERSSSSSS
-
 
 
 });

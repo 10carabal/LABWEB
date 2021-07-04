@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { Observaciones_AdicionalesModel } from './../models/observaciones_adicionales';
 import { Fabricantes_ProveedoresModel } from './../models/fabricantes_proveedores';
 import { Doc_ProveedorModel } from './../models/doc_proveedor';
@@ -14,12 +15,15 @@ export class ProveedoresService {
 
     //private url: string = "http://127.0.0.1:8000/api";
     headers = new HttpHeaders({
-        'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+        'Content-Type': 'application/json',
+        'Authorization': this.userService.getToken(),
+        'Accept': 'application/json',
+        //'Access-Control-Allow-Origin': '*',
+        //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+        //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
     });
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private userService: UserService) {
         console.log(' servicio de equipos inicializado');
 
     }
@@ -30,9 +34,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/documentosanexoshv/`, params, {
@@ -44,9 +50,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/documentosanexoshv/` + id, params, {
@@ -56,6 +64,8 @@ export class ProveedoresService {
     getDocAnexosI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/documentosanexoshv/${id}`, id);
@@ -78,9 +88,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/documentosproveedor/`, params, {
@@ -92,9 +104,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/documentosproveedor/` + id, params, {
@@ -104,6 +118,8 @@ export class ProveedoresService {
     getDocProveedorI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/documentosproveedor/${id}`, id);
@@ -126,9 +142,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/fabricantesyproveedores/`, params, {
@@ -140,9 +158,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/fabricantesyproveedores/` + id, params, {
@@ -153,6 +173,8 @@ export class ProveedoresService {
     getFabricantesI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/fabricantesyproveedores/${id}`, id);
@@ -175,9 +197,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
 
         return this.http.post(`${this.url}/observaciones/`, params, {
@@ -189,9 +213,11 @@ export class ProveedoresService {
         let params = 'json=' + json;
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
+            //'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
         });
         console.log(params);
         return this.http.put(`${this.url}/observaciones/` + id, params, {
@@ -201,6 +227,8 @@ export class ProveedoresService {
     getObservacionesI(id): Observable<any> {
         let headers1 = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': this.userService.getToken(),
+            'Accept': 'application/json',
 
         });
         return this.http.get(`${this.url}/observaciones/${id}`, id);

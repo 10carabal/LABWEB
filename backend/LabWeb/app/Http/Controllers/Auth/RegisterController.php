@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -51,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'codigo' => ['required', 'string', 'email', 'max:255', 'unique:Tb_Usuario'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -66,8 +67,25 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'codigo' => $data['codigo'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function storeUser(Request $request)
+  {
+      $request->validate([
+          'codigo' => 'required|string|email|max:255|unique:Tb_Usuario',
+          'password' => 'required|string|min:8|confirmed',
+          'password_confirmation' => 'required',
+      ]);
+
+      $resp = User::create([
+          'CODIGO' => $request->codigo,
+          'CLAVE' => Hash::make($request->password),
+      ]);
+      //return $resp;
+      return redirect('login');
+  }
+
 }
